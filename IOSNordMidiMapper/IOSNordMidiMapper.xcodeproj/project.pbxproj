@@ -3,16 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1F75168726223C580015A8EF /* IOSNordMidiMapperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */; };
-		1F75168926223C580015A8EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75168826223C580015A8EF /* ContentView.swift */; };
+		1F75168926223C580015A8EF /* DivicesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75168826223C580015A8EF /* DivicesList.swift */; };
 		1F75168B26223C5A0015A8EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F75168A26223C5A0015A8EF /* Assets.xcassets */; };
 		1F75168E26223C5A0015A8EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F75168D26223C5A0015A8EF /* Preview Assets.xcassets */; };
 		1F75169926223C5B0015A8EF /* IOSNordMidiMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75169826223C5B0015A8EF /* IOSNordMidiMapperTests.swift */; };
 		1F7516A426223C5B0015A8EF /* IOSNordMidiMapperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7516A326223C5B0015A8EF /* IOSNordMidiMapperUITests.swift */; };
+		1FE405EE2840D36900B1C1D8 /* DeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE405ED2840D36900B1C1D8 /* DeviceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +36,7 @@
 /* Begin PBXFileReference section */
 		1F75168326223C580015A8EF /* IOSNordMidiMapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSNordMidiMapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSNordMidiMapperApp.swift; sourceTree = "<group>"; };
-		1F75168826223C580015A8EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1F75168826223C580015A8EF /* DivicesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivicesList.swift; sourceTree = "<group>"; };
 		1F75168A26223C5A0015A8EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F75168D26223C5A0015A8EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1F75168F26223C5A0015A8EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +46,7 @@
 		1F75169F26223C5B0015A8EF /* IOSNordMidiMapperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSNordMidiMapperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F7516A326223C5B0015A8EF /* IOSNordMidiMapperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSNordMidiMapperUITests.swift; sourceTree = "<group>"; };
 		1F7516A526223C5B0015A8EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FE405ED2840D36900B1C1D8 /* DeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,10 +98,11 @@
 			isa = PBXGroup;
 			children = (
 				1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */,
-				1F75168826223C580015A8EF /* ContentView.swift */,
+				1F75168826223C580015A8EF /* DivicesList.swift */,
 				1F75168A26223C5A0015A8EF /* Assets.xcassets */,
 				1F75168F26223C5A0015A8EF /* Info.plist */,
 				1F75168C26223C5A0015A8EF /* Preview Content */,
+				1FE405ED2840D36900B1C1D8 /* DeviceView.swift */,
 			);
 			path = IOSNordMidiMapper;
 			sourceTree = "<group>";
@@ -209,7 +212,7 @@
 				};
 			};
 			buildConfigurationList = 1F75167E26223C580015A8EF /* Build configuration list for PBXProject "IOSNordMidiMapper" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -259,8 +262,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F75168926223C580015A8EF /* ContentView.swift in Sources */,
+				1F75168926223C580015A8EF /* DivicesList.swift in Sources */,
 				1F75168726223C580015A8EF /* IOSNordMidiMapperApp.swift in Sources */,
+				1FE405EE2840D36900B1C1D8 /* DeviceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +351,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -402,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
