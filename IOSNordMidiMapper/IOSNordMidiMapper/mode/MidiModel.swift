@@ -8,7 +8,7 @@
 import Foundation
 
 
-class  MidiModel{
+public class MidiModel{
     
 //    FIXME
 //    private final Set<InvalidationListener> listeners = new HashSet<>();
@@ -17,27 +17,27 @@ class  MidiModel{
     var subBank: Int = 1;
     var program: Int = 1;
     
-    func getBank() -> Int {
+    public func getBank() -> Int {
         return bank;
     }
     
-    func setBank(bank: Int) -> Void{
+    public func setBank(bank: Int) -> Void{
         setBank( bank2: bank, updateOnChange: true);
     }
     
-    func getSubBank() -> Int {
+    public func getSubBank() -> Int {
         return subBank;
     }
     
-    func setSubBank(subBank: Int) -> Void{
+    public func setSubBank(subBank: Int) -> Void{
         setSubBank(subBank2: subBank, updateOnChange: true);
     }
     
-    func getProgram() -> Int {
+    public func getProgram() -> Int {
         return program;
     }
     
-    func setProgram(program: Int) -> Void{
+    public func setProgram(program: Int) -> Void{
         setProgram(program: program, updateOnChange: true);
     }
     
@@ -88,11 +88,11 @@ class  MidiModel{
         return given;
     }
     
-    func updateMidiToWhatEver() -> Void {
+    public func updateMidiToWhatEver() -> Void {
         //muss überschrieben werden
     };
     
-    func update() -> Void {
+    public func update() -> Void {
             updateMidiToWhatEver();
         //FIXME
         //listeners.forEach(l -> l.invalidated(this));
@@ -114,7 +114,7 @@ class  MidiModel{
     
     
     
-    func  replacePlaceHolderString( text: String)-> String  {
+    public func replacePlaceHolderString( text: String)-> String  {
         var s = text;
         s = s.replacingOccurrences(of: ".", with: ":");
         s = s.replacingOccurrences(of: ",", with: ":");
