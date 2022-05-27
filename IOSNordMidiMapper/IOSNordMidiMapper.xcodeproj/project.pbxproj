@@ -14,6 +14,7 @@
 		1F75169926223C5B0015A8EF /* IOSNordMidiMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75169826223C5B0015A8EF /* IOSNordMidiMapperTests.swift */; };
 		1F7516A426223C5B0015A8EF /* IOSNordMidiMapperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7516A326223C5B0015A8EF /* IOSNordMidiMapperUITests.swift */; };
 		1FE405EE2840D36900B1C1D8 /* DeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE405ED2840D36900B1C1D8 /* DeviceView.swift */; };
+		1FE405F12840E4D700B1C1D8 /* MidiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE405F02840E4D700B1C1D8 /* MidiModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		1F7516A326223C5B0015A8EF /* IOSNordMidiMapperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSNordMidiMapperUITests.swift; sourceTree = "<group>"; };
 		1F7516A526223C5B0015A8EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FE405ED2840D36900B1C1D8 /* DeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceView.swift; sourceTree = "<group>"; };
+		1FE405F02840E4D700B1C1D8 /* MidiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		1F75168526223C580015A8EF /* IOSNordMidiMapper */ = {
 			isa = PBXGroup;
 			children = (
+				1FE405EF2840E4B000B1C1D8 /* mode */,
 				1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */,
 				1F75168826223C580015A8EF /* DivicesList.swift */,
 				1F75168A26223C5A0015A8EF /* Assets.xcassets */,
@@ -131,6 +134,14 @@
 				1F7516A526223C5B0015A8EF /* Info.plist */,
 			);
 			path = IOSNordMidiMapperUITests;
+			sourceTree = "<group>";
+		};
+		1FE405EF2840E4B000B1C1D8 /* mode */ = {
+			isa = PBXGroup;
+			children = (
+				1FE405F02840E4D700B1C1D8 /* MidiModel.swift */,
+			);
+			path = mode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +275,7 @@
 			files = (
 				1F75168926223C580015A8EF /* DivicesList.swift in Sources */,
 				1F75168726223C580015A8EF /* IOSNordMidiMapperApp.swift in Sources */,
+				1FE405F12840E4D700B1C1D8 /* MidiModel.swift in Sources */,
 				1FE405EE2840D36900B1C1D8 /* DeviceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
