@@ -9,10 +9,10 @@ import SwiftUI
 
 struct DeviceView: View {
     
-    var deviceName: String;
+    var device: GenericDeviceModel;
     
-    init(name: String){
-        self.deviceName = name;
+    init(device: GenericDeviceModel){
+        self.device = device;
     }
     
     var body: some View {
@@ -20,7 +20,7 @@ struct DeviceView: View {
               
 
                VStack(alignment: .leading) {
-                   Text(self.deviceName)
+                   Text(self.device.getName())
                        .font(.title)
 
                    Text("Program Calculator").foregroundColor(Color.gray)
@@ -75,6 +75,6 @@ struct DeviceView: View {
 
 struct DeviceView_Previews: PreviewProvider {
     static var previews: some View {
-        DeviceView(name: "A Device Name")
+        DeviceView(device :NordStage3Node())
     }
 }

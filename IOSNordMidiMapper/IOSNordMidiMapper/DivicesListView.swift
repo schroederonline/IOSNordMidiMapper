@@ -34,16 +34,19 @@ struct ContentView: View {
 }
 
 struct DeviceSelection: View {
-    let devices = ["Nord Stage 3", "Nord Stage 2", "Nord Lead 4"]
+    
+    let deviceNodeModelItems = DeviceNodeModelItems.init();
     
 
     var body: some View {
         
         NavigationView {
             List {
-                ForEach(0 ..< devices.count) {
-                    let deviceName: String = self.devices[$0]
-                    NavigationLink(destination: DeviceView(name: deviceName)) {
+                let deviceModels = deviceNodeModelItems.getAvailableDeviceModels();
+                ForEach(0 ..< deviceModels.count) {
+                    let device = deviceModels[$0];
+                    let deviceName = device.getName();
+                    NavigationLink(destination: DeviceView(device: device)) {
                         Text(deviceName).padding()
                     }
                     .navigationBarTitle("Devices")
