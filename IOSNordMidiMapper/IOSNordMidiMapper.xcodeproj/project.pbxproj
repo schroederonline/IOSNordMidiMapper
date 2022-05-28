@@ -23,6 +23,11 @@
 		1FE405FE284150C400B1C1D8 /* ModeLive1ToXBank7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE405FD284150C400B1C1D8 /* ModeLive1ToXBank7.swift */; };
 		1FE406002841515F00B1C1D8 /* NordNumberUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE405FF2841515F00B1C1D8 /* NordNumberUtil.swift */; };
 		1FE406022841565B00B1C1D8 /* NumberKeyLimitation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE406012841565B00B1C1D8 /* NumberKeyLimitation.swift */; };
+		1FE40605284202E300B1C1D8 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE40604284202E300B1C1D8 /* TextField.swift */; };
+		1FE406072842031E00B1C1D8 /* TextFieldNord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE406062842031E00B1C1D8 /* TextFieldNord.swift */; };
+		1FE4060A2842058F00B1C1D8 /* GenericDeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE406092842058F00B1C1D8 /* GenericDeviceModel.swift */; };
+		1FE4060C2842086400B1C1D8 /* NordStage3Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4060B2842086400B1C1D8 /* NordStage3Node.swift */; };
+		1FE4060E28420A5500B1C1D8 /* DeviceNodeModelItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4060D28420A5500B1C1D8 /* DeviceNodeModelItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +70,11 @@
 		1FE405FD284150C400B1C1D8 /* ModeLive1ToXBank7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeLive1ToXBank7.swift; sourceTree = "<group>"; };
 		1FE405FF2841515F00B1C1D8 /* NordNumberUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordNumberUtil.swift; sourceTree = "<group>"; };
 		1FE406012841565B00B1C1D8 /* NumberKeyLimitation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberKeyLimitation.swift; sourceTree = "<group>"; };
+		1FE40604284202E300B1C1D8 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		1FE406062842031E00B1C1D8 /* TextFieldNord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldNord.swift; sourceTree = "<group>"; };
+		1FE406092842058F00B1C1D8 /* GenericDeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDeviceModel.swift; sourceTree = "<group>"; };
+		1FE4060B2842086400B1C1D8 /* NordStage3Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordStage3Node.swift; sourceTree = "<group>"; };
+		1FE4060D28420A5500B1C1D8 /* DeviceNodeModelItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceNodeModelItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +125,8 @@
 		1F75168526223C580015A8EF /* IOSNordMidiMapper */ = {
 			isa = PBXGroup;
 			children = (
+				1FE406082842050F00B1C1D8 /* devices */,
+				1FE40603284202B600B1C1D8 /* node */,
 				1FE405EF2840E4B000B1C1D8 /* mode */,
 				1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */,
 				1F75168826223C580015A8EF /* DivicesList.swift */,
@@ -122,6 +134,7 @@
 				1F75168F26223C5A0015A8EF /* Info.plist */,
 				1F75168C26223C5A0015A8EF /* Preview Content */,
 				1FE405ED2840D36900B1C1D8 /* DeviceView.swift */,
+				1FE4060D28420A5500B1C1D8 /* DeviceNodeModelItems.swift */,
 			);
 			path = IOSNordMidiMapper;
 			sourceTree = "<group>";
@@ -174,6 +187,24 @@
 				1FE405FD284150C400B1C1D8 /* ModeLive1ToXBank7.swift */,
 			);
 			path = live;
+			sourceTree = "<group>";
+		};
+		1FE40603284202B600B1C1D8 /* node */ = {
+			isa = PBXGroup;
+			children = (
+				1FE40604284202E300B1C1D8 /* TextField.swift */,
+				1FE406062842031E00B1C1D8 /* TextFieldNord.swift */,
+				1FE406092842058F00B1C1D8 /* GenericDeviceModel.swift */,
+			);
+			path = node;
+			sourceTree = "<group>";
+		};
+		1FE406082842050F00B1C1D8 /* devices */ = {
+			isa = PBXGroup;
+			children = (
+				1FE4060B2842086400B1C1D8 /* NordStage3Node.swift */,
+			);
+			path = devices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,16 +338,21 @@
 			files = (
 				1FE405FC2841405A00B1C1D8 /* GenericMode.swift in Sources */,
 				1FE405F8284112EF00B1C1D8 /* ModeCollection.swift in Sources */,
+				1FE406072842031E00B1C1D8 /* TextFieldNord.swift in Sources */,
 				1FE405FA2841148F00B1C1D8 /* MapperModelNord.swift in Sources */,
 				1F75168926223C580015A8EF /* DivicesList.swift in Sources */,
 				1FE405F32840F76200B1C1D8 /* Mode.swift in Sources */,
+				1FE40605284202E300B1C1D8 /* TextField.swift in Sources */,
 				1F75168726223C580015A8EF /* IOSNordMidiMapperApp.swift in Sources */,
 				1FE406002841515F00B1C1D8 /* NordNumberUtil.swift in Sources */,
 				1FE405FE284150C400B1C1D8 /* ModeLive1ToXBank7.swift in Sources */,
 				1FE406022841565B00B1C1D8 /* NumberKeyLimitation.swift in Sources */,
 				1FE405F62841120E00B1C1D8 /* ModeLive1To5Bank7.swift in Sources */,
 				1FE405F12840E4D700B1C1D8 /* MidiModel.swift in Sources */,
+				1FE4060A2842058F00B1C1D8 /* GenericDeviceModel.swift in Sources */,
+				1FE4060E28420A5500B1C1D8 /* DeviceNodeModelItems.swift in Sources */,
 				1FE405EE2840D36900B1C1D8 /* DeviceView.swift in Sources */,
+				1FE4060C2842086400B1C1D8 /* NordStage3Node.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
