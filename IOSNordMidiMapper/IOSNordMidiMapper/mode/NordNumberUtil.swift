@@ -8,7 +8,61 @@
 import Foundation
 
 
+extension String {
+
+//    var length: Int {
+//        return count
+//    }
+
+    func length() -> Int {
+        return count;
+    }
+    
+    subscript (i: Int) -> String {
+        return self[i ..< i + 1]
+    }
+
+    func substring(fromIndex: Int, toIndex: Int) -> String {
+        return substring(toIndex: toIndex).substring(fromIndex: fromIndex);
+    }        
+    
+    func toUpperCase()->String{
+        return uppercased();
+    }
+    
+    func substring(fromIndex: Int) -> String {
+        return self[min(fromIndex, length()) ..< length()]
+    }
+
+    func substring(toIndex: Int) -> String {
+        return self[0 ..< max(0, toIndex)]
+    }
+
+    subscript (r: Range<Int>) -> String {
+        let range = Range(uncheckedBounds: (lower: max(0, min(length(), r.lowerBound)),
+                                            upper: min(length(), max(0, r.upperBound))))
+        let start = index(startIndex, offsetBy: range.lowerBound)
+        let end = index(start, offsetBy: range.upperBound - range.lowerBound)
+        return String(self[start ..< end])
+    }
+    
+    func indexOf(needle: String) -> Int{
+        if let range: Range<String.Index> = range(of: needle) {
+            let index: Int = distance(from: startIndex, to: range.lowerBound)
+            return index;
+        }
+        return -1;
+    }
+    
+    func contains(needle: String)-> Bool{
+        return indexOf(needle: needle) != -1;
+    }
+    
+}
+
 public class NordNumberUtil {
+    
+    
 
     public static let NORD_CHARS = Array<String>(arrayLiteral: "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
             "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
@@ -91,5 +145,25 @@ public class NordNumberUtil {
 
     public static func isNordNumber0To9( x: String)-> Bool {
         return isElementOf(x: x, amount: NORD_NUMBERS_0_TO_9);
+    }
+    
+    public static func indexOf(needle: String,  amount: Array<String>)-> Int{
+        var counter = 0;
+        for a in amount {
+            if a == needle{
+                return counter;
+            }
+            counter += 1;
+        }
+        return -1;
+    }
+    
+    public static func charIndexOf( needle: String, text: String)->Int{
+        let str = text
+        if let range: Range<String.Index> = str.range(of: needle) {
+            let index: Int = str.distance(from: str.startIndex, to: range.lowerBound)
+            return index;
+        }
+        return -1;
     }
 }

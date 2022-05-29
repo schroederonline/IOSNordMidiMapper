@@ -21,7 +21,7 @@ public  class GenericDeviceModel
     private let  mapperModel: MapperModelNord;
 //    FIXME
     //    private final ObservableList<Mode> mode;
-    private let  nordTextField: TextFieldNord;
+//    private var nordTextField: TextFieldImpl;
 //    FIXME
     //    private final ChoiceBox<Mode> modeChoiceBox;
     private let midiCcName: String;
@@ -33,13 +33,14 @@ public  class GenericDeviceModel
 //        fixme
 //        mode = FXCollections.observableArrayList(mapperModel.getModeList());
 //        modeChoiceBox = new ChoiceBox<>(mode);
-        nordTextField = TextFieldNord(mapperModel: mapperModel);
+//        nordTextField = TextFieldImpl(mapperModel: mapperModel);
     }
 
 //    @Override
     public func getMidiCCFileName() -> String{
         return midiCcName;
     }
+    
 
 //    FIXME
 //    @Override
@@ -78,10 +79,10 @@ public  class GenericDeviceModel
 
     public func onMidiModelChanged()->Void {
         let currentText = getMapperModel().getCurrentText();
-        let text = getNordTextfield().getText();
-        if (text != currentText) {
-            getNordTextfield().setText(text: currentText);
-        }
+//        let text = getNordTextfield().getText();
+//        if (text != currentText) {
+//            getNordTextfield().setText(text: currentText);
+//        }
     }
 
 //    FIXME
@@ -89,19 +90,19 @@ public  class GenericDeviceModel
 //        return modeChoiceBox;
 //    }
 
-    public func getNordTextfield() -> TextFieldNord{
-        return nordTextField;
-    }
+//    func getNordTextfield() -> TextFieldImpl{
+//        return nordTextField;
+//    }
 
 //    @Override
     public func focusTextfield() -> Void{
-        getNordTextfield().requestFocus();
+//        getNordTextfield().requestFocus();
     }
 
 //    @Override
-    public func clearTextfield() -> Void {
-        getNordTextfield().clear();
-    }
+//    public func clearTextfield() -> Void {
+//        getNordTextfield().clear();
+//    }
 
 //    @Override
     public func getName() -> String{

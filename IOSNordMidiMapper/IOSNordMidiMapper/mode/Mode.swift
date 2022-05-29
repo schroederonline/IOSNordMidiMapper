@@ -54,6 +54,10 @@ public class Mode{
         self.bank = bank;
     }
     
+    public func getName()->String{
+        return name;
+    }
+    
     public func toBank()->Int{
         return self.bank;
     }
@@ -92,6 +96,10 @@ public class Mode{
         return programConsumer;
     }
 
+    public func onTextChanged(oldValue: String, newValue: String) -> String?{
+//     override me
+        return nil;
+    }
 
     
 }

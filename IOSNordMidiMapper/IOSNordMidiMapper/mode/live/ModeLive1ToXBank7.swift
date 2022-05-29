@@ -45,29 +45,34 @@ public class ModeLive1ToXBank7: GenericMode{
 //     */
 //    @Override
 //    public ChangeListener<? super String> createNordProgramListener(TextField textfield) {
+    public override func onTextChanged(oldValue: String, newValue: String) -> String?{
 //        return (ov, oldValue, newValue) -> {
-//            if (Objects.equal(oldValue, newValue)) {
-//                return;
-//            }
+            if (oldValue ==  newValue) {
+                return nil;
+            }
+//        FIXME
 //            if (!getSelectedModeSupplier().get().equals(this)) {
 //                return;
 //            }
-//            final String given = newValue.toUpperCase();
-//            String result = given;
-//            if (result.length() > 1) {
-//                result = result.substring(0, 1);
-//            }
-//            if (result.length() == 1) {
-//                if (keyImpl.isNordNumber1ToX(result.charAt(0))) {
-//                    result = result.substring(0, 1);
-//                } else {
+        let given: String  = newValue.toUpperCase();
+        var result: String = given;
+            if (result.length() > 1) {
+                result = result.substring(fromIndex: 0, toIndex: 1);
+            }
+            if (result.length() == 1) {
+                if (keyImpl.isNordNumber1ToX(x: result[0])) {
+                    result = result.substring(fromIndex: 0, toIndex: 1);
+                } else {
 //                    Platform.runLater(() -> textfield.clear());
-//                    return;
-//                }
-//            }
+//                    return ;
+                    return "";
+                }
+            }
+//            FIXME
 //            getProgramConsumer().accept(result);
 //            textfield.setText(result);
-//        };
-//    }
+        return result;
+//    };
+    }
 
 }

@@ -79,7 +79,17 @@ public class GenericMode: Mode{
 
 //    FIXME
 //    public abstract ChangeListener<? super String> createNordProgramListener(TextField textfield);
+    public override func onTextChanged(oldValue: String, newValue: String) -> String?{
+//     override me
+        return nil;
+    }
 
+    
+//    abstract
+//    public func onTextChanged(text: String) -> String{
+//
+//    }
+    
     public func getMidiModel()-> MidiModel {
         return midiModel;
     }
