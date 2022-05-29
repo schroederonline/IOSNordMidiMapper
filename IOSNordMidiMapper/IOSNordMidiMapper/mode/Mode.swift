@@ -101,5 +101,7 @@ public class Mode{
         return nil;
     }
 
-    
+    public func setNordProgram(s: String)->Void{
+//       override me
+    }
 }

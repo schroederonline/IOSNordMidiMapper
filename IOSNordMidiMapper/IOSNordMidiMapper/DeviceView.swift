@@ -188,9 +188,13 @@ public class TextFieldViewModel: ObservableObject{
         $text.sink { (newValue) in
             print(newValue)
             let result = mapperModel.getSelectedMode().onTextChanged(oldValue: mapperModel.getSelectedMode().getCurrentText(), newValue: newValue);
-            print("result")
+            
             if(result != nil){
 //                fixme setNordProgram
+//                TODO auch prüfen ob es der richtige Mode ist
+                print("setNordProgram " + result!)
+                mapperModel.getSelectedMode().setNordProgram(s: result!);
+                
             }
         
             

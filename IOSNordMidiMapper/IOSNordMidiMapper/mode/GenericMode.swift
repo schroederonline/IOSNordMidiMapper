@@ -73,7 +73,7 @@ public class GenericMode: Mode{
     }
 
 //    abstract
-    public func setNordProgram(s: String)->Void{
+    public override func setNordProgram(s: String)->Void{
 //       override me
     }
 

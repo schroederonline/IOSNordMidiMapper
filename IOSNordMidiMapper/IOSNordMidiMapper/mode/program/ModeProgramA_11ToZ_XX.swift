@@ -37,8 +37,8 @@ public class ModeProgramA_11ToZ_XX: GenericMode {
     /**
      * @param text Format A:12
      */
-    public func setNordProgram(text2: String) -> Void{
-        var text: String = text2;
+    public override func setNordProgram(s: String)->Void{
+        var text: String = s;
         if (text.count != 4) {
             text = toDefault();
         }
