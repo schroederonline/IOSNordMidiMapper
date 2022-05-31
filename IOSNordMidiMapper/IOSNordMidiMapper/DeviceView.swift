@@ -10,12 +10,12 @@ import SwiftUI
 struct DeviceView: View {
     
     @State private var device: GenericDeviceModel;
-    @State private var mapperModelNord: MapperModelNord;
+//    @State private var mapperModelNord: MapperModelNord;
     @State private var selectedModeIndex = 0
     
     init(device: GenericDeviceModel){
-        self.device = device;
-        self.mapperModelNord = device.getMapperModel();
+        _device = State(initialValue: device);
+//        _mapperModelNord = State(initialValue: device.getMapperModel());
     }
     
     var body: some View {
@@ -28,7 +28,7 @@ struct DeviceView: View {
                    Text("")
                    HStack(){
                        let modes =  self.device.getMapperModel().getModeList();
-                       NordTextFieldImpl( mapperModel: self.mapperModelNord);
+                       NordTextFieldImpl( mapperModel: self.device.getMapperModel());
                        Picker(selection: /*@START_MENU_TOKEN@*/.constant(1)/*@END_MENU_TOKEN@*/, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
                            ForEach(0 ..< modes.count) {
                                let mode = modes[$0];
@@ -52,7 +52,7 @@ struct DeviceView: View {
                    Text("")
                    
                    HStack(){
-                       MidiTextFieldBank(midiModel: self.device.getMapperModel())
+                       SimpleBankView(midiModel: self.device.getMapperModel())
                        Text("Bank").font(.title2)
                    }
                    Text("")
@@ -114,27 +114,36 @@ public class TextFieldViewModel: ObservableObject{
     }
 }
 
-struct MidiTextFieldBank: View{
-    @StateObject var bankModel: BankTextFieldViewModel;
-    var hintText = "";
-    public init(midiModel: MidiModel){
-       self._bankModel = StateObject(wrappedValue: BankTextFieldViewModel( midiModel: midiModel));
-        self.hintText = String( midiModel.getBank());
-   }
+
+struct SimpleBankView: View {
+    @State var value: String
+    @State var midi: MidiModel
+    
     var body: some View {
-        TextField(hintText, text: $bankModel.text).font(.title2).keyboardType(.numberPad)
+       TextField("1", text:$value)
+           .onReceive(Just(value)) { newValue in
+               let oldValue = String(midi.getBank());
+               if(newValue != oldValue){
+                   value = newValue;
+                   if((Int(newValue)) != nil){
+                       print("set midi bank "+newValue)
+                       let result = midi.setBank(bank2: Int(newValue)!, updateOnChange: true)
+//                       midi.setBank(bank: Int(newValue)!)
+//                       midi.update()
+                   }
+               }
+           }
+    }
+
+    init(midiModel: MidiModel) {
+        _midi = State(initialValue: midiModel)
+       let bank = String(midiModel.getBank());
+       _value = State(initialValue: bank)
+
     }
 }
 
-public class BankTextFieldViewModel: ObservableObject{
-    @Published var text = "";
-    private var cancels = Set<AnyCancellable>();
-    init(midiModel: MidiModel ){
-        $text.sink { (newValue) in
-            print("New Bank Value" + newValue)
-        }.store(in: &cancels)
-    }
-}
+
 
 
 struct MidiTextFieldSubBank: View{

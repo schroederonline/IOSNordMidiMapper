@@ -58,6 +58,7 @@ public class GenericMode: Mode{
 
     public init( mapperModel: MapperModelNord,  name: String,  defaultProgram: String,  bank: Int) {
         self.midiModel = mapperModel;
+        self.midiModel.setBank(bank2: bank, updateOnChange: false)
         self.selectedModeSupplier = ModeSupplierImpl(mapperModelNord: mapperModel);
 //        FIXME
 //        setTextFieldListener(this::createNordProgramListener);
