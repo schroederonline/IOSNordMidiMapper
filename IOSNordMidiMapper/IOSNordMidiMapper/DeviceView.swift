@@ -65,7 +65,7 @@ struct DeviceView: View {
                    Text("")
                    Text("")
                    HStack(){
-                       MidiTextFieldProgram(midiModel: self.device.getMapperModel())
+                       SimpleProgramView(device: self.device)
                        Text("Program").font(.title2)
                    }
                    
@@ -139,10 +139,37 @@ struct SimpleBankView: View {
         _midi = State(initialValue: midiModel)
        let bank = String(midiModel.getBank());
        _value = State(initialValue: bank)
-
     }
 }
 
+
+
+struct SimpleProgramView: View {
+    @State var value: String
+    @State var device: GenericDeviceModel;
+    
+    var body: some View {
+       TextField("1", text:$value)
+            .onChange(of: value) { newValue in
+               let oldValue = String(device.getMapperModel().getProgram());
+               if(newValue != oldValue){
+                   if(NordNumberUtil.isNumber1To128(x: newValue)){
+                       device.getMapperModel().setProgram(program: Int(newValue)!, updateOnChange: true)
+                       value = newValue;
+                   }else{
+                       device.getMapperModel().setProgram(program: 1, updateOnChange: false)
+                       value = "";
+                   }
+               }
+           }
+    }
+
+    init(device: GenericDeviceModel) {
+        _device = State(initialValue: device)
+        let program = String(device.getMapperModel().getProgram());
+       _value = State(initialValue: program)
+    }
+}
 
 
 
@@ -168,26 +195,5 @@ public class SubBankTextFieldViewModel: ObservableObject{
     }
 }
 
-struct MidiTextFieldProgram: View{
-    @StateObject var programModel: ProgramTextFieldViewModel;
-    var hintText = "";
-    public init(midiModel: MidiModel){
-       self._programModel = StateObject(wrappedValue: ProgramTextFieldViewModel( midiModel: midiModel));
-        self.hintText = String( midiModel.getProgram());
-   }
-    var body: some View {
-        TextField(hintText, text: $programModel.text).font(.title2).keyboardType(.numberPad)
-    }
-}
-
-public class ProgramTextFieldViewModel: ObservableObject{
-    @Published var text = "";
-    private var cancels = Set<AnyCancellable>();
-    init(midiModel: MidiModel ){
-        $text.sink { (newValue) in
-            print("New Program Value" + newValue)
-        }.store(in: &cancels)
-    }
-}
 
 

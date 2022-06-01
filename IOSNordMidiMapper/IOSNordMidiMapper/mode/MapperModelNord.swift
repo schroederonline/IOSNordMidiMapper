@@ -54,11 +54,22 @@ public class MapperModelNord: MidiModel{
     }
 
     
+   /* protected void updateMidiToWhatEver() {
+            if (getModeList().stream().map(x -> x.toBank()).distinct().count() > 1) {
+                getModeList().stream().filter(m -> m.toBank() == getBank()).findFirst().ifPresent(nextMode -> {
+                    if (!nextMode.equals(getSelectedMode())) {
+                        setSelectedMode(nextMode);
+                    }
+                });
+            }
+            getSelectedMode().getUpdateMidiToWhatEver().run();
+        }*/
+    
     public override func updateMidiToWhatEver() -> Void{
-        let modes = getModeList();
-        let banks = modes.map{
+        let modes: Array<Mode> = getModeList();
+        let banks: [Int] = modes.map{
             (s) -> Int in
-            s.toBank();
+            return s.toBank();
         };
         let count = Set<Int>(banks).count;
         if(count > 1){
