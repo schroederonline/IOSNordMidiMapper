@@ -46,7 +46,7 @@ struct DeviceSelection: View {
                 ForEach(0 ..< deviceModels.count) {
                     let device = deviceModels[$0];
                     let deviceName = device.getName();
-                    NavigationLink(destination: DeviceView(device: device)) {
+                    NavigationLink(destination: DeviceView( vModel: VModel( device: device))) {
                         Text(deviceName).padding()
                     }
                     .navigationBarTitle("Devices")

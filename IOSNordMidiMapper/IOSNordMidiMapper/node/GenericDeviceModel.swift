@@ -6,17 +6,21 @@
 //
 
 import Foundation
+import Combine
+
 //abstract
-public  class GenericDeviceModel
+public  class GenericDeviceModel: ObservableObject
 //FIXME
 //implements DeviceNodeModel
 {
+    
+    
 
 //    public final static double BORDER = 16.0d;
 //    public final static double TEXT_FIELED_WIDTH = 60.0d;
 //    public final static double CHOICEBOX_WIDTH = 150.0d;
 
-    private let  name: String;
+    private let name: String;
 //    private ControllerTableModel controllerTableModel;
     private let  mapperModel: MapperModelNord;
 //    FIXME
@@ -26,6 +30,8 @@ public  class GenericDeviceModel
     //    private final ChoiceBox<Mode> modeChoiceBox;
     private let midiCcName: String;
 
+    
+    
     public init( name: String,  mapperModel: MapperModelNord,  midiCcName: String) {
         self.name = name;
         self.mapperModel = mapperModel;

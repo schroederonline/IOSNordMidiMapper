@@ -70,10 +70,10 @@ public class ModeProgramA_11ToZ_XX: GenericMode {
      */
 //    FIXME
 //    public ChangeListener<? super String> createNordProgramListener( textfield: TextFieldImpl) {
-    public override func onTextChanged(oldValue: String, newValue: String) -> String?{
+    public override func onNordProgramTextChanged(oldValue: String, newValue: String) -> String{
         
             if (oldValue == newValue) {
-                return nil;
+                return "";
             }
         
 //            if (!getSelectedModeSupplier().get().equals(this)) {

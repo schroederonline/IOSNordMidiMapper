@@ -6,12 +6,16 @@
 //
 
 import Foundation
+import Combine
+import SwiftUI
 
+public class MapperModelNord: MidiModel {
+    
 
-public class MapperModelNord: MidiModel{
+    @Published var modeCollection: ModeCollection;
 
-    private var modeCollection: ModeCollection;
-
+    @Published var currentText = "";
+    
     public override init(){
         self.modeCollection = ModeCollection();
     }
@@ -82,6 +86,7 @@ public class MapperModelNord: MidiModel{
             }
         }
         getSelectedMode().getUpdateMidiToWhatEver().run();
+        currentText = getCurrentText();
     }
 
 }

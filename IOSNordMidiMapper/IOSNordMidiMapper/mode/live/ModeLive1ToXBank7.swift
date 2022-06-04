@@ -26,6 +26,8 @@ public class ModeLive1ToXBank7: GenericMode{
     }
 
     public override func setNordProgram( s: String) -> Void{
+        
+        
         var text = s;
         if (text.count != 1) {
             text = toDefault();
@@ -39,18 +41,14 @@ public class ModeLive1ToXBank7: GenericMode{
         }
     }
 
-//  FIXME
-//    /**
-//     * Format "1";
-//     */
-//    @Override
-//    public ChangeListener<? super String> createNordProgramListener(TextField textfield) {
-    public override func onTextChanged(oldValue: String, newValue: String) -> String?{
-//        return (ov, oldValue, newValue) -> {
-            if (oldValue ==  newValue) {
-                return nil;
+
+    /**
+     * Format "1";
+     */
+    public override func onNordProgramTextChanged(oldValue: String, newValue: String) -> String{
+            if (oldValue == newValue) {
+                return oldValue;
             }
-//        FIXME
 //            if (!getSelectedModeSupplier().get().equals(this)) {
 //                return;
 //            }
@@ -60,17 +58,13 @@ public class ModeLive1ToXBank7: GenericMode{
                 result = result.substring(fromIndex: 0, toIndex: 1);
             }
             if (result.length() == 1) {
-                if (keyImpl.isNordNumber1ToX(x: result[0])) {
+                if(NordNumberUtil.isNumber(x: result[0], from: 1, to: keyImpl.getMaxNumberKeys())){
                     result = result.substring(fromIndex: 0, toIndex: 1);
                 } else {
-//                    Platform.runLater(() -> textfield.clear());
-//                    return ;
-                    return "";
+                    result = "";
                 }
             }
-//            FIXME
-//            getProgramConsumer().accept(result);
-//            textfield.setText(result);
+        setNordProgram(s: result);
         return result;
 //    };
     }

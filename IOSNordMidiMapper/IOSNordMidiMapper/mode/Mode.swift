@@ -28,15 +28,15 @@ public class RunableImpl: Runnable{
     }
 }
 
-public class Mode{
+public class Mode:  ObservableObject{
     
     let id: String;
     let name: String;
     var defaultProgram: String;
     var programConsumer: StringConsumer;
-    var currentText: String;
+    @Published var currentText: String;
     var updateMidiToWhatEver: Runnable;
-    var bank: Int = 1;
+    @Published var bank: Int = 1;
 //    private Function<TextFieldNord, ChangeListener<? super String>> textFieldListener;
     
 
@@ -96,9 +96,9 @@ public class Mode{
         return programConsumer;
     }
 
-    public func onTextChanged(oldValue: String, newValue: String) -> String?{
+    public func onNordProgramTextChanged(oldValue: String, newValue: String) -> String{
 //     override me
-        return nil;
+        return "";
     }
 
     public func setNordProgram(s: String)->Void{

@@ -7,28 +7,38 @@
 import Combine
 import SwiftUI
 
-struct DeviceView: View {
+
+class VModel: ObservableObject{
     
-    @State private var device: GenericDeviceModel;
-//    @State private var mapperModelNord: MapperModelNord;
-    @State private var selectedModeIndex = 0
+    @Published var nordProgram: String ;
+    @Published var program: String;
+    @Published var device: GenericDeviceModel;
     
     init(device: GenericDeviceModel){
-        _device = State(initialValue: device);
-//        _mapperModelNord = State(initialValue: device.getMapperModel());
+        self.device = device;
+        self.program = String(device.getMapperModel().getProgram());
+        self.nordProgram = device.getMapperModel().getCurrentText()
     }
+    
+}
+
+
+struct DeviceView: View {
+    
+    @StateObject var vModel: VModel;
     
     var body: some View {
            VStack {
                VStack(alignment: .leading) {
-                   Text(self.device.getName())
+                   Text(vModel.device.getName())
                        .font(.title)
                    Text("Program Calculator").foregroundColor(Color.gray)
                    Text("")
                    Text("")
                    HStack(){
-                       let modes =  self.device.getMapperModel().getModeList();
-                       NordTextFieldImpl( mapperModel: self.device.getMapperModel());
+                       let modes =  vModel.device.getMapperModel().getModeList();
+                       TextField("1", text: $vModel.nordProgram)
+                       
                        Picker(selection: /*@START_MENU_TOKEN@*/.constant(1)/*@END_MENU_TOKEN@*/, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
                            ForEach(0 ..< modes.count) {
                                let mode = modes[$0];
@@ -48,152 +58,61 @@ struct DeviceView: View {
                VStack(alignment: .leading) {
                    
                    Text("Midi (1-128)" ).foregroundColor(Color.gray)
-                   Text("")
-                   Text("")
                    
                    HStack(){
-                       SimpleBankView(midiModel: self.device.getMapperModel())
+                       //FIXME
+                       TextField("bank", text: $vModel.nordProgram)
                        Text("Bank").font(.title2)
                    }
-                   Text("")
-                   Text("")
-                   
                    HStack(){
-                       MidiTextFieldSubBank(midiModel: self.device.getMapperModel())
+                       //FIXME
+                       TextField("SubBank", text: $vModel.nordProgram)
                        Text("SubBank").font(.title2)
                    }
-                   Text("")
-                   Text("")
                    HStack(){
-                       SimpleProgramView(device: self.device)
+                       TextField("1", text: $vModel.program);
                        Text("Program").font(.title2)
                    }
                    
                }.padding()
              
                Spacer()
+           }.onChange(of: vModel.nordProgram) { newValue in
+               let mapperMode = vModel.device.getMapperModel();
+               let mode = mapperMode.getSelectedMode();
+               let oldValue  = mode.getCurrentText();
+               print("newValue = " + newValue)
+               print("oldValue = " + oldValue)
+              if(newValue != oldValue){
+                 let result = mode.onNordProgramTextChanged(oldValue: oldValue, newValue: newValue);
+//                  mode.setNordProgram(s: newValue)
+                  let changed =  result != oldValue || result != newValue;
+                 // let changed = mode.setCurrentText(currentText: newValue)
+                  print("changed = " + String(changed))
+                  if(changed){
+                      //mapperMode.updateMidiToWhatEver()
+                      let next = result;
+//                      if(next != oldValue){
+                          let p =  String( mapperMode.getProgram());
+                          print("p = " + p)
+                          if(newValue.length() > 0){
+                              print("nordProgram next " + next)
+                              vModel.nordProgram = next
+                          }
+                          vModel.program = String(mapperMode.getProgram())
+//                      }
+                  }
+              }
+           }.onChange(of: vModel.program) { newValue in
+               print("program changed " + newValue)
            }
+        
        }
 }
 
 struct DeviceView_Previews: PreviewProvider {
     static var previews: some View {
-        DeviceView(device :NordStage3Node())
+        let m = NordStage3Node();
+        DeviceView(vModel: VModel( device: m))
     }
 }
-
-
-
-struct NordTextFieldImpl: View{
-    @StateObject var model: TextFieldViewModel;
-    var hintText = "";
-    public init(mapperModel: MapperModelNord){
-       self._model = StateObject(wrappedValue: TextFieldViewModel( mapperModel: mapperModel));
-       let selectedMode = mapperModel.getSelectedMode();
-        self.hintText = selectedMode.toDefault();
-   }
-
-    var body: some View {
-        TextField(hintText, text: $model.text).font(.title2)
-    }
-}
-
-public class TextFieldViewModel: ObservableObject{
-    @Published var text = "";
-    private var cancels = Set<AnyCancellable>();
-    
-    init(mapperModel: MapperModelNord ){
-        $text.sink { (newValue) in
-            print(newValue)
-            let result = mapperModel.getSelectedMode().onTextChanged(oldValue: mapperModel.getSelectedMode().getCurrentText(), newValue: newValue);
-            if(result != nil){
-                print("setNordProgram " + result!)
-                mapperModel.getSelectedMode().setNordProgram(s: result!);
-            }
-        }.store(in: &cancels)
-    }
-}
-
-
-struct SimpleBankView: View {
-    @State var value: String
-    @State var midi: MidiModel
-    
-    var body: some View {
-       TextField("1", text:$value)
-           .onReceive(Just(value)) { newValue in
-               let oldValue = String(midi.getBank());
-               if(newValue != oldValue){
-                   value = newValue;
-                   if((Int(newValue)) != nil){
-                       print("set midi bank "+newValue)
-                       let result = midi.setBank(bank2: Int(newValue)!, updateOnChange: true)
-//                       midi.setBank(bank: Int(newValue)!)
-//                       midi.update()
-                   }
-               }
-           }
-    }
-
-    init(midiModel: MidiModel) {
-        _midi = State(initialValue: midiModel)
-       let bank = String(midiModel.getBank());
-       _value = State(initialValue: bank)
-    }
-}
-
-
-
-struct SimpleProgramView: View {
-    @State var value: String
-    @State var device: GenericDeviceModel;
-    
-    var body: some View {
-       TextField("1", text:$value)
-            .onChange(of: value) { newValue in
-               let oldValue = String(device.getMapperModel().getProgram());
-               if(newValue != oldValue){
-                   if(NordNumberUtil.isNumber1To128(x: newValue)){
-                       device.getMapperModel().setProgram(program: Int(newValue)!, updateOnChange: true)
-                       value = newValue;
-                   }else{
-                       device.getMapperModel().setProgram(program: 1, updateOnChange: false)
-                       value = "";
-                   }
-               }
-           }
-    }
-
-    init(device: GenericDeviceModel) {
-        _device = State(initialValue: device)
-        let program = String(device.getMapperModel().getProgram());
-       _value = State(initialValue: program)
-    }
-}
-
-
-
-struct MidiTextFieldSubBank: View{
-    @StateObject var subBankModel: SubBankTextFieldViewModel;
-    var hintText = "";
-    public init(midiModel: MidiModel){
-       self._subBankModel = StateObject(wrappedValue: SubBankTextFieldViewModel( midiModel: midiModel));
-        self.hintText = String( midiModel.getSubBank());
-   }
-    var body: some View {
-        TextField(hintText, text: $subBankModel.text).font(.title2).keyboardType(.numberPad)
-    }
-}
-
-public class SubBankTextFieldViewModel: ObservableObject{
-    @Published var text = "";
-    private var cancels = Set<AnyCancellable>();
-    init(midiModel: MidiModel ){
-        $text.sink { (newValue) in
-            print("New SubBank Value" + newValue)
-        }.store(in: &cancels)
-    }
-}
-
-
-

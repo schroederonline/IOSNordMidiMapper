@@ -7,11 +7,12 @@
 
 import Foundation
 
-public class ModeCollection {
+public class ModeCollection :  ObservableObject{
 
-    private var modes: Array<Mode> = [];
-    private var selected: Mode? = nil;
-
+    @Published var modes: Array<Mode> = [];
+    @Published var selected: Mode? = nil;
+    
+    
     public init() {
     }
 
