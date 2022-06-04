@@ -12,12 +12,17 @@ class VModel: ObservableObject{
     
     @Published var nordProgram: String ;
     @Published var program: String;
+    @Published var subBank: String;
+    @Published var bank: String;
     @Published var device: GenericDeviceModel;
     
     init(device: GenericDeviceModel){
         self.device = device;
-        self.program = String(device.getMapperModel().getProgram());
-        self.nordProgram = device.getMapperModel().getCurrentText()
+        let mapperModel = device.getMapperModel();
+        self.program = String(mapperModel.getProgram());
+        self.subBank = String(mapperModel.getSubBank());
+        self.bank = String(mapperModel.getBank());
+        self.nordProgram = mapperModel.getCurrentText()
     }
     
 }
@@ -38,7 +43,6 @@ struct DeviceView: View {
                    HStack(){
                        let modes =  vModel.device.getMapperModel().getModeList();
                        TextField("1", text: $vModel.nordProgram)
-                       
                        Picker(selection: /*@START_MENU_TOKEN@*/.constant(1)/*@END_MENU_TOKEN@*/, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
                            ForEach(0 ..< modes.count) {
                                let mode = modes[$0];
@@ -53,58 +57,47 @@ struct DeviceView: View {
                    Text("")
                    Divider()
                }.padding()
-               
-               
                VStack(alignment: .leading) {
-                   
                    Text("Midi (1-128)" ).foregroundColor(Color.gray)
-                   
                    HStack(){
-                       //FIXME
-                       TextField("bank", text: $vModel.nordProgram)
+                       TextField("bank", text: $vModel.bank)
                        Text("Bank").font(.title2)
                    }
                    HStack(){
-                       //FIXME
-                       TextField("SubBank", text: $vModel.nordProgram)
+                       TextField("SubBank", text: $vModel.subBank)
                        Text("SubBank").font(.title2)
                    }
                    HStack(){
                        TextField("1", text: $vModel.program);
                        Text("Program").font(.title2)
                    }
-                   
                }.padding()
-             
                Spacer()
            }.onChange(of: vModel.nordProgram) { newValue in
-               let mapperMode = vModel.device.getMapperModel();
-               let mode = mapperMode.getSelectedMode();
+               let mapperModel = vModel.device.getMapperModel();
+               let mode = mapperModel.getSelectedMode();
                let oldValue  = mode.getCurrentText();
-               print("newValue = " + newValue)
-               print("oldValue = " + oldValue)
               if(newValue != oldValue){
-                 let result = mode.onNordProgramTextChanged(oldValue: oldValue, newValue: newValue);
-//                  mode.setNordProgram(s: newValue)
+                  let result = mode.onNordProgramTextChanged(oldValue: oldValue, newValue: newValue);
                   let changed =  result != oldValue || result != newValue;
-                 // let changed = mode.setCurrentText(currentText: newValue)
-                  print("changed = " + String(changed))
                   if(changed){
-                      //mapperMode.updateMidiToWhatEver()
-                      let next = result;
-//                      if(next != oldValue){
-                          let p =  String( mapperMode.getProgram());
-                          print("p = " + p)
-                          if(newValue.length() > 0){
-                              print("nordProgram next " + next)
-                              vModel.nordProgram = next
-                          }
-                          vModel.program = String(mapperMode.getProgram())
-//                      }
+                      if(newValue.length() > 0){
+                          vModel.nordProgram = result
+                      }
+                      vModel.program = String(mapperModel.getProgram())
                   }
               }
            }.onChange(of: vModel.program) { newValue in
-               print("program changed " + newValue)
+//               print("program changed " + newValue)
+               let mapperModel = vModel.device.getMapperModel();
+               let mode = mapperModel.getSelectedMode();
+               if (NordNumberUtil.isNumber1To128(x: newValue)) {
+                   mapperModel.setProgram(program: Int(newValue)!);
+                   vModel.program = newValue;
+               } else {
+                   vModel.program = "";
+               }
+               vModel.nordProgram = mode.getCurrentText();
            }
         
        }
