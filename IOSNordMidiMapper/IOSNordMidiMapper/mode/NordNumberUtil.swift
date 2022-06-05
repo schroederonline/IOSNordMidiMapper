@@ -176,4 +176,13 @@ public class NordNumberUtil {
     }
     
     
+    public static func replacePlaceHolderString(x: String) -> String{
+        var s = x;
+        s = s.replace(of: ".", with: ":");
+        s = s.replace(of: ",", with: ":");
+        s = s.replace(of: "-", with: ":");
+        s = s.replace(of: " ", with: ":");
+        return s;
+    }
+    
 }

@@ -86,4 +86,6 @@ public class GenericMode: Mode{
         return selectedModeSupplier;
     }
     
+    
+    
 }
