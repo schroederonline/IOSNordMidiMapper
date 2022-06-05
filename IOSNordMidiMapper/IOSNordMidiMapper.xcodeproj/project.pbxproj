@@ -17,6 +17,7 @@
 		1F75168E26223C5A0015A8EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F75168D26223C5A0015A8EF /* Preview Assets.xcassets */; };
 		1F75169926223C5B0015A8EF /* IOSNordMidiMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75169826223C5B0015A8EF /* IOSNordMidiMapperTests.swift */; };
 		1F7516A426223C5B0015A8EF /* IOSNordMidiMapperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7516A326223C5B0015A8EF /* IOSNordMidiMapperUITests.swift */; };
+		1FB50190284CEECA00FA644D /* ModeLive1To5Upper100Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB5018F284CEECA00FA644D /* ModeLive1To5Upper100Program.swift */; };
 		1FE405EE2840D36900B1C1D8 /* DeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE405ED2840D36900B1C1D8 /* DeviceView.swift */; };
 		1FE405F12840E4D700B1C1D8 /* MidiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE405F02840E4D700B1C1D8 /* MidiModel.swift */; };
 		1FE405F32840F76200B1C1D8 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE405F22840F76200B1C1D8 /* Mode.swift */; };
@@ -34,6 +35,8 @@
 		1FE4060E28420A5500B1C1D8 /* DeviceNodeModelItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4060D28420A5500B1C1D8 /* DeviceNodeModelItems.swift */; };
 		1FE4061028420E2E00B1C1D8 /* NordElectro5Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4060F28420E2E00B1C1D8 /* NordElectro5Node.swift */; };
 		1FE4061328421CF700B1C1D8 /* ModeProgramA_11ToZ_XX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4061228421CF700B1C1D8 /* ModeProgramA_11ToZ_XX.swift */; };
+		1FEB4E64284D0DA4007D2F94 /* ModeProgramA_01_1ToD_20_5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB4E63284D0DA4007D2F94 /* ModeProgramA_01_1ToD_20_5.swift */; };
+		1FEB4E66284D1435007D2F94 /* NordStage2Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB4E65284D1435007D2F94 /* NordStage2Node.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,7 @@
 		1F75169F26223C5B0015A8EF /* IOSNordMidiMapperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSNordMidiMapperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F7516A326223C5B0015A8EF /* IOSNordMidiMapperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSNordMidiMapperUITests.swift; sourceTree = "<group>"; };
 		1F7516A526223C5B0015A8EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FB5018F284CEECA00FA644D /* ModeLive1To5Upper100Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeLive1To5Upper100Program.swift; sourceTree = "<group>"; };
 		1FE405ED2840D36900B1C1D8 /* DeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceView.swift; sourceTree = "<group>"; };
 		1FE405F02840E4D700B1C1D8 /* MidiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiModel.swift; sourceTree = "<group>"; };
 		1FE405F22840F76200B1C1D8 /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 		1FE4060D28420A5500B1C1D8 /* DeviceNodeModelItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceNodeModelItems.swift; sourceTree = "<group>"; };
 		1FE4060F28420E2E00B1C1D8 /* NordElectro5Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordElectro5Node.swift; sourceTree = "<group>"; };
 		1FE4061228421CF700B1C1D8 /* ModeProgramA_11ToZ_XX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeProgramA_11ToZ_XX.swift; sourceTree = "<group>"; };
+		1FEB4E63284D0DA4007D2F94 /* ModeProgramA_01_1ToD_20_5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeProgramA_01_1ToD_20_5.swift; sourceTree = "<group>"; };
+		1FEB4E65284D1435007D2F94 /* NordStage2Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordStage2Node.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +205,7 @@
 				1FE405F52841120E00B1C1D8 /* ModeLive1To5Bank7.swift */,
 				1FE405FD284150C400B1C1D8 /* ModeLive1ToXBank7.swift */,
 				1F0086FB284CB28F00CA2243 /* ModeLive1To4Bank7.swift */,
+				1FB5018F284CEECA00FA644D /* ModeLive1To5Upper100Program.swift */,
 			);
 			path = live;
 			sourceTree = "<group>";
@@ -219,6 +226,7 @@
 				1FE4060B2842086400B1C1D8 /* NordStage3Node.swift */,
 				1FE4060F28420E2E00B1C1D8 /* NordElectro5Node.swift */,
 				1F0086F9284CB21100CA2243 /* NordElectro6Node.swift */,
+				1FEB4E65284D1435007D2F94 /* NordStage2Node.swift */,
 			);
 			path = devices;
 			sourceTree = "<group>";
@@ -229,6 +237,7 @@
 				1FE4061228421CF700B1C1D8 /* ModeProgramA_11ToZ_XX.swift */,
 				1F0086F5284BF2BD00CA2243 /* ModeProgramA_11ToZ_55.swift */,
 				1F0086F7284CB19B00CA2243 /* ModeProgramA_11ToZ_44.swift */,
+				1FEB4E63284D0DA4007D2F94 /* ModeProgramA_01_1ToD_20_5.swift */,
 			);
 			path = program;
 			sourceTree = "<group>";
@@ -364,9 +373,11 @@
 			files = (
 				1FE405FC2841405A00B1C1D8 /* GenericMode.swift in Sources */,
 				1FE405F8284112EF00B1C1D8 /* ModeCollection.swift in Sources */,
+				1FEB4E66284D1435007D2F94 /* NordStage2Node.swift in Sources */,
 				1FE406072842031E00B1C1D8 /* TextFieldNord.swift in Sources */,
 				1FE405FA2841148F00B1C1D8 /* MapperModelNord.swift in Sources */,
 				1F0086FA284CB21100CA2243 /* NordElectro6Node.swift in Sources */,
+				1FB50190284CEECA00FA644D /* ModeLive1To5Upper100Program.swift in Sources */,
 				1F75168926223C580015A8EF /* DivicesListView.swift in Sources */,
 				1FE405F32840F76200B1C1D8 /* Mode.swift in Sources */,
 				1FE40605284202E300B1C1D8 /* TextFieldInterface.swift in Sources */,
@@ -384,6 +395,7 @@
 				1FE4060E28420A5500B1C1D8 /* DeviceNodeModelItems.swift in Sources */,
 				1FE4061328421CF700B1C1D8 /* ModeProgramA_11ToZ_XX.swift in Sources */,
 				1FE405EE2840D36900B1C1D8 /* DeviceView.swift in Sources */,
+				1FEB4E64284D0DA4007D2F94 /* ModeProgramA_01_1ToD_20_5.swift in Sources */,
 				1FE4060C2842086400B1C1D8 /* NordStage3Node.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

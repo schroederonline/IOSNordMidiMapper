@@ -9,7 +9,9 @@ import Foundation
 
 public class DeviceNodeModelItems {
     
-    private let allDeviceModels :Array<GenericDeviceModel>  = [NordStage3Node(), NordElectro6Node()
+    private let allDeviceModels :Array<GenericDeviceModel>  = [NordStage3Node(),
+                                                               NordStage2Node(),
+                                                               NordElectro6Node()
                                                                
 //                                                               ,  NordElectro5Node()
     ];

@@ -72,7 +72,9 @@ struct DeviceView: View {
                    }
                }.padding(.horizontal)
                Spacer()
-           }.onChange(of: vModel.nordProgram) { newValue in
+           }
+           
+           .onChange(of: vModel.nordProgram) { newValue in
                let mapperModel = vModel.device.getMapperModel();
                let mode = mapperModel.getSelectedMode();
                let oldValue  = mode.getCurrentText();
