@@ -37,10 +37,9 @@ struct DeviceSelection: View {
     
     let deviceNodeModelItems = DeviceNodeModelItems.init();
     
-
     var body: some View {
-        
         NavigationView {
+            
             List {
                 let deviceModels = deviceNodeModelItems.getAvailableDeviceModels();
                 ForEach(0 ..< deviceModels.count) {
@@ -53,6 +52,7 @@ struct DeviceSelection: View {
                 }
             }
         }
+    
     }
 }
 

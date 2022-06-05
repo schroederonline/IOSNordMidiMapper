@@ -43,10 +43,8 @@ struct DeviceView: View {
            VStack {
                VStack(alignment: .leading) {
                    Text(vModel.device.getName())
-                       .font(.title)
+                       .font(.title2)
                    Text("Program Calculator").foregroundColor(Color.gray)
-                   Text("")
-                   Text("")
                    HStack(){
                        let modes =  vModel.device.getMapperModel().getModeList()
                        TextField("1", text: $vModel.nordProgram)
@@ -57,25 +55,22 @@ struct DeviceView: View {
                            }
                        }.font(.title2)
                    }
-                   Text("")
-                   Text("")
-                   Divider()
-               }.padding()
+               }.padding(.horizontal)
                VStack(alignment: .leading) {
                    Text("Midi (1-128)" ).foregroundColor(Color.gray)
                    HStack(){
                        TextField("bank", text: $vModel.bank)
-                       Text("Bank").font(.title2)
+                       Text("Bank")
                    }
                    HStack(){
                        TextField("SubBank", text: $vModel.subBank)
-                       Text("SubBank").font(.title2)
+                       Text("SubBank")
                    }
                    HStack(){
                        TextField("1", text: $vModel.program);
-                       Text("Program").font(.title2)
+                       Text("Program")
                    }
-               }.padding()
+               }.padding(.horizontal)
                Spacer()
            }.onChange(of: vModel.nordProgram) { newValue in
                let mapperModel = vModel.device.getMapperModel();
