@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F0086F6284BF2BD00CA2243 /* ModeProgramA_11ToZ_55.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0086F5284BF2BD00CA2243 /* ModeProgramA_11ToZ_55.swift */; };
 		1F75168726223C580015A8EF /* IOSNordMidiMapperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */; };
 		1F75168926223C580015A8EF /* DivicesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75168826223C580015A8EF /* DivicesListView.swift */; };
 		1F75168B26223C5A0015A8EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F75168A26223C5A0015A8EF /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F0086F5284BF2BD00CA2243 /* ModeProgramA_11ToZ_55.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeProgramA_11ToZ_55.swift; sourceTree = "<group>"; };
 		1F75168326223C580015A8EF /* IOSNordMidiMapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSNordMidiMapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSNordMidiMapperApp.swift; sourceTree = "<group>"; };
 		1F75168826223C580015A8EF /* DivicesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivicesListView.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				1FE4061228421CF700B1C1D8 /* ModeProgramA_11ToZ_XX.swift */,
+				1F0086F5284BF2BD00CA2243 /* ModeProgramA_11ToZ_55.swift */,
 			);
 			path = program;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				1F75168926223C580015A8EF /* DivicesListView.swift in Sources */,
 				1FE405F32840F76200B1C1D8 /* Mode.swift in Sources */,
 				1FE40605284202E300B1C1D8 /* TextFieldInterface.swift in Sources */,
+				1F0086F6284BF2BD00CA2243 /* ModeProgramA_11ToZ_55.swift in Sources */,
 				1F75168726223C580015A8EF /* IOSNordMidiMapperApp.swift in Sources */,
 				1FE406002841515F00B1C1D8 /* NordNumberUtil.swift in Sources */,
 				1FE405FE284150C400B1C1D8 /* ModeLive1ToXBank7.swift in Sources */,

@@ -15,6 +15,9 @@ class VModel: ObservableObject{
     @Published var subBank: String;
     @Published var bank: String;
     @Published var device: GenericDeviceModel;
+    @Published var selectedModeIndex: Int;
+    @Published var selectedMode: Mode;
+   
     
     init(device: GenericDeviceModel){
         self.device = device;
@@ -23,6 +26,12 @@ class VModel: ObservableObject{
         self.subBank = String(mapperModel.getSubBank());
         self.bank = String(mapperModel.getBank());
         self.nordProgram = mapperModel.getCurrentText()
+        
+        let modes =  device.getMapperModel().getModeList();
+        let selected = device.getMapperModel().getSelectedMode()
+        self.selectedModeIndex = modes.firstIndex{$0 === selected}!
+        selectedMode = selected;
+        
     }
     
 }
@@ -41,16 +50,15 @@ struct DeviceView: View {
                    Text("")
                    Text("")
                    HStack(){
-                       let modes =  vModel.device.getMapperModel().getModeList();
+                       let modes =  vModel.device.getMapperModel().getModeList()
                        TextField("1", text: $vModel.nordProgram)
-                       Picker(selection: /*@START_MENU_TOKEN@*/.constant(1)/*@END_MENU_TOKEN@*/, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
-                           ForEach(0 ..< modes.count) {
-                               let mode = modes[$0];
-                               Text(mode.getName()).tag($0)
+                       Picker(selection: $vModel.selectedModeIndex, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
+                           ForEach(0 ..< modes.count) {i in
+                               let mode = modes[i];
+                               Text(mode.getName()).tag(i)
                            }
-//                           Text("Song Mode").tag(2)
-//                           Text("Live Mode").tag(3)
                        }.font(.title2)
+                       
                           
                    }
                    Text("")
@@ -98,9 +106,22 @@ struct DeviceView: View {
                    vModel.program = "";
                }
                vModel.nordProgram = mode.getCurrentText();
+           }.onChange(of: vModel.selectedModeIndex) { newValue in
+               print("vModel.selectedModeIndex changed " + String(newValue))
+               let modes =  vModel.device.getMapperModel().getModeList()
+               let nextMode = modes[newValue]
+               print("nextMode " + String(nextMode.getName()))
+               
+               vModel.device.getMapperModel().setSelectedMode(mode: nextMode)
+               vModel.nordProgram = nextMode.getCurrentText();
+               vModel.program = String( vModel.device.getMapperModel().getProgram())
+               
            }
         
        }
+    
+    
+    
 }
 
 struct DeviceView_Previews: PreviewProvider {
