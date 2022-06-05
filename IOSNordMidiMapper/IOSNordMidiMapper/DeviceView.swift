@@ -16,7 +16,6 @@ class VModel: ObservableObject{
     @Published var bank: String;
     @Published var device: GenericDeviceModel;
     @Published var selectedModeIndex: Int;
-    @Published var selectedMode: Mode;
    
     
     init(device: GenericDeviceModel){
@@ -30,7 +29,6 @@ class VModel: ObservableObject{
         let modes =  device.getMapperModel().getModeList();
         let selected = device.getMapperModel().getSelectedMode()
         self.selectedModeIndex = modes.firstIndex{$0 === selected}!
-        selectedMode = selected;
         
     }
     
@@ -58,8 +56,6 @@ struct DeviceView: View {
                                Text(mode.getName()).tag(i)
                            }
                        }.font(.title2)
-                       
-                          
                    }
                    Text("")
                    Text("")
@@ -96,7 +92,6 @@ struct DeviceView: View {
                   }
               }
            }.onChange(of: vModel.program) { newValue in
-//               print("program changed " + newValue)
                let mapperModel = vModel.device.getMapperModel();
                let mode = mapperModel.getSelectedMode();
                if (NordNumberUtil.isNumber1To128(x: newValue)) {
@@ -106,19 +101,55 @@ struct DeviceView: View {
                    vModel.program = "";
                }
                vModel.nordProgram = mode.getCurrentText();
+           }.onChange(of: vModel.subBank) { newValue in
+               let mapperModel = vModel.device.getMapperModel();
+               let mode = mapperModel.getSelectedMode();
+               if (NordNumberUtil.isNumber1To128(x: newValue)) {
+                   mapperModel.setSubBank(subBank: Int(newValue)!);
+                   vModel.subBank = newValue;
+               } else {
+                   vModel.subBank = "";
+               }
+               vModel.nordProgram = mode.getCurrentText();
+           }.onChange(of: vModel.bank) { newValue in
+               let mapperModel = vModel.device.getMapperModel();
+               let mode = mapperModel.getSelectedMode();
+               let oldValue = mapperModel.getBank();
+               if (NordNumberUtil.isNumber1To128(x: newValue)) {
+                   mapperModel.setBank(bank: Int(newValue)!);
+                   vModel.bank = newValue;
+                   if(oldValue != Int(newValue)!){
+                       updateVModel();
+                   }
+               } else {
+                   vModel.bank = "";
+               }
+               vModel.nordProgram = mode.getCurrentText();
            }.onChange(of: vModel.selectedModeIndex) { newValue in
                print("vModel.selectedModeIndex changed " + String(newValue))
                let modes =  vModel.device.getMapperModel().getModeList()
                let nextMode = modes[newValue]
                print("nextMode " + String(nextMode.getName()))
-               
                vModel.device.getMapperModel().setSelectedMode(mode: nextMode)
-               vModel.nordProgram = nextMode.getCurrentText();
-               vModel.program = String( vModel.device.getMapperModel().getProgram())
-               
+               updateVModel()
            }
-        
        }
+    
+    
+    func updateVModel() ->Void{
+        print("updateVModel " )
+        vModel.nordProgram = vModel.device.getMapperModel().getCurrentText();
+        vModel.program = String(vModel.device.getMapperModel().getProgram())
+        vModel.subBank = String(vModel.device.getMapperModel().getSubBank())
+        vModel.bank = String(vModel.device.getMapperModel().getBank())
+        
+        let modes =  vModel.device.getMapperModel().getModeList();
+        let selected = vModel.device.getMapperModel().getSelectedMode()
+        vModel.selectedModeIndex = modes.firstIndex{$0 === selected}!
+       
+        
+    }
+
     
     
     
