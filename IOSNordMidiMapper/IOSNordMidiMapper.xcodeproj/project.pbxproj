@@ -40,6 +40,7 @@
 		1FEB4E68284D1720007D2F94 /* NordStage2EXNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB4E67284D1720007D2F94 /* NordStage2EXNode.swift */; };
 		1FEB4E6A284D17ED007D2F94 /* ModeProgram1_1To8_50.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB4E69284D17ED007D2F94 /* ModeProgram1_1To8_50.swift */; };
 		1FEB4E6D284D1FC5007D2F94 /* NordGrandNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB4E6C284D1FC5007D2F94 /* NordGrandNode.swift */; };
+		1FEB4E6F284D2081007D2F94 /* NordWave2Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB4E6E284D2081007D2F94 /* NordWave2Node.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		1FEB4E67284D1720007D2F94 /* NordStage2EXNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordStage2EXNode.swift; sourceTree = "<group>"; };
 		1FEB4E69284D17ED007D2F94 /* ModeProgram1_1To8_50.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeProgram1_1To8_50.swift; sourceTree = "<group>"; };
 		1FEB4E6C284D1FC5007D2F94 /* NordGrandNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordGrandNode.swift; sourceTree = "<group>"; };
+		1FEB4E6E284D2081007D2F94 /* NordWave2Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordWave2Node.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 				1FEB4E65284D1435007D2F94 /* NordStage2Node.swift */,
 				1FEB4E67284D1720007D2F94 /* NordStage2EXNode.swift */,
 				1FEB4E6C284D1FC5007D2F94 /* NordGrandNode.swift */,
+				1FEB4E6E284D2081007D2F94 /* NordWave2Node.swift */,
 			);
 			path = devices;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				1FE4061328421CF700B1C1D8 /* ModeProgramA_11ToZ_XX.swift in Sources */,
 				1FE405EE2840D36900B1C1D8 /* DeviceView.swift in Sources */,
 				1FEB4E64284D0DA4007D2F94 /* ModeProgramA_01_1ToD_20_5.swift in Sources */,
+				1FEB4E6F284D2081007D2F94 /* NordWave2Node.swift in Sources */,
 				1FE4060C2842086400B1C1D8 /* NordStage3Node.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
