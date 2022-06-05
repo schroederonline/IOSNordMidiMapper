@@ -88,7 +88,7 @@ public class ModeProgramA_11ToZ_XX: GenericMode {
             return "";
         }
             
-            if (!oldValue.contains(":")) {
+            if (!oldValue.contains(needle: ":")) {
                 if (given.length() == 1 && isFirstChar) {
                     result = result + ":";
                 }
@@ -96,15 +96,21 @@ public class ModeProgramA_11ToZ_XX: GenericMode {
 //                Platform.runLater(() -> textfield.clear());
 //                return;
                 return "";
+            } else if (given.length() == 2 && oldValue.length() == 4 && !given.contains(needle: ":")){
+                if(NordNumberUtil.isNumber(x: result[1], from: 1, to: keyImpl.getMaxNumberKeys())){
+                    result = result[0] + ":" + result[1];
+                }
             }
             if (result.length() == 3) {
 
-                if (!keyImpl.isNordNumber1ToX(x: result[2])) {
+                if(!NordNumberUtil.isNumber(x: result[2], from: 1, to: keyImpl.getMaxNumberKeys())){
+                //if (!keyImpl.isNordNumber1ToX(x: result[2])) {
                     result = result.substring(fromIndex: 0, toIndex: 2);
                 }
             }
             if (result.length() == 4) {
-                if (!keyImpl.isNordNumber1ToX(x: result[3])) {
+                if(!NordNumberUtil.isNumber(x: result[3], from: 1, to: keyImpl.getMaxNumberKeys())){
+                //if (!keyImpl.isNordNumber1ToX(x: result[3])) {
                     result = result.substring(fromIndex: 0, toIndex: 3);
                 }
             }

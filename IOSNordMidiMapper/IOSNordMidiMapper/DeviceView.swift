@@ -85,10 +85,16 @@ struct DeviceView: View {
                   let result = mode.onNordProgramTextChanged(oldValue: oldValue, newValue: newValue);
                   let changed =  result != oldValue || result != newValue;
                   if(changed){
+                      mode.setNordProgram(s: result)
                       if(newValue.length() > 0){
                           vModel.nordProgram = result
+                          
+                      }
+                      if(mode.getCurrentText() != oldValue){
+                            updateVModel();
                       }
                       vModel.program = String(mapperModel.getProgram())
+                      
                   }
               }
            }.onChange(of: vModel.program) { newValue in
