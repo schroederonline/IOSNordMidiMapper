@@ -16,7 +16,8 @@ public class DeviceNodeModelItems {
                                                                NordElectro5Node(),
                                                                NordGrandNode(),
                                                                NordWave2Node(),
-                                                               NordWaveNode()
+                                                               NordWaveNode(),
+                                                               NordPiano5Node()
                                                                
 
     ];

@@ -43,6 +43,7 @@
 		1FEB4E6F284D2081007D2F94 /* NordWave2Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB4E6E284D2081007D2F94 /* NordWave2Node.swift */; };
 		1FEB4E71284D213E007D2F94 /* ModeProgram1_1To8_128.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB4E70284D213E007D2F94 /* ModeProgram1_1To8_128.swift */; };
 		1FEB4E73284D2528007D2F94 /* NordWaveNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB4E72284D2528007D2F94 /* NordWaveNode.swift */; };
+		1FEB4E75284D2645007D2F94 /* NordPiano5Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB4E74284D2645007D2F94 /* NordPiano5Node.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		1FEB4E6E284D2081007D2F94 /* NordWave2Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordWave2Node.swift; sourceTree = "<group>"; };
 		1FEB4E70284D213E007D2F94 /* ModeProgram1_1To8_128.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeProgram1_1To8_128.swift; sourceTree = "<group>"; };
 		1FEB4E72284D2528007D2F94 /* NordWaveNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordWaveNode.swift; sourceTree = "<group>"; };
+		1FEB4E74284D2645007D2F94 /* NordPiano5Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordPiano5Node.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +245,7 @@
 				1FEB4E6C284D1FC5007D2F94 /* NordGrandNode.swift */,
 				1FEB4E6E284D2081007D2F94 /* NordWave2Node.swift */,
 				1FEB4E72284D2528007D2F94 /* NordWaveNode.swift */,
+				1FEB4E74284D2645007D2F94 /* NordPiano5Node.swift */,
 			);
 			path = devices;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				1FE406022841565B00B1C1D8 /* NumberKeyLimitation.swift in Sources */,
 				1FE4061028420E2E00B1C1D8 /* NordElectro5Node.swift in Sources */,
 				1FEB4E6D284D1FC5007D2F94 /* NordGrandNode.swift in Sources */,
+				1FEB4E75284D2645007D2F94 /* NordPiano5Node.swift in Sources */,
 				1FE405F62841120E00B1C1D8 /* ModeLive1To5Bank7.swift in Sources */,
 				1FE405F12840E4D700B1C1D8 /* MidiModel.swift in Sources */,
 				1FE4060A2842058F00B1C1D8 /* GenericDeviceModel.swift in Sources */,
