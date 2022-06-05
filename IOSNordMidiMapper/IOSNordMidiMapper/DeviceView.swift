@@ -59,15 +59,15 @@ struct DeviceView: View {
                VStack(alignment: .leading) {
                    Text("Midi (1-128)" ).foregroundColor(Color.gray)
                    HStack(){
-                       TextField("bank", text: $vModel.bank)
+                       TextField("bank", text: $vModel.bank) .keyboardType(.numberPad)
                        Text("Bank")
                    }
                    HStack(){
-                       TextField("SubBank", text: $vModel.subBank)
+                       TextField("SubBank", text: $vModel.subBank).keyboardType(.numberPad)
                        Text("SubBank")
                    }
                    HStack(){
-                       TextField("1", text: $vModel.program);
+                       TextField("1", text: $vModel.program).keyboardType(.numberPad)
                        Text("Program")
                    }
                }.padding(.horizontal)
