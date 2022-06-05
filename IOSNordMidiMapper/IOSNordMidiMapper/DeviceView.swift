@@ -35,6 +35,26 @@ class VModel: ObservableObject{
 }
 
 
+struct TextFieldClearButton: ViewModifier {
+    @Binding var text: String
+    
+    func body(content: Content) -> some View {
+        HStack {
+            content
+            
+            if !text.isEmpty {
+                Button(
+                    action: { self.text = "" },
+                    label: {
+                        Image(systemName: "delete.left")
+                            .foregroundColor(Color(UIColor.opaqueSeparator))
+                    }
+                )
+            }
+        }
+    }
+}
+
 struct DeviceView: View {
     
     @StateObject var vModel: VModel;
@@ -47,29 +67,46 @@ struct DeviceView: View {
                    Text("Program Calculator").foregroundColor(Color.gray)
                    HStack(){
                        let modes =  vModel.device.getMapperModel().getModeList()
-                       TextField("1", text: $vModel.nordProgram)
+                       let defaultText = vModel.device.getMapperModel().getSelectedMode().toDefault();
+                       TextField(defaultText, text: $vModel.nordProgram)
                        Picker(selection: $vModel.selectedModeIndex, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
                            ForEach(0 ..< modes.count) {i in
                                let mode = modes[i];
                                Text(mode.getName()).tag(i)
                            }
                        }.font(.title2)
-                   }
+                   }.padding(9)
+                       .background(
+                                   RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                       .stroke(Color.gray, lineWidth: 1)
+                               )
                }.padding(.horizontal)
                VStack(alignment: .leading) {
                    Text("Midi (1-128)" ).foregroundColor(Color.gray)
                    HStack(){
-                       TextField("bank", text: $vModel.bank) .keyboardType(.numberPad)
-                       Text("Bank")
-                   }
+                       TextField("1", text: $vModel.bank) .keyboardType(.numberPad)
+                       Text("Bank").foregroundColor(Color.gray)
+                   }.padding(9)
+                       .background(
+                                   RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                       .stroke(Color.gray, lineWidth: 1)
+                               )
                    HStack(){
-                       TextField("SubBank", text: $vModel.subBank).keyboardType(.numberPad)
-                       Text("SubBank")
-                   }
+                       TextField("1", text: $vModel.subBank).keyboardType(.numberPad)
+                       Text("SubBank").foregroundColor(Color.gray)
+                   }.padding(9)
+                       .background(
+                                   RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                       .stroke(Color.gray, lineWidth: 1)
+                               )
                    HStack(){
                        TextField("1", text: $vModel.program).keyboardType(.numberPad)
-                       Text("Program")
-                   }
+                       Text("Program").foregroundColor(Color.gray)
+                   }.padding(9)
+                       .background(
+                                   RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                       .stroke(Color.gray, lineWidth: 1)
+                               )
                }.padding(.horizontal)
                Spacer()
            }
@@ -154,9 +191,8 @@ struct DeviceView: View {
     }
 
     
-    
-    
 }
+
 
 struct DeviceView_Previews: PreviewProvider {
     static var previews: some View {
