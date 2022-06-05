@@ -68,61 +68,41 @@ public class ModeProgramA_11ToZ_XX: GenericMode {
     /**
      * Format "A:11";
      */
-//    FIXME
-//    public ChangeListener<? super String> createNordProgramListener( textfield: TextFieldImpl) {
     public override func onNordProgramTextChanged(oldValue: String, newValue: String) -> String{
-        
-            if (oldValue == newValue) {
-                return "";
-            }
-        
-//            if (!getSelectedModeSupplier().get().equals(this)) {
-//                return;
-//            }
-        
+        if (oldValue == newValue) {
+            return "";
+        }
         let given: String = newValue.uppercased();
         var result: String = given;
         let isFirstChar: Bool = given.length() >= 1 && NordNumberUtil.isNordChar(x: given[0]);
         if (!isFirstChar) {
-//                Platform.runLater(() -> textfield.clear());
             return "";
         }
-            
-            if (!oldValue.contains(needle: ":")) {
-                if (given.length() == 1 && isFirstChar) {
-                    result = result + ":";
-                }
-            } else if (given.length() == 1 && oldValue.length() == 2) {
-//                Platform.runLater(() -> textfield.clear());
-//                return;
-                return "";
-            } else if (given.length() == 2 && oldValue.length() == 4 && !given.contains(needle: ":")){
-                if(NordNumberUtil.isNumber(x: result[1], from: 1, to: keyImpl.getMaxNumberKeys())){
-                    result = result[0] + ":" + result[1];
-                }
+        if (!oldValue.contains(needle: ":")) {
+            if (given.length() == 1 && isFirstChar) {
+                result = result + ":";
             }
-            if (result.length() == 3) {
-
-                if(!NordNumberUtil.isNumber(x: result[2], from: 1, to: keyImpl.getMaxNumberKeys())){
-                //if (!keyImpl.isNordNumber1ToX(x: result[2])) {
-                    result = result.substring(fromIndex: 0, toIndex: 2);
-                }
+        } else if (given.length() == 1 && oldValue.length() == 2) {
+            return "";
+        } else if (given.length() == 2 && oldValue.length() == 4 && !given.contains(needle: ":")){
+            if(NordNumberUtil.isNumber(x: result[1], from: 1, to: keyImpl.getMaxNumberKeys())){
+                result = result[0] + ":" + result[1];
             }
-            if (result.length() == 4) {
-                if(!NordNumberUtil.isNumber(x: result[3], from: 1, to: keyImpl.getMaxNumberKeys())){
-                //if (!keyImpl.isNordNumber1ToX(x: result[3])) {
-                    result = result.substring(fromIndex: 0, toIndex: 3);
-                }
+        }
+        if (result.length() == 3) {
+            if(!NordNumberUtil.isNumber(x: result[2], from: 1, to: keyImpl.getMaxNumberKeys())){
+                result = result.substring(fromIndex: 0, toIndex: 2);
             }
-            if (result.length() > 4) {
-                result = result.substring(fromIndex: 0, toIndex: 4);
+        }
+        if (result.length() == 4) {
+            if(!NordNumberUtil.isNumber(x: result[3], from: 1, to: keyImpl.getMaxNumberKeys())){
+                result = result.substring(fromIndex: 0, toIndex: 3);
             }
-
-//        FIXME
-//            getProgramConsumer().accept(result);
-//            textfield.setText(result);
+        }
+        if (result.length() > 4) {
+            result = result.substring(fromIndex: 0, toIndex: 4);
+        }
         return result;
-//        };
     }
 
 }

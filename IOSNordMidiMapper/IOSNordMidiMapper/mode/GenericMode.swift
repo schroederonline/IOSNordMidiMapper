@@ -60,37 +60,24 @@ public class GenericMode: Mode{
         self.midiModel = mapperModel;
         self.midiModel.setBank(bank2: bank, updateOnChange: false)
         self.selectedModeSupplier = ModeSupplierImpl(mapperModelNord: mapperModel);
-//        FIXME
-//        setTextFieldListener(this::createNordProgramListener);
-        
         super.init(name: name, defaultProgram:defaultProgram, bank: bank);
         setUpdateMidiToWhatEver(updateMidiToWhatEver: RunnableImpl(gm: self));
         setProgramConsumer(consumer: StringConsumerImpl2(gm: self));
     }
 
-//    abstract
     public func midiToNordProgram()->Void{
 //        override me
     }
 
-//    abstract
     public override func setNordProgram(s: String)->Void{
 //       override me
     }
 
-//    FIXME
-//    public abstract ChangeListener<? super String> createNordProgramListener(TextField textfield);
     public override func onNordProgramTextChanged(oldValue: String, newValue: String) -> String{
 //     override me
         return "";
     }
 
-    
-//    abstract
-//    public func onTextChanged(text: String) -> String{
-//
-//    }
-    
     public func getMidiModel()-> MidiModel {
         return midiModel;
     }
@@ -98,6 +85,5 @@ public class GenericMode: Mode{
     public func getSelectedModeSupplier()-> ModeSupplier {
         return selectedModeSupplier;
     }
-
     
 }
