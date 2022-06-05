@@ -11,9 +11,11 @@ public class DeviceNodeModelItems {
     
     private let allDeviceModels :Array<GenericDeviceModel>  = [NordStage3Node(),
                                                                NordStage2Node(),
-                                                               NordElectro6Node()
+                                                               NordStage2EXNode(),
+                                                               NordElectro6Node(),
+                                                               NordElectro5Node()
                                                                
-//                                                               ,  NordElectro5Node()
+
     ];
 //    FIXME
 //            .asList(new NordStage3Node(), new NordStage2Node(), new NordElectro6Node(), new NordElectro5Node(),

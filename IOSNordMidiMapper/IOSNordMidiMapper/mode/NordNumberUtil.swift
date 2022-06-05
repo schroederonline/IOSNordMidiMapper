@@ -62,6 +62,10 @@ extension String {
         return self.replacingOccurrences(of: of, with: with);
     }
     
+    func split(separatedBy: String) -> Array<String> {
+        return self.components(separatedBy: separatedBy).filter({ $0 != ""})
+    }
+    
 }
 
 public class NordNumberUtil {
