@@ -44,6 +44,7 @@
 		1FEB4E71284D213E007D2F94 /* ModeProgram1_1To8_128.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB4E70284D213E007D2F94 /* ModeProgram1_1To8_128.swift */; };
 		1FEB4E73284D2528007D2F94 /* NordWaveNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB4E72284D2528007D2F94 /* NordWaveNode.swift */; };
 		1FEB4E75284D2645007D2F94 /* NordPiano5Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB4E74284D2645007D2F94 /* NordPiano5Node.swift */; };
+		1FEB4E77284D2727007D2F94 /* NordPiano4Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB4E76284D2727007D2F94 /* NordPiano4Node.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		1FEB4E70284D213E007D2F94 /* ModeProgram1_1To8_128.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeProgram1_1To8_128.swift; sourceTree = "<group>"; };
 		1FEB4E72284D2528007D2F94 /* NordWaveNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordWaveNode.swift; sourceTree = "<group>"; };
 		1FEB4E74284D2645007D2F94 /* NordPiano5Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordPiano5Node.swift; sourceTree = "<group>"; };
+		1FEB4E76284D2727007D2F94 /* NordPiano4Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordPiano4Node.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 				1FEB4E6E284D2081007D2F94 /* NordWave2Node.swift */,
 				1FEB4E72284D2528007D2F94 /* NordWaveNode.swift */,
 				1FEB4E74284D2645007D2F94 /* NordPiano5Node.swift */,
+				1FEB4E76284D2727007D2F94 /* NordPiano4Node.swift */,
 			);
 			path = devices;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				1FEB4E68284D1720007D2F94 /* NordStage2EXNode.swift in Sources */,
 				1FE405FA2841148F00B1C1D8 /* MapperModelNord.swift in Sources */,
 				1FEB4E71284D213E007D2F94 /* ModeProgram1_1To8_128.swift in Sources */,
+				1FEB4E77284D2727007D2F94 /* NordPiano4Node.swift in Sources */,
 				1F0086FA284CB21100CA2243 /* NordElectro6Node.swift in Sources */,
 				1FB50190284CEECA00FA644D /* ModeLive1To5Upper100Program.swift in Sources */,
 				1F75168926223C580015A8EF /* DivicesListView.swift in Sources */,
