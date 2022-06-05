@@ -13,7 +13,8 @@ public class DeviceNodeModelItems {
                                                                NordStage2Node(),
                                                                NordStage2EXNode(),
                                                                NordElectro6Node(),
-                                                               NordElectro5Node()
+                                                               NordElectro5Node(),
+                                                               NordGrandNode()
                                                                
 
     ];

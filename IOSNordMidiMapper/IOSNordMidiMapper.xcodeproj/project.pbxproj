@@ -39,6 +39,7 @@
 		1FEB4E66284D1435007D2F94 /* NordStage2Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB4E65284D1435007D2F94 /* NordStage2Node.swift */; };
 		1FEB4E68284D1720007D2F94 /* NordStage2EXNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB4E67284D1720007D2F94 /* NordStage2EXNode.swift */; };
 		1FEB4E6A284D17ED007D2F94 /* ModeProgram1_1To8_50.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB4E69284D17ED007D2F94 /* ModeProgram1_1To8_50.swift */; };
+		1FEB4E6D284D1FC5007D2F94 /* NordGrandNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB4E6C284D1FC5007D2F94 /* NordGrandNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		1FEB4E65284D1435007D2F94 /* NordStage2Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordStage2Node.swift; sourceTree = "<group>"; };
 		1FEB4E67284D1720007D2F94 /* NordStage2EXNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordStage2EXNode.swift; sourceTree = "<group>"; };
 		1FEB4E69284D17ED007D2F94 /* ModeProgram1_1To8_50.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeProgram1_1To8_50.swift; sourceTree = "<group>"; };
+		1FEB4E6C284D1FC5007D2F94 /* NordGrandNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordGrandNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 				1F0086F9284CB21100CA2243 /* NordElectro6Node.swift */,
 				1FEB4E65284D1435007D2F94 /* NordStage2Node.swift */,
 				1FEB4E67284D1720007D2F94 /* NordStage2EXNode.swift */,
+				1FEB4E6C284D1FC5007D2F94 /* NordGrandNode.swift */,
 			);
 			path = devices;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				1F0086F8284CB19B00CA2243 /* ModeProgramA_11ToZ_44.swift in Sources */,
 				1FE406022841565B00B1C1D8 /* NumberKeyLimitation.swift in Sources */,
 				1FE4061028420E2E00B1C1D8 /* NordElectro5Node.swift in Sources */,
+				1FEB4E6D284D1FC5007D2F94 /* NordGrandNode.swift in Sources */,
 				1FE405F62841120E00B1C1D8 /* ModeLive1To5Bank7.swift in Sources */,
 				1FE405F12840E4D700B1C1D8 /* MidiModel.swift in Sources */,
 				1FE4060A2842058F00B1C1D8 /* GenericDeviceModel.swift in Sources */,
