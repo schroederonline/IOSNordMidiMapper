@@ -78,6 +78,10 @@ public class ModeProgramA_11ToZ_XX: GenericMode {
         if (!isFirstChar) {
             return "";
         }
+        if(oldValue.length() == 4 && newValue.length() == 3){
+            return newValue[0] + ":" ;
+        }
+        
         if (!oldValue.contains(needle: ":")) {
             if (given.length() == 1 && isFirstChar) {
                 result = result + ":";
@@ -87,6 +91,8 @@ public class ModeProgramA_11ToZ_XX: GenericMode {
         } else if (given.length() == 2 && oldValue.length() == 4 && !given.contains(needle: ":")){
             if(NordNumberUtil.isNumber(x: result[1], from: 1, to: keyImpl.getMaxNumberKeys())){
                 result = result[0] + ":" + result[1];
+            }else if (result[2] != ":"){
+                result = result[0] + ":"
             }
         }
         if (result.length() == 3) {

@@ -10,28 +10,29 @@ import SwiftUI
 
 class VModel: ObservableObject{
     
-    @Published var nordProgram: String ;
-    @Published var program: String;
-    @Published var subBank: String;
-    @Published var bank: String;
-    @Published var device: GenericDeviceModel;
-    @Published var selectedModeIndex: Int;
+    @Published var nordProgram: String
+    @Published var oldNordProgram: String
+    @Published var program: String
+    @Published var subBank: String
+    @Published var bank: String
+    @Published var device: GenericDeviceModel
+    @Published var selectedModeIndex: Int
    
     
     init(device: GenericDeviceModel){
-        self.device = device;
-        let modes =  device.getMapperModel().getModeList();
+        self.device = device
+        let modes =  device.getMapperModel().getModeList()
         let selected = device.getMapperModel().getSelectedMode()
         print("selected " + selected.getName())
         self.selectedModeIndex = modes.firstIndex{$0 === selected}!
-        device.getMapperModel().setSelectedMode(mode: selected);
+        device.getMapperModel().setSelectedMode(mode: selected)
         
-        let mapperModel = device.getMapperModel();
-        self.program = String(mapperModel.getProgram());
-        self.subBank = String(mapperModel.getSubBank());
-        self.bank = String(mapperModel.getBank());
+        let mapperModel = device.getMapperModel()
+        self.program = String(mapperModel.getProgram())
+        self.subBank = String(mapperModel.getSubBank())
+        self.bank = String(mapperModel.getBank())
         self.nordProgram = mapperModel.getCurrentText()
-        
+        self.oldNordProgram = mapperModel.getCurrentText()
         
     }
     
@@ -129,14 +130,15 @@ struct DeviceView: View {
            .onChange(of: vModel.nordProgram) { newValue in
                let mapperModel = vModel.device.getMapperModel();
                let mode = mapperModel.getSelectedMode();
-               let oldValue  = mode.getCurrentText();
+               let oldValue  = vModel.oldNordProgram;// mode.getCurrentText();
               if(newValue != oldValue){
-                  let result = mode.onNordProgramTextChanged(oldValue: oldValue, newValue: newValue);
-                  let changed =  result != oldValue || result != newValue;
+                  let result = mode.onNordProgramTextChanged(oldValue: oldValue, newValue: newValue)
+                  let changed =  result != oldValue
+                  vModel.oldNordProgram = newValue
                   if(changed){
                       mode.setNordProgram(s: result)
                       if(mode.getCurrentText() != oldValue){
-                            updateVModel();
+                            updateVModel()
                       }
                       vModel.program = String(mapperModel.getProgram())
                       if(newValue.length() > 0){
