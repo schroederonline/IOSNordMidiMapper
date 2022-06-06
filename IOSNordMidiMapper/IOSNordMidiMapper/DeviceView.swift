@@ -72,7 +72,7 @@ struct DeviceView: View {
                    HStack(){
                        let modes =  vModel.device.getMapperModel().getModeList()
                        let defaultText = vModel.device.getMapperModel().getSelectedMode().toDefault();
-                       TextField(defaultText, text: $vModel.nordProgram)
+                       TextField(defaultText, text: $vModel.nordProgram).disableAutocorrection(true)
                        Picker(selection: $vModel.selectedModeIndex, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
                            ForEach(0 ..< modes.count) {i in
                                let mode = modes[i];
@@ -88,7 +88,7 @@ struct DeviceView: View {
                VStack(alignment: .leading) {
                    Text("Midi (1-128)" ).foregroundColor(Color.gray)
                    HStack(){
-                       TextField("1", text: $vModel.bank) .keyboardType(.numberPad)
+                       TextField("1", text: $vModel.bank).disableAutocorrection(true) .keyboardType(.numberPad)
                        Text("Bank").foregroundColor(Color.gray)
                    }.padding(9)
                        .background(
@@ -96,7 +96,7 @@ struct DeviceView: View {
                                        .stroke(Color.gray, lineWidth: 1)
                                )
                    HStack(){
-                       TextField("1", text: $vModel.subBank).keyboardType(.numberPad)
+                       TextField("1", text: $vModel.subBank).disableAutocorrection(true).keyboardType(.numberPad)
                        Text("SubBank").foregroundColor(Color.gray)
                    }.padding(9)
                        .background(
@@ -104,7 +104,7 @@ struct DeviceView: View {
                                        .stroke(Color.gray, lineWidth: 1)
                                )
                    HStack(){
-                       TextField("1", text: $vModel.program).keyboardType(.numberPad)
+                       TextField("1", text: $vModel.program).disableAutocorrection(true).keyboardType(.numberPad)
                        Text("Program").foregroundColor(Color.gray)
                    }.padding(9)
                        .background(
@@ -134,7 +134,8 @@ struct DeviceView: View {
               if(newValue != oldValue){
                   let result = mode.onNordProgramTextChanged(oldValue: oldValue, newValue: newValue)
                   let changed =  result != oldValue
-                  vModel.oldNordProgram = newValue
+                  vModel.oldNordProgram = result
+                  vModel.nordProgram = result
                   if(changed){
                       mode.setNordProgram(s: result)
                       if(mode.getCurrentText() != oldValue){
