@@ -113,7 +113,19 @@ struct DeviceView: View {
                }.padding(.horizontal)
                Spacer()
            }
-           
+           .onChange(of: vModel.program) { newValue in
+               let mapperModel = vModel.device.getMapperModel();
+               let mode = mapperModel.getSelectedMode();
+               if (NordNumberUtil.isNumber1To128(x: newValue)) {
+                   mapperModel.setProgram(program: Int(newValue)!);
+                   vModel.program = newValue;
+               } else {
+                   vModel.program = "";
+               }
+               if( mode.getCurrentText() != mode.toDefault()){
+                   vModel.nordProgram = mode.getCurrentText();
+               }
+           }
            .onChange(of: vModel.nordProgram) { newValue in
                let mapperModel = vModel.device.getMapperModel();
                let mode = mapperModel.getSelectedMode();
@@ -123,27 +135,15 @@ struct DeviceView: View {
                   let changed =  result != oldValue || result != newValue;
                   if(changed){
                       mode.setNordProgram(s: result)
-                      if(newValue.length() > 0){
-                          vModel.nordProgram = result
-                          
-                      }
                       if(mode.getCurrentText() != oldValue){
                             updateVModel();
                       }
                       vModel.program = String(mapperModel.getProgram())
-                      
+                      if(newValue.length() > 0){
+                          vModel.nordProgram = result
+                      }
                   }
               }
-           }.onChange(of: vModel.program) { newValue in
-               let mapperModel = vModel.device.getMapperModel();
-               let mode = mapperModel.getSelectedMode();
-               if (NordNumberUtil.isNumber1To128(x: newValue)) {
-                   mapperModel.setProgram(program: Int(newValue)!);
-                   vModel.program = newValue;
-               } else {
-                   vModel.program = "";
-               }
-               vModel.nordProgram = mode.getCurrentText();
            }.onChange(of: vModel.subBank) { newValue in
                let mapperModel = vModel.device.getMapperModel();
                let mode = mapperModel.getSelectedMode();
@@ -181,7 +181,7 @@ struct DeviceView: View {
     
     func updateVModel() ->Void{
         print("updateVModel " )
-        vModel.nordProgram = vModel.device.getMapperModel().getCurrentText();
+        //vModel.nordProgram = vModel.device.getMapperModel().getCurrentText();
         vModel.program = String(vModel.device.getMapperModel().getProgram())
         vModel.subBank = String(vModel.device.getMapperModel().getSubBank())
         vModel.bank = String(vModel.device.getMapperModel().getBank())
