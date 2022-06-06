@@ -82,7 +82,7 @@ struct DeviceView: View {
                    }.padding(9)
                        .background(
                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                       .stroke(Color.gray, lineWidth: 1)
+                                       .stroke(Color.red, lineWidth: 1)
                                )
                }.padding(.horizontal)
                VStack(alignment: .leading) {
@@ -101,7 +101,7 @@ struct DeviceView: View {
                    }.padding(9)
                        .background(
                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                       .stroke(Color.gray, lineWidth: 1)
+                                    .stroke(Color.gray, lineWidth: 1)
                                )
                    HStack(){
                        TextField("1", text: $vModel.program).disableAutocorrection(true).keyboardType(.numberPad)
