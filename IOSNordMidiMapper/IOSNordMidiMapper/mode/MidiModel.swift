@@ -9,17 +9,11 @@
 import Combine
 import SwiftUI
 
-public class MidiModel: ObservableObject {
-    
-    @Published var didChanged = PassthroughSubject<Void, Never>()
-    
-    
-//    FIXME
-//    private final Set<InvalidationListener> listeners = new HashSet<>();
-    
-    @Published var bank: Int = 1;
-    @Published var subBank: Int = 1;
-    @Published var program: Int = 1;
+public class MidiModel{
+        
+    private var bank: Int = 1;
+    private var subBank: Int = 1;
+    private var program: Int = 1;
     
     public func getBank() -> Int {
         return bank;
@@ -98,7 +92,7 @@ public class MidiModel: ObservableObject {
     
     public func update() -> Void {
             updateMidiToWhatEver();
-        didChanged.send();
+        
         //FIXME
         //listeners.forEach(l -> l.invalidated(this));
     }

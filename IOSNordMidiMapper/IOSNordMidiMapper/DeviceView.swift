@@ -20,15 +20,18 @@ class VModel: ObservableObject{
     
     init(device: GenericDeviceModel){
         self.device = device;
+        let modes =  device.getMapperModel().getModeList();
+        let selected = device.getMapperModel().getSelectedMode()
+        print("selected " + selected.getName())
+        self.selectedModeIndex = modes.firstIndex{$0 === selected}!
+        device.getMapperModel().setSelectedMode(mode: selected);
+        
         let mapperModel = device.getMapperModel();
         self.program = String(mapperModel.getProgram());
         self.subBank = String(mapperModel.getSubBank());
         self.bank = String(mapperModel.getBank());
         self.nordProgram = mapperModel.getCurrentText()
         
-        let modes =  device.getMapperModel().getModeList();
-        let selected = device.getMapperModel().getSelectedMode()
-        self.selectedModeIndex = modes.firstIndex{$0 === selected}!
         
     }
     

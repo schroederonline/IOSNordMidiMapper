@@ -12,9 +12,9 @@ import SwiftUI
 public class MapperModelNord: MidiModel {
     
 
-    @Published var modeCollection: ModeCollection;
+    var modeCollection: ModeCollection;
 
-    @Published var currentText = "";
+    var currentText = "";
     
     public override init(){
         self.modeCollection = ModeCollection();
@@ -33,12 +33,9 @@ public class MapperModelNord: MidiModel {
     }
 
     public func setSelectedMode( mode: Mode)-> Void {
-        let isChanged = mode.getId() != getSelectedMode().getId();
-        if (isChanged) {
-            getModeCollection().setSelectedMode(mode: mode);
-            setDefault();
-            updateMidiToWhatEver();
-        }
+        getModeCollection().setSelectedMode(mode: mode);
+        setDefault();
+        updateMidiToWhatEver();
     }
 
     public func getSelectedMode() -> Mode {
