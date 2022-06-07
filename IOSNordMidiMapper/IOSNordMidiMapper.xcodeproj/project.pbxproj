@@ -11,6 +11,7 @@
 		1F0086F8284CB19B00CA2243 /* ModeProgramA_11ToZ_44.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0086F7284CB19B00CA2243 /* ModeProgramA_11ToZ_44.swift */; };
 		1F0086FA284CB21100CA2243 /* NordElectro6Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0086F9284CB21100CA2243 /* NordElectro6Node.swift */; };
 		1F0086FC284CB28F00CA2243 /* ModeLive1To4Bank7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0086FB284CB28F00CA2243 /* ModeLive1To4Bank7.swift */; };
+		1F7332BA284FE902009EE77D /* ModeSong1_01_1To3_49_5Bank2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7332B9284FE902009EE77D /* ModeSong1_01_1To3_49_5Bank2.swift */; };
 		1F75168726223C580015A8EF /* IOSNordMidiMapperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */; };
 		1F75168926223C580015A8EF /* DivicesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75168826223C580015A8EF /* DivicesListView.swift */; };
 		1F75168B26223C5A0015A8EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F75168A26223C5A0015A8EF /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		1F0086F7284CB19B00CA2243 /* ModeProgramA_11ToZ_44.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeProgramA_11ToZ_44.swift; sourceTree = "<group>"; };
 		1F0086F9284CB21100CA2243 /* NordElectro6Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordElectro6Node.swift; sourceTree = "<group>"; };
 		1F0086FB284CB28F00CA2243 /* ModeLive1To4Bank7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeLive1To4Bank7.swift; sourceTree = "<group>"; };
+		1F7332B9284FE902009EE77D /* ModeSong1_01_1To3_49_5Bank2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSong1_01_1To3_49_5Bank2.swift; sourceTree = "<group>"; };
 		1F75168326223C580015A8EF /* IOSNordMidiMapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSNordMidiMapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSNordMidiMapperApp.swift; sourceTree = "<group>"; };
 		1F75168826223C580015A8EF /* DivicesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivicesListView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F7332B8284FE8F2009EE77D /* song */ = {
+			isa = PBXGroup;
+			children = (
+				1F7332B9284FE902009EE77D /* ModeSong1_01_1To3_49_5Bank2.swift */,
+			);
+			path = song;
+			sourceTree = "<group>";
+		};
 		1F75167A26223C580015A8EF = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +212,7 @@
 		1FE405EF2840E4B000B1C1D8 /* mode */ = {
 			isa = PBXGroup;
 			children = (
+				1F7332B8284FE8F2009EE77D /* song */,
 				1FE4061128421CD200B1C1D8 /* program */,
 				1FE405F4284111FF00B1C1D8 /* live */,
 				1FE405F02840E4D700B1C1D8 /* MidiModel.swift */,
@@ -425,6 +436,7 @@
 				1FEB4E73284D2528007D2F94 /* NordWaveNode.swift in Sources */,
 				1FE4060E28420A5500B1C1D8 /* DeviceNodeModelItems.swift in Sources */,
 				1FE4061328421CF700B1C1D8 /* ModeProgramA_11ToZ_XX.swift in Sources */,
+				1F7332BA284FE902009EE77D /* ModeSong1_01_1To3_49_5Bank2.swift in Sources */,
 				1FE405EE2840D36900B1C1D8 /* DeviceView.swift in Sources */,
 				1FEB4E64284D0DA4007D2F94 /* ModeProgramA_01_1ToD_20_5.swift in Sources */,
 				1FEB4E6F284D2081007D2F94 /* NordWave2Node.swift in Sources */,
