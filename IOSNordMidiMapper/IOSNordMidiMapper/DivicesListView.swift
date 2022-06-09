@@ -15,22 +15,19 @@ struct DeviceSelection: View {
     var body: some View {
         NavigationView {
             HStack{
-        
-            List {
-                let deviceModels = deviceNodeModelItems.getAvailableDeviceModels();
-                ForEach(0 ..< deviceModels.count) {
-                    let device = deviceModels[$0];
-                    let deviceName = device.getName();
-                    NavigationLink(destination: DeviceView( vModel: VModel( device: device))) {
-                        Text(deviceName)
-                    }.navigationTitle("Nord Devices")
-                        .navigationBarTitleDisplayMode(.inline)
-//                    .navigationBarTitle("Devices")
+                List {
+                    let deviceModels = deviceNodeModelItems.getAvailableDeviceModels();
+                    ForEach(0 ..< deviceModels.count) {
+                        let device = deviceModels[$0];
+                        let deviceName = device.getName();
+                        NavigationLink(destination: DeviceView( vModel: VModel( device: device))) {
+                            Text(deviceName)
+                        }.navigationTitle("Nord Devices")
+                            .navigationBarTitleDisplayMode(.inline)
+                    }
                 }
             }
         }
-        }
-    
     }
 }
 

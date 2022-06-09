@@ -39,8 +39,6 @@ class VModel: ObservableObject{
         
     }
     
-    
-    
 }
 
 func loadFile(fileName: String) -> String{
@@ -192,10 +190,8 @@ struct DeviceView: View {
                }
                vModel.nordProgram = mode.getCurrentText();
            }.onChange(of: vModel.selectedModeIndex) { newValue in
-               print("vModel.selectedModeIndex changed " + String(newValue))
                let modes =  vModel.device.getMapperModel().getModeList()
                let nextMode = modes[newValue]
-               print("nextMode " + String(nextMode.getName()))
                vModel.device.getMapperModel().setSelectedMode(mode: nextMode)
                updateVModel()
            }
@@ -203,20 +199,13 @@ struct DeviceView: View {
     
     
     func updateVModel() ->Void{
-        print("updateVModel " )
-        //vModel.nordProgram = vModel.device.getMapperModel().getCurrentText();
         vModel.program = String(vModel.device.getMapperModel().getProgram())
         vModel.subBank = String(vModel.device.getMapperModel().getSubBank())
         vModel.bank = String(vModel.device.getMapperModel().getBank())
-        
         let modes =  vModel.device.getMapperModel().getModeList();
         let selected = vModel.device.getMapperModel().getSelectedMode()
         vModel.selectedModeIndex = modes.firstIndex{$0 === selected}!
-       
-        
     }
-
-    
 }
 
 

@@ -26,6 +26,7 @@
 		1F73331328529447009EE77D /* nordpiano5_midicc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F73331228529447009EE77D /* nordpiano5_midicc.txt */; };
 		1F73331528529486009EE77D /* nordwave2_midicc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F73331428529486009EE77D /* nordwave2_midicc.txt */; };
 		1F733317285294A5009EE77D /* nordwave_midicc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F733316285294A5009EE77D /* nordwave_midicc.txt */; };
+		1F7333192852983B009EE77D /* MidiCCRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7333182852983B009EE77D /* MidiCCRowView.swift */; };
 		1F75168726223C580015A8EF /* IOSNordMidiMapperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */; };
 		1F75168926223C580015A8EF /* DivicesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75168826223C580015A8EF /* DivicesListView.swift */; };
 		1F75168B26223C5A0015A8EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F75168A26223C5A0015A8EF /* Assets.xcassets */; };
@@ -99,6 +100,7 @@
 		1F73331228529447009EE77D /* nordpiano5_midicc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = nordpiano5_midicc.txt; sourceTree = "<group>"; };
 		1F73331428529486009EE77D /* nordwave2_midicc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = nordwave2_midicc.txt; sourceTree = "<group>"; };
 		1F733316285294A5009EE77D /* nordwave_midicc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = nordwave_midicc.txt; sourceTree = "<group>"; };
+		1F7333182852983B009EE77D /* MidiCCRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiCCRowView.swift; sourceTree = "<group>"; };
 		1F75168326223C580015A8EF /* IOSNordMidiMapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSNordMidiMapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSNordMidiMapperApp.swift; sourceTree = "<group>"; };
 		1F75168826223C580015A8EF /* DivicesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivicesListView.swift; sourceTree = "<group>"; };
@@ -221,14 +223,14 @@
 				1FE406082842050F00B1C1D8 /* devices */,
 				1FE40603284202B600B1C1D8 /* node */,
 				1FE405EF2840E4B000B1C1D8 /* mode */,
-				1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */,
-				1F75168826223C580015A8EF /* DivicesListView.swift */,
 				1F75168A26223C5A0015A8EF /* Assets.xcassets */,
 				1F75168F26223C5A0015A8EF /* Info.plist */,
 				1F75168C26223C5A0015A8EF /* Preview Content */,
+				1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */,
 				1FE405ED2840D36900B1C1D8 /* DeviceView.swift */,
-				1FE4060D28420A5500B1C1D8 /* DeviceNodeModelItems.swift */,
+				1F75168826223C580015A8EF /* DivicesListView.swift */,
 				1F7332BD285121E1009EE77D /* MidiCCView.swift */,
+				1F7333182852983B009EE77D /* MidiCCRowView.swift */,
 			);
 			path = IOSNordMidiMapper;
 			sourceTree = "<group>";
@@ -300,6 +302,7 @@
 		1FE406082842050F00B1C1D8 /* devices */ = {
 			isa = PBXGroup;
 			children = (
+				1FE4060D28420A5500B1C1D8 /* DeviceNodeModelItems.swift */,
 				1FE4060B2842086400B1C1D8 /* NordStage3Node.swift */,
 				1FE4060F28420E2E00B1C1D8 /* NordElectro5Node.swift */,
 				1F0086F9284CB21100CA2243 /* NordElectro6Node.swift */,
@@ -490,6 +493,7 @@
 				1FE406022841565B00B1C1D8 /* NumberKeyLimitation.swift in Sources */,
 				1FE4061028420E2E00B1C1D8 /* NordElectro5Node.swift in Sources */,
 				1FEB4E6D284D1FC5007D2F94 /* NordGrandNode.swift in Sources */,
+				1F7333192852983B009EE77D /* MidiCCRowView.swift in Sources */,
 				1FEB4E75284D2645007D2F94 /* NordPiano5Node.swift in Sources */,
 				1FE405F62841120E00B1C1D8 /* ModeLive1To5Bank7.swift in Sources */,
 				1FE405F12840E4D700B1C1D8 /* MidiModel.swift in Sources */,

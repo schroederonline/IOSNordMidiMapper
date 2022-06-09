@@ -10,10 +10,6 @@ import Foundation
 
 extension String {
 
-//    var length: Int {
-//        return count
-//    }
-
     func length() -> Int {
         return count;
     }
@@ -54,6 +50,13 @@ extension String {
         return -1;
     }
     
+    func lastIndex(of string: String) -> Int {
+        if let index = range(of: string, options: .backwards){
+            return self.distance(from: self.startIndex, to: index.lowerBound)
+        }
+        return -1;
+    }
+    
     func contains(needle: String)-> Bool{
         return indexOf(needle: needle) != -1;
     }
@@ -69,8 +72,6 @@ extension String {
 }
 
 public class NordNumberUtil {
-    
-    
 
     public static let NORD_CHARS = Array<String>(arrayLiteral: "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
             "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
@@ -165,6 +166,8 @@ public class NordNumberUtil {
         }
         return -1;
     }
+    
+    
     
     public static func charIndexOf( needle: String, text: String)->Int{
         let str = text
