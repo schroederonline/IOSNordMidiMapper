@@ -1,0 +1,67 @@
+DrawbarUpper 1 16
+DrawbarUpper 2 17
+DrawbarUpper 3 18
+DrawbarUpper 4 19
+DrawbarUpper 5 20
+DrawbarUpper 6 21
+DrawbarUpper 7 22
+DrawbarUpper 8 23
+DrawbarUpper 9 24
+DrawbarLower 1 70
+DrawbarLower 2 71
+DrawbarLower 3 72
+DrawbarLower 4 73
+DrawbarLower 5 74
+DrawbarLower 6 75
+DrawbarLower 7 76
+DrawbarLower 8 77
+DrawbarLower 9 78
+Organ Model Sel 9
+Preset/Manual Sel 3
+Perc Decay 88
+Perc Level 89
+Sustain Pedal 64
+Control Pedal 11
+Rotary Speed 82
+Rotary Stop Mode 79
+Vib Mode 84
+Vib On/Off UP 85
+Vib On/Off LO (B3 model) 107
+Perc On/Off 87
+Perc Third 95
+Samp Attack Sel 33
+Samp Release Sel 34
+Clav EQ Brill On/Off 103
+Clav EQ Treble On/Off 104
+Clav EQ Medium On/Off 105
+Clav EQ Soft On/Off 106
+Inst Sel (Organ/Piano) 13
+Clav Select 45
+Piano Type 12
+Piano Model 44
+Piano Mono 83
+Acoustics 98
+Oct Shift Organ Upper 27
+Oct Shift Organ Lower 28
+Oct Shift Piano 29
+EQ On/Off 115
+EQ Treble 113
+EQ Mid 116
+EQ Mid Freq 117
+EQ Bass 114
+Gain 7
+Effect 1 Rate 63
+Effect 1 Sel 60
+Effect 1 On/Off 69
+Effect 2 Rate 62
+Effect 2 Sel 61
+Effect 2 On/Off 80
+Speaker/Comp Drive 111
+Speaker/Comp Sel 81
+Speaker/Comp On/Off 86
+Reverb Wet/Dry 102
+Reverb Sel 96
+Reverb On/Off 97
+Delay Rate 92
+Delay Ping Pong 93
+Delay On/Off 94

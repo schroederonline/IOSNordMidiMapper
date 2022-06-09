@@ -1,0 +1,60 @@
+Arp Run 90
+Arp Tempo/Clk Divisions 9
+Arp Master Clock Enable 86
+Arp Range 88
+Arp Direction 89
+Glide Rate 5
+Mono Selector 15
+Voice Mode Unison 16
+Pitch Bend Range 118
+Vibrato Select 56
+LFO Rate/Clk Divisions 19
+LFO Waveform Selector 20
+LFO Master Clock Enable 2
+LFO Envelope Selector 34
+Mod Envelope Attack 26
+Mod Envelope Decay/Sustain 27
+Mod Envelope Release 28
+Mod Envelope Invert 38
+Mod Envelope Velocity 29
+Osc LFO Modulation Amount 68
+Osc Mod Envelope Amount 69
+Osc Control 31
+Osc Waveform Selector 30
+Osc Configuration 33
+Filter LFO Modulation Amount 48
+Filter Mod Envelope Amount 43
+Filter Frequency 74
+Filter Type 44
+Filter Keyboard Tracking 46
+Filter Drive 47
+Filter Resonance 42
+Amp Envelope Attack 73
+Amp Envelope Decay 36
+Amp Envelope Release 72
+Amp Envelope Velocity 35
+FX Amount 55
+FX Selection 53
+FX On/Off 52
+Delay Tempo/Clk Divisions 78
+Delay Master Clock Enable 51
+Delay Feedback 79
+Delay Ping Pong 100
+Delay Amount 76
+Delay On/Off 99
+Output Level 71
+Pan 10
+Reverb Amount 98
+Reverb Selector 96
+Reverb On/Off 97
+Octave Shift 17
+Hold 58
+Hold Enable 54
+Slot Focus 119
+Slot Enable 115
+Volume Pedal 7
+Ctrl Pedal/Wheel/Morph 11
+Mod Wheel 1
+Sustain Pedal 64
+Bank Select MSB 0
+Bank Select LSB 32

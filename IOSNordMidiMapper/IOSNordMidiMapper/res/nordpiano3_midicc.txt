@@ -1,0 +1,58 @@
+Bank Select MSB 0
+Bank Select LSB 32
+Sustain 64
+Sostenuto 66
+effect 1 enable 69
+effect 1 Type 60
+effect 1 Rate 63
+effect 1 Source Select 70
+effect 1 Ctrl pedal 72
+Soft pedal 67
+Volume/Ctrl pedal (expression) 11
+piano enable 46
+Sample Synth enable 55
+Transpose enable 15
+effect 2 enable 80
+effect 2 Type 61
+effect 2 Rate 62
+effect 2 Source Select 71
+effect 2 deep Mode 73
+KB Split Mode 14
+KB Split point 16
+Transpose Value 17
+Live Mode 48
+Mono Mode 83
+piano Level 106
+piano Type 12
+piano Model 44
+piano Variation 45
+piano KBd Touch 47
+Amp/Comp Type 81
+Amp/Comp enable 86
+Amp/Comp drive 111
+Amp/Comp Source Select 87
+delay Tempo 92
+delay enable 84
+delay dry/Wet 75
+delay Feedback 76
+delay Source Select 85
+piano Acoustic 79
+piano pedals 107
+piano Octave Shift 105
+Sample Synth Level 51
+Reverb Type 96
+Reverb enable 97
+Reverb dry/Wet 102
+Reverb Bright 98
+Sample Select 52
+Sample Synth Attack 53
+Sample Synth Release 54
+Sample Synth dynamics 77
+Sample Synth Octave Shift 56
+Sample Synth pedals 108
+eQ Treble 113
+eQ enable 115
+eQ Mid 116
+eQ Mid Frequency 117
+eQ Bass 112
+eQ Source Select 118

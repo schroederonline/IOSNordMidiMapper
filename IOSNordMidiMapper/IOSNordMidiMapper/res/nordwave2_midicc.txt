@@ -1,0 +1,87 @@
+Bank Select MSB 0
+Bank Select LSB 32
+Sustain 64
+Ctrl pedal (expression) 11
+KB Hold 23
+KB Hold enable 27
+pStick enable 26
+Octave Shift 24
+program Level 3
+vibrato 51
+Glide 48
+voice Mode 49
+Arp/Gate Rate 74
+Arp/Gate Range/env 76
+Arp/Gate Mode 72
+Arp/Gate direction 75
+Arp/Gate Zig-Zag 69
+Arp/Gate Run 77
+Arp/Gate KB Sync 71
+Arg/Gate Mst Clk 68
+LFO Amount 78
+LFO Rate 79
+LFO Mst Clk 110
+LFO Waveform 80
+LFO destination 109
+Osc Mod env Attack 42
+Osc Mod env dec/Rel 43
+Osc Mod env Amount 45
+Osc Mod env destination 44
+Osc Mod env vel 46
+Osc Mod env AR mode 47
+Osc Unison 39
+Osc Semitones 37
+Osc Fine Tune 36
+Layer A Level 12
+Layer B Level 13
+Layer C Level 14
+Layer D Level 15
+drive Amount 101
+eQ Bass/Gain 102
+eQ Treble/Freq 104
+eQ parametric On/Off 106
+eQ/drive On/Off 105
+Layer A pan 16
+Layer B pan 17
+Layer C pan 18
+Layer D pan 19
+Amp env Attack 82
+Amp env Attack Transient 81
+Amp env decay 83
+Amp env Sustain 84
+Amp env Release 85
+Amp env velocity 86
+delay On/Off 97
+delay Mst Clk 92
+delay dry/Wet 93
+delay Tempo Tap/Set 94
+delay Analog On/Off 96
+delay Rate 94
+delay Feedback effect Type 108
+delay Feedback effect deep 100
+delay Feedback 95
+delay Feedback Filter Type 99
+delay ping-pong 98
+Filter env Attack 52
+Filter env decay 53
+Filter env Sustain 54
+Filter env Release 55
+Filter KB Track 63
+Filter drive 61
+Filter Freq 59
+Filter Resonance 60
+Filter Type 65
+Filter env Amount 62
+Filter env velocity 56
+Filter env invert 57
+Filter On/Off 58
+Reverb On 116
+Reverb Type 115
+Reverb Chorale 118
+Reverb Bright/dark 117
+Reverb dry/Wet 113
+effects On/Off 91
+effects Type 87
+effects Amount 89
+effects Rate 90
+effects Rate Mst Clk 88

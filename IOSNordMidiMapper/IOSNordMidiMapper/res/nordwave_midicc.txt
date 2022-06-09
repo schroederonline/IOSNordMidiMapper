@@ -1,0 +1,68 @@
+Oct Shift 17
+Glide 5
+Vibrato 56
+LFO 1 Wave sel 20
+LFO 1 Dest 21
+LFO 1 Poly 83
+LFO 1 Rate 19
+LFO 1 Amount 22
+LFO 2 Wave Sel 85
+LFO 2 Dest 24
+LFO 2 Single 87
+LFO 2 Rate 23
+LFO 2 Amount 25
+Mod Env Attack 26
+Mod Env Decay 27
+Mod Env Amount 29
+Mod Env Dest 28
+Mod Env Rel Mode 109
+Osc 1 Waveform 30
+Osc 1 Sync 35
+Osc 1 Wave FM Selection 47
+Osc 1 Misc Selection 48
+Osc 1 Wavetable Selection 49
+Osc 1 Shape 79
+Osc 2 Waveform 31
+Osc 2 Wave FM Selection 93
+Osc 2 Misc Selection 118
+Osc 2 Samp Instr Sel 50
+Osc 2 Skip Attack 51
+Osc 2 Samp Decay 52
+Osc 2 Semi Tones 78
+Osc 2 Fine Tune 33
+Osc 2 Shape 102
+Osc Mod Selector 105
+Osc Mod Amount 70
+Osx Mix 8
+Amp Env Attack 73
+Amp Env Decay 36
+Amp Env Sustain 37
+Amp Env Release 72
+Filter Env Attack 38
+Filter Env Decay 39
+Filter Env Sustain 40
+Filter Env Release 41
+Filter Mode 44
+Filter Keyb Tracking 46
+Filter Slope 58
+Filter Velocity 45
+Filter Frequency 74
+Filter Resonance 42
+Filter Envelope Amount 43
+Output Level 71
+EQ Treble 113
+EQ Bass 114
+Chorus 53
+Tube Amp Enable 92
+Tube Amp Drive 89
+Delay Tempo 77
+Delay Feedback 116
+Delay Stereo 117
+Delay Amount 76
+Delay Enable 80
+Reverb Model 96
+Reverb Amount 95
+Reverb Enable 97
+Slot Focus 119
+Layer Mode 115
+Chord Enable 112

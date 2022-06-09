@@ -1,0 +1,112 @@
+Organ Preset II 3
+Organ Swell 4
+Organ Drawbar 1 9
+Organ Drawbar 2 14
+Organ Drawbar 3 15
+Organ Drawbar 4 16
+Organ Drawbar 5 17
+Organ Drawbar 6 18
+Organ Drawbar 7 19
+Organ Drawbar 8 20
+Organ Drawbar 9 21
+Organ Percussion Enable 22
+Organ Model 23
+Organ Vibrato Type 24
+Organ Vibrato Enable 25
+Organ Percussion Harmonic 26
+Organ Percussion Speed 27
+Organ Percussion Level 28
+Organ Octave Shift 99
+Organ Level 100
+Organ Enable 101
+Piano Type 8
+Piano Model 29
+Piano Slot Detune 5
+Clav EQ 1 30
+Clav EQ 2 31
+Clav Model/Type 65
+Piano Dynamics 33
+Piano Acoustic 98
+Piano Octave Shift 105
+Piano Level 106
+Piano Enable 107
+Piano Pedal Noise 108
+Synth Octave Shift 111
+Synth Level 112
+Synth Enable 113
+Synth Glide Rate 34
+Synth Arp On/Off 109
+Synth Arp Mst Clk 12
+Synth Arp Rate 102
+Synth Arp Pattern 103
+Synth Arp Range 104
+Synth Voice Mode 36
+Synth Unison 37
+Synth Vibrato Mode 38
+Synth Mod Envelope Attack 39
+Synth Mod Envelope Decay 40
+Synth Mod Envelope Mode 41
+Synth Mod Envelope Velocity 42
+Synth LFO Rate 115
+Synth LFO Waveform 116
+LFO Master Clk 13
+Synth Oscillator Mode 43
+Synth Waveform Select 44
+Synth Oscillator Shape 45
+Synth Oscillator Shape Mod 46
+Synth Filter Frequency 48
+Synth Filter Resonance 49
+Synth Filter Vel/Env Mod 2
+Synth Filter LFO Mod 51
+Synth Filter KBT (Keyb . track) 52
+Synth Filter Type 53
+Synth Amp Envelope Attack 54
+Synth Amp Envelope Decay 55
+Synth Amp Envelope Mode 56
+Synth Amp Envelope Velocity 57
+Effect 1 Type 60
+Effect 1 Source 61
+Effect 1 Amount 62
+Effect 1 Rate 63
+Effect 1 Enable 69
+Effect 1 Mst Clk 117
+Effect 2 Type 70
+Effect 2 Source 71
+Effect 2 Amount 72
+Effect 2 Rate 73
+Effect 2 Enable 74
+Effect 2 Mst Clk 118
+Delay Destination 75
+Delay Amount 76
+Delay Rate 77
+Delay Feedback 78
+Delay Ping Pong on/off 79
+Delay Enable 80
+Delay Mst Clk 119
+AmpSim Type 81
+AmpSim Destination 90
+AmpSim Drive 83
+AmpSim Bass EQ 84
+AmpSim Mid amount EQ 85
+AmpSim Mid Range 6
+AmpSim Treble EQ 86
+AmpSim Enable 87
+Rotor Destination 88
+Rotor Drive 89
+Rotor Speed 82
+Rotor Stop 91
+Rotor Enable 92
+Compressor Amount 93
+Compressor Enable 94
+Reverb Amount 95
+Reverb Size 96
+Reverb Enable 97
+Slot Focus 68
+Pedal Sustain 64
+Pedal Latch 66
+Pedal Soft 67
+Organ Swell Pedal 4
+Ctrl Pedal 11
+Rotor Speed Pedal 82
+KB Gate Pedal 114
+Master Level 7

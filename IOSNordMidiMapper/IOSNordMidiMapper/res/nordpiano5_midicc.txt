@@ -1,0 +1,70 @@
+Bank Select MSB Program 0
+Bank Select MSB Live 6
+Bank Select MSB Piano 3
+Bank Select MSB Sample 4
+Bank Select LSB 32
+volume 7
+Pan 10
+effect Mod 2 enable 91
+effect Mod 2 Type 87
+effect Mod 2 source 88
+effect Mod 2 deep 89
+effect Mod 2 rate 90
+amp/Comp enable 118
+amp/Comp Type 100
+amp/Comp source 119
+amp/Comp drive 117
+eQ enable 105
+eQ source 106
+eQ Bass 102
+eQ Mid 103
+eQ Treble 104
+eQ Mid Frequency 107
+delay enable 97
+delay source 92
+delay Ping Pong 98
+delay dry/Wet 93
+delay rate 94
+delay Feedback 95
+reverb enable 116
+reverb Type 115
+reverb dry/Wet 113
+reverb Bright/dark 112
+reverb Chorale 111
+sustain 64
+soft Pedal 67
+sostenuto 66
+Ctrl Pedal (expression) 11
+KB split Key 5
+KB splt x-Fade 6
+Transpose on/off 9
+Piano layer a on/off 33
+Piano layer B on/off 37
+Piano level 34
+Piano octave shift 35
+Piano sustain Pedal 49
+Piano volume Pedal 50
+Piano Timbre 40
+Piano acoustics 52
+Piano Touch 51
+Piano Pedal Noise 53
+Piano layer detune 54
+Piano KB split 55
+sample synth layer a on/off 42
+sample synth layer B on/off 57
+sample synth level 43
+sample synth octave shift 44
+sample synth sustain Pedal 45
+sample synth volume Pedal 46
+sample synth attack 68
+sample synth decay/release 69
+sample synth dynamics 72
+sample synth Timbre 65
+sample synth vibrato 74
+sample synth Unison 63
+sample synth KB split 77
+effect Mod 1 enable 82
+effect Mod 1 Type 83
+effect Mod 1 source 84
+effect Mod 1 Ctrl Ped 85
+effect Mod 1 rate 86

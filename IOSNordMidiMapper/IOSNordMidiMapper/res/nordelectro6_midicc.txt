@@ -1,0 +1,81 @@
+Bank Select MSB Program 0
+Bank Select MSB Live 6
+Bank Select MSB Piano 3
+Bank Select MSB Sample 4
+Bank Select LSB 32
+volume 7
+pan 10
+Sustain 64
+Ctrl pedal (expression) 11
+Sample Synth enable 42
+Sample Synth Level 43
+Sample Synth Octave Shift 44
+Sample Synth Sustain pedal 45
+Sample Synth Ctrl pedal 46
+Sample Synth Attack 68
+Sample Synth decay/Release 69
+Sample Synth dynamics 72
+Sample Synth Filter 73
+Organ enable 9
+Organ Octave Shift 12
+Organ Sustain pedal 47
+Organ Ctrl pedal 48
+Organ Level 13
+Organ Model 14
+Organ preset 15
+Organ drawbar 1 16
+Organ drawbar 2 17
+Organ drawbar 3 18
+Organ drawbar 4 19
+Organ drawbar 5 20
+Organ drawbar 6 21
+Organ drawbar 7 22
+Organ drawbar 8 23
+Organ drawbar 9 24
+Organ percussion enable 25
+Organ vibrato Type 26
+Organ vibrato enable 27
+Organ percussion Harmonic 28
+Organ percussion Speed 29
+Organ percussion Level 30
+Organ edit Lower Manual 33
+piano enable 8
+piano Level 34
+piano Octave Shift 35
+piano eQ 40
+piano Sustain pedal 49
+piano Ctrl pedal 50
+piano Type 36
+piano Model 37
+piano variation 38
+effect 1 enable 82
+effect 1 Type 83
+effect 1 Source 84
+effect 1 Ctrl ped 85
+effect 1 Rate 86
+effect 2 Type 87
+effect 2 Source 88
+effect 2 deep 89
+effect 2 Rate 90
+effect 2 enable 91
+delay Source 92
+delay Amount 93
+delay Rate 94
+delay Feedback 95
+delay enable 97
+delay ping-pong 98
+Amp/Spkr Type 100
+Amp/Spkr drive 101
+Amp/Spkr enable 118
+Amp/Spkr Source 119
+eQ Bass 102
+eQ Mid 103
+eQ Treble 104
+eQ enable 105
+eQ Source 106
+eQ Mid Frequency 107
+Rotary Speed 108
+Reverb Bright 112
+Reverb Amount 113
+Reverb Type 115
+Reverb enable 116

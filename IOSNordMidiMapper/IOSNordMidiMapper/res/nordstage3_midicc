@@ -1,0 +1,111 @@
+Bank Select MSB 0
+Bank Select LSB 32
+Sustain 64
+Sostenuto 66
+Soft Pedal 67
+Ctrl Pedal (Expression) 11
+Live Mode 2
+Song Mode 3
+Song Part 5
+Panel Enable 6
+Panel Focus 8
+Organ Enable 9
+Organ Octave Shift 12
+Organ Level 13
+Organ Model 14
+Organ Preset 15
+Organ Drawbar 1 16
+Organ Drawbar 2 17
+Organ Drawbar 3 18
+Organ Drawbar 4 19
+Organ Drawbar 5 20
+Organ Drawbar 6 21
+Organ Drawbar 7 22
+Organ Drawbar 8 23
+Organ Drawbar 9 24
+Organ Percussion Enable 25
+Organ Vibrato Type 26
+Organ Vibrato Enable 27
+Organ Percussion Harmonic 28
+Organ Percussion Speed 29
+Organ Percussion Level 30
+Piano Enable 33
+Piano Level 34
+Piano Octave Shift 35
+Piano Type 36
+Piano Model 37
+Piano Variation 38
+Piano Layer Detune 39
+Piano EQ 40
+Synth Enable 42
+Synth Level 43
+Synth Octave Shift 44
+Synth Osc Config 45
+Synth Osc Bank 46
+Synth OscWave 47
+Synth Glide Rate 48
+Synth Voice Mode 49
+Synth Unison 50
+Synth Vibrato Mode 51
+Synth Mod Envelope Attack 52
+Synth Mod Envelope Decay 53
+Synth Mod Envelope Velocity 54
+Synth Osc Pitch 55
+Synth Osc Ctrl 56
+Synth Mod Envelope Release 57
+Synth Osc Modulation 58
+Synth Filter Freq 59
+Synth Filter Resonance 60
+Synth Filter Drive 61
+Synth Filter LFO Amount 62
+Synth Filter KBD Track 63
+Synth Filter Type 65
+Synth Amp Envelope Attack 68
+Synth Amp Envelope Decay 69
+Synth Amp Envelope Release 71
+Synth Amp Envelope Velocity 72
+Synth Filter Modulation 73
+Synth Arpeggiator Rate 74
+Synth Arpeggiator Pattern 75
+Synth Arpeggiator Range 76
+Synth Arpeggiator Run 77
+Synth Keyboard Hold 78
+Synth LFO Rate 79
+Synth LFO Wave 80
+Effect 1 Enable 82
+Effect 1 Type 83
+Effect 1 Source 84
+Effect 1 Amount 85
+Effect 1 Rate 86
+Effect 2 Type 87
+Effect 2 Source 88
+Effect 2 Amount 89
+Effect 2 Rate 90
+Effect 2 Enable 91
+Delay Source 92
+Delay Amount 93
+Delay Rate 94
+Delay Feedback 95
+Delay Mode 96
+Delay Enable 97
+Delay Ping-pong 98
+Delay Filter Type 99
+Amp/EQ Type 100
+Amp/EQ Drive 101
+Amp/EQ Bass 102
+Amp/EQ Mid 103
+Amp/EQ Treble 104
+Amp/EQ Enable 105
+Amp/EQ Source 106
+Amp/EQ Mid Frequency 107
+Rotary Speed 108
+Rotary Source 109
+Rotary Drive 110
+Rotary Enable 111
+Reverb Bright 112
+Reverb Amount 113
+Reverb Type 115
+Reverb Enable 116
+Compressor Amount 117
+Compressor Enable 118
+Compressor Mode 119

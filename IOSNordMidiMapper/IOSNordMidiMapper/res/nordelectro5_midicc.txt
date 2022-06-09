@@ -1,0 +1,82 @@
+Bank select MsB 0
+Bank select lsB 32
+sustain 64
+control Pedal (Expression) 11
+organ vibrato Enable 85
+sample synth attack 33
+sample synth release 34
+sample synth sample 35
+sample synth dynamics 36
+sample synth Filter velocity 37
+Part lower sound Engine select 39
+Part Upper sound Engine select 40
+Part lower Enable 41
+Part Upper Enable 42
+Part Mix level 13
+ctrl Pedal Enable Part lower 58
+ctrl Pedal Enable Part Upper 59
+Effect 1 Enable 69
+Effect 1 type 60
+Effect 1 rate 63
+Effect 1 Part select 71
+Effect 1 ctrl Pedal 73
+KB split Mode 50
+KB split Point 51
+transpose Enable 52
+transpose value 53
+octave shift Part lower 54
+Effect 2 Enable 80
+Effect 2 type 61
+Effect 2 rate 62
+Effect 2 Part select 72
+Effect 2 deep Mode 74
+octave shift Part Upper 55
+sustain Pedal Enable Part lower 56
+sustain Pedal Enable Part Upper 57
+Program/set list/live mode toggle 48
+spkr/comp type 81
+spkr/comp Enable 86
+spkr/comp drive 111
+spkr/comp Part select 112
+set list slot select 49
+Piano type 12
+Piano Model 44
+rotary stop Mode 79
+rotary speed 82
+rotary Pedal 90
+Piano variation 45
+Piano KBd touch 46
+Piano acoustic 98
+Piano Mono Mode 83
+delay tempo 92
+delay Ping Pong 93
+delay Enable 94
+delay dry/Wet 103
+delay Feedback 104
+delay Part select 105
+organ Preset select 3
+organ Model 9
+organ drawbar 1 16
+organ drawbar 2 17
+organ drawbar 3 18
+organ drawbar 4 19
+organ drawbar 5 20
+organ drawbar 6 21
+organ drawbar 7 22
+organ drawbar 8 23
+organ drawbar 9 24
+organ drawbar live 25
+organ Percussion Enable 87
+organ Percussion speed/level 88
+organ Percussion Harmonic 95
+organ vibrato type 84
+reverb type 96
+reverb Enable 97
+reverb dry/Wet 102
+EQ treble 113
+EQ Enable 115
+EQ Mid 116
+EQ Mid Frequency 117
+EQ Bass 118
+EQ Part select 119
+Gain level 7

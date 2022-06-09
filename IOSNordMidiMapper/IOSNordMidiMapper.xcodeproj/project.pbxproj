@@ -12,6 +12,20 @@
 		1F0086FA284CB21100CA2243 /* NordElectro6Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0086F9284CB21100CA2243 /* NordElectro6Node.swift */; };
 		1F0086FC284CB28F00CA2243 /* ModeLive1To4Bank7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0086FB284CB28F00CA2243 /* ModeLive1To4Bank7.swift */; };
 		1F7332BA284FE902009EE77D /* ModeSong1_01_1To3_49_5Bank2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7332B9284FE902009EE77D /* ModeSong1_01_1To3_49_5Bank2.swift */; };
+		1F7332BE285121E1009EE77D /* MidiCCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7332BD285121E1009EE77D /* MidiCCView.swift */; };
+		1F7332FF28527C0C009EE77D /* nordelectro4_midicc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F7332FE28527C0C009EE77D /* nordelectro4_midicc.txt */; };
+		1F73330128527C4B009EE77D /* nordstage3_midicc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F73330028527C4B009EE77D /* nordstage3_midicc.txt */; };
+		1F73330328527CE2009EE77D /* nordstage2_midicc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F73330228527CE2009EE77D /* nordstage2_midicc.txt */; };
+		1F73330528529313009EE77D /* nordelectro5_midicc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F73330428529313009EE77D /* nordelectro5_midicc.txt */; };
+		1F73330728529341009EE77D /* nordelectro6_midicc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F73330628529341009EE77D /* nordelectro6_midicc.txt */; };
+		1F7333092852937A009EE77D /* nordgrand_midicc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F7333082852937A009EE77D /* nordgrand_midicc.txt */; };
+		1F73330B285293A5009EE77D /* nordlead4_midicc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F73330A285293A5009EE77D /* nordlead4_midicc.txt */; };
+		1F73330D285293C8009EE77D /* nordleada1_midicc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F73330C285293C8009EE77D /* nordleada1_midicc.txt */; };
+		1F73330F285293EC009EE77D /* nordpiano3_midicc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F73330E285293EC009EE77D /* nordpiano3_midicc.txt */; };
+		1F73331128529421009EE77D /* nordpiano4_midicc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F73331028529421009EE77D /* nordpiano4_midicc.txt */; };
+		1F73331328529447009EE77D /* nordpiano5_midicc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F73331228529447009EE77D /* nordpiano5_midicc.txt */; };
+		1F73331528529486009EE77D /* nordwave2_midicc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F73331428529486009EE77D /* nordwave2_midicc.txt */; };
+		1F733317285294A5009EE77D /* nordwave_midicc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F733316285294A5009EE77D /* nordwave_midicc.txt */; };
 		1F75168726223C580015A8EF /* IOSNordMidiMapperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */; };
 		1F75168926223C580015A8EF /* DivicesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75168826223C580015A8EF /* DivicesListView.swift */; };
 		1F75168B26223C5A0015A8EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F75168A26223C5A0015A8EF /* Assets.xcassets */; };
@@ -71,6 +85,20 @@
 		1F0086F9284CB21100CA2243 /* NordElectro6Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordElectro6Node.swift; sourceTree = "<group>"; };
 		1F0086FB284CB28F00CA2243 /* ModeLive1To4Bank7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeLive1To4Bank7.swift; sourceTree = "<group>"; };
 		1F7332B9284FE902009EE77D /* ModeSong1_01_1To3_49_5Bank2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSong1_01_1To3_49_5Bank2.swift; sourceTree = "<group>"; };
+		1F7332BD285121E1009EE77D /* MidiCCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiCCView.swift; sourceTree = "<group>"; };
+		1F7332FE28527C0C009EE77D /* nordelectro4_midicc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = nordelectro4_midicc.txt; sourceTree = "<group>"; };
+		1F73330028527C4B009EE77D /* nordstage3_midicc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = nordstage3_midicc.txt; sourceTree = "<group>"; };
+		1F73330228527CE2009EE77D /* nordstage2_midicc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = nordstage2_midicc.txt; sourceTree = "<group>"; };
+		1F73330428529313009EE77D /* nordelectro5_midicc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = nordelectro5_midicc.txt; sourceTree = "<group>"; };
+		1F73330628529341009EE77D /* nordelectro6_midicc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = nordelectro6_midicc.txt; sourceTree = "<group>"; };
+		1F7333082852937A009EE77D /* nordgrand_midicc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = nordgrand_midicc.txt; sourceTree = "<group>"; };
+		1F73330A285293A5009EE77D /* nordlead4_midicc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = nordlead4_midicc.txt; sourceTree = "<group>"; };
+		1F73330C285293C8009EE77D /* nordleada1_midicc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = nordleada1_midicc.txt; sourceTree = "<group>"; };
+		1F73330E285293EC009EE77D /* nordpiano3_midicc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = nordpiano3_midicc.txt; sourceTree = "<group>"; };
+		1F73331028529421009EE77D /* nordpiano4_midicc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = nordpiano4_midicc.txt; sourceTree = "<group>"; };
+		1F73331228529447009EE77D /* nordpiano5_midicc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = nordpiano5_midicc.txt; sourceTree = "<group>"; };
+		1F73331428529486009EE77D /* nordwave2_midicc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = nordwave2_midicc.txt; sourceTree = "<group>"; };
+		1F733316285294A5009EE77D /* nordwave_midicc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = nordwave_midicc.txt; sourceTree = "<group>"; };
 		1F75168326223C580015A8EF /* IOSNordMidiMapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSNordMidiMapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSNordMidiMapperApp.swift; sourceTree = "<group>"; };
 		1F75168826223C580015A8EF /* DivicesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivicesListView.swift; sourceTree = "<group>"; };
@@ -146,6 +174,26 @@
 			path = song;
 			sourceTree = "<group>";
 		};
+		1F7332DF28527B24009EE77D /* res */ = {
+			isa = PBXGroup;
+			children = (
+				1F7332FE28527C0C009EE77D /* nordelectro4_midicc.txt */,
+				1F73330028527C4B009EE77D /* nordstage3_midicc.txt */,
+				1F73330228527CE2009EE77D /* nordstage2_midicc.txt */,
+				1F73330428529313009EE77D /* nordelectro5_midicc.txt */,
+				1F73330628529341009EE77D /* nordelectro6_midicc.txt */,
+				1F7333082852937A009EE77D /* nordgrand_midicc.txt */,
+				1F73330A285293A5009EE77D /* nordlead4_midicc.txt */,
+				1F73330C285293C8009EE77D /* nordleada1_midicc.txt */,
+				1F73330E285293EC009EE77D /* nordpiano3_midicc.txt */,
+				1F73331028529421009EE77D /* nordpiano4_midicc.txt */,
+				1F73331228529447009EE77D /* nordpiano5_midicc.txt */,
+				1F73331428529486009EE77D /* nordwave2_midicc.txt */,
+				1F733316285294A5009EE77D /* nordwave_midicc.txt */,
+			);
+			path = res;
+			sourceTree = "<group>";
+		};
 		1F75167A26223C580015A8EF = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +217,7 @@
 		1F75168526223C580015A8EF /* IOSNordMidiMapper */ = {
 			isa = PBXGroup;
 			children = (
+				1F7332DF28527B24009EE77D /* res */,
 				1FE406082842050F00B1C1D8 /* devices */,
 				1FE40603284202B600B1C1D8 /* node */,
 				1FE405EF2840E4B000B1C1D8 /* mode */,
@@ -179,6 +228,7 @@
 				1F75168C26223C5A0015A8EF /* Preview Content */,
 				1FE405ED2840D36900B1C1D8 /* DeviceView.swift */,
 				1FE4060D28420A5500B1C1D8 /* DeviceNodeModelItems.swift */,
+				1F7332BD285121E1009EE77D /* MidiCCView.swift */,
 			);
 			path = IOSNordMidiMapper;
 			sourceTree = "<group>";
@@ -380,8 +430,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F7333092852937A009EE77D /* nordgrand_midicc.txt in Resources */,
+				1F73330B285293A5009EE77D /* nordlead4_midicc.txt in Resources */,
+				1F73331328529447009EE77D /* nordpiano5_midicc.txt in Resources */,
+				1F73330328527CE2009EE77D /* nordstage2_midicc.txt in Resources */,
+				1F73331528529486009EE77D /* nordwave2_midicc.txt in Resources */,
 				1F75168E26223C5A0015A8EF /* Preview Assets.xcassets in Resources */,
 				1F75168B26223C5A0015A8EF /* Assets.xcassets in Resources */,
+				1F73330128527C4B009EE77D /* nordstage3_midicc.txt in Resources */,
+				1F73330728529341009EE77D /* nordelectro6_midicc.txt in Resources */,
+				1F73330528529313009EE77D /* nordelectro5_midicc.txt in Resources */,
+				1F73330F285293EC009EE77D /* nordpiano3_midicc.txt in Resources */,
+				1F7332FF28527C0C009EE77D /* nordelectro4_midicc.txt in Resources */,
+				1F73330D285293C8009EE77D /* nordleada1_midicc.txt in Resources */,
+				1F73331128529421009EE77D /* nordpiano4_midicc.txt in Resources */,
+				1F733317285294A5009EE77D /* nordwave_midicc.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +504,7 @@
 				1FEB4E64284D0DA4007D2F94 /* ModeProgramA_01_1ToD_20_5.swift in Sources */,
 				1FEB4E6F284D2081007D2F94 /* NordWave2Node.swift in Sources */,
 				1FE4060C2842086400B1C1D8 /* NordStage3Node.swift in Sources */,
+				1F7332BE285121E1009EE77D /* MidiCCView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +663,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IOSNordMidiMapper/Preview Content\"";
 				DEVELOPMENT_TEAM = AHZ796KAV7;
 				ENABLE_PREVIEWS = YES;
@@ -608,6 +673,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = de.schroederonline.IOSNordMidiMapper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -622,6 +688,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IOSNordMidiMapper/Preview Content\"";
 				DEVELOPMENT_TEAM = AHZ796KAV7;
 				ENABLE_PREVIEWS = YES;
@@ -631,6 +698,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = de.schroederonline.IOSNordMidiMapper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

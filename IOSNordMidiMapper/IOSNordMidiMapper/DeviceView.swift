@@ -17,6 +17,8 @@ class VModel: ObservableObject{
     @Published var bank: String
     @Published var device: GenericDeviceModel
     @Published var selectedModeIndex: Int
+    
+    @Published var midicc: String
    
     
     init(device: GenericDeviceModel){
@@ -33,7 +35,23 @@ class VModel: ObservableObject{
         self.bank = String(mapperModel.getBank())
         self.nordProgram = mapperModel.getCurrentText()
         self.oldNordProgram = mapperModel.getCurrentText()
+        self.midicc = loadFile(fileName: device.getMidiCCFileName())
         
+    }
+    
+    
+    
+}
+
+func loadFile(fileName: String) -> String{
+    let x = fileName.substring(fromIndex: 0, toIndex: fileName.length()-4);
+    if let filepath = Bundle.main.path(forResource: x, ofType: "txt") {
+            let contents = try? String(contentsOfFile: filepath)
+            print(contents)
+        return contents!;
+    } else {
+        // example.txt not found!
+        return   " not found";
     }
     
 }
@@ -113,6 +131,8 @@ struct DeviceView: View {
                                )
                }.padding(.horizontal)
                Spacer()
+               
+               MidiCCView(vModel: vModel)
            }
            .onChange(of: vModel.program) { newValue in
                let mapperModel = vModel.device.getMapperModel();

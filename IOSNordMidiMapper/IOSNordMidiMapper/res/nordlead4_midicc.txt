@@ -1,0 +1,92 @@
+Voice Mode Unison 16
+Pitch Bend Range 118
+Vib Select 56
+Glide Rate 5
+Mono Selector 15
+Hold 58
+Mod Env Impsync 6
+Osc 1 Waveform 30
+Osc 1 Wavetable Selection 49
+Osc 2 Waveform 31
+Osc 2 Semi Tones 78
+Osc 2 Fine Tune 33
+Osc 2 KBT 34
+Osc 2 Noise Res 61
+Osc 2 Noise Freq 62
+Osc 2 Noise KBT 63
+Osc Mod Amount 69
+Osc Mod Select 105
+Osx Mix 8
+Amp Env Attack 73
+Amp Env Decay 36
+Amp Env Sustain 37
+Amp Env Release 72
+Amp Velocity 35
+Filter Env Attack 38
+Filter Env Decay 39
+Filter Env Sustain 40
+Filter Env Release 41
+Filter Keyb Tracking 46
+Hold Enable 54
+Chord Enable 112
+Octave Shift 17
+Impulse Morph Buttons 70
+LFO 1 Rate 19
+LFO 1 Waveform 20
+LFO 1 Destination 21
+LFO 1 Amount 22
+LFO 1 Mst Clk 2
+LFO 1 Clk Divisions 3
+LFO 1 KBS 83
+LFO 1 Impsync 59
+LFO1/Arp On/Off 91
+Arp Tempo 9
+Arp Mst Clk 86
+Arp Clk Division 87
+Arp Direction 89
+Arp Run 90
+Arp Range 88
+Arp KBS 92
+Arp Impsync 93
+Filter Type 44
+Filter Velocity 45
+Filter Frequency 74
+Filter Resonance 42
+Filter Drive 47
+Filter Envelope Amount 43
+Output Level 71
+FX Selection 53
+FX On/Off 52
+FX Amount 55
+Delay Tempo 77
+Delay Clk Division 57
+Delay Feedback 79
+Delay/Reverb Amount 76
+Delay Mst Clk 51
+Delay / Reverb selection 50
+Reverb Bright 94
+Reverb Model 96
+Delay/Reverb On Off 97
+LFO 2 Rate 23
+LFO 2 Waveform 85
+LFO 2 Destination 24
+LFO 2 Amount 25
+LFO 2 Mst Clk 18
+LFO 2 Clk Divisions 14
+LFO 2 KBS 12
+LFO 2 Impsync 13
+Mod Env Attack 26
+Mod Env Decay 27
+Mod Env Destination 28
+Pattern selection 117
+Slot Focus 119
+Slot Enable 115
+Pan 10
+Volume Pedal 7
+Ctrl Pedal 11
+Mod Wheel 1
+Sustain Pedal 64
+Bank Select MSB 0
+Bank Select LSB 32
+Mod Env Amount 29
+Mod Env Rel Mode 109
