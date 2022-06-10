@@ -11,7 +11,7 @@ import SwiftUI
 struct IOSNordMidiMapperApp: App {
     var body: some Scene {
         WindowGroup {
-            DeviceSelection()
+            DivicesListView()
         }
     }
 }

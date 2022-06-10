@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-struct DeviceSelection: View {
+struct DivicesListView: View {
     let deviceModels: [GenericDeviceModel] = DeviceNodeModelItems().getAvailableDeviceModels();
     var body: some View {
         NavigationView {
@@ -29,7 +29,7 @@ struct DeviceSelection: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        DeviceSelection()
+        DivicesListView()
     }
 }
 

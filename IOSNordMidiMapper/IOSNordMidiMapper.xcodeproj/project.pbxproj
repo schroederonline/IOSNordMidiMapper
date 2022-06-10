@@ -227,8 +227,8 @@
 				1F75168F26223C5A0015A8EF /* Info.plist */,
 				1F75168C26223C5A0015A8EF /* Preview Content */,
 				1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */,
-				1FE405ED2840D36900B1C1D8 /* DeviceView.swift */,
 				1F75168826223C580015A8EF /* DivicesListView.swift */,
+				1FE405ED2840D36900B1C1D8 /* DeviceView.swift */,
 				1F7332BD285121E1009EE77D /* MidiCCView.swift */,
 				1F7333182852983B009EE77D /* MidiCCRowView.swift */,
 			);

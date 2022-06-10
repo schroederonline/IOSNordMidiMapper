@@ -18,7 +18,7 @@ class VModel: ObservableObject{
     @Published var device: GenericDeviceModel
     @Published var selectedModeIndex: Int
     
-    @Published var midicc: String
+    @Published var midicc: [String]
    
     
     init(device: GenericDeviceModel){
@@ -41,38 +41,18 @@ class VModel: ObservableObject{
     
 }
 
-func loadFile(fileName: String) -> String{
-    let x = fileName.substring(fromIndex: 0, toIndex: fileName.length()-4);
-    if let filepath = Bundle.main.path(forResource: x, ofType: "txt") {
+func loadFile(fileName: String) -> [String]{
+    let name = fileName.substring(fromIndex: 0, toIndex: fileName.length()-4);
+    if let filepath = Bundle.main.path(forResource: name, ofType: "txt") {
             let contents = try? String(contentsOfFile: filepath)
-            print(contents)
-        return contents!;
+//        print(contents)
+       return  contents!.split(separatedBy: "\n")
+//        return contents!;
     } else {
         // example.txt not found!
-        return   " not found";
+        return [];
     }
     
-}
-
-
-struct TextFieldClearButton: ViewModifier {
-    @Binding var text: String
-    
-    func body(content: Content) -> some View {
-        HStack {
-            content
-            
-            if !text.isEmpty {
-                Button(
-                    action: { self.text = "" },
-                    label: {
-                        Image(systemName: "delete.left")
-                            .foregroundColor(Color(UIColor.opaqueSeparator))
-                    }
-                )
-            }
-        }
-    }
 }
 
 struct DeviceView: View {
@@ -128,10 +108,17 @@ struct DeviceView: View {
                                        .stroke(Color.gray, lineWidth: 1)
                                )
                }.padding(.horizontal)
+               
+               NavigationLink(destination: MidiCCView( vModel: vModel)) {
+                   Text("lalal")
+               }
+               
                Spacer()
                
-               MidiCCView(vModel: vModel)
-           }
+               
+//               MidiCCView(vModel: vModel)
+           
+        }
            .onChange(of: vModel.program) { newValue in
                let mapperModel = vModel.device.getMapperModel();
                let mode = mapperModel.getSelectedMode();

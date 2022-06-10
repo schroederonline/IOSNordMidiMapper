@@ -7,20 +7,21 @@
 
 import SwiftUI
 
-
-
-
 struct MidiCCView: View {
-    
-    @StateObject var vModel: VModel;
+    var vModel: VModel;
     
     var body: some View {
-        Text(vModel.midicc);
+        NavigationView{
+            List{
+                ForEach(vModel.midicc, id: \.self) { line in
+                    Text(line);
+                }
+            }.navigationTitle("MidiCC")
+        }
     }
-    
-    
-    
 }
+
+
 
 struct MidiCCView_Previews: PreviewProvider {
     static var previews: some View {
