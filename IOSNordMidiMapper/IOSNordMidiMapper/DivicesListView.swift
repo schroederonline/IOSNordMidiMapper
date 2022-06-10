@@ -9,21 +9,16 @@ import SwiftUI
 
 
 struct DeviceSelection: View {
-    
-    let deviceNodeModelItems = DeviceNodeModelItems.init();
-    
+    let deviceModels: [GenericDeviceModel] = DeviceNodeModelItems().getAvailableDeviceModels();
     var body: some View {
         NavigationView {
             HStack{
                 List {
-                    let deviceModels = deviceNodeModelItems.getAvailableDeviceModels();
-                    ForEach(0 ..< deviceModels.count) {
-                        let device = deviceModels[$0];
+                    ForEach(deviceModels) { device in
                         let deviceName = device.getName();
                         NavigationLink(destination: DeviceView( vModel: VModel( device: device))) {
                             Text(deviceName)
-                        }.navigationTitle("Nord Devices")
-                            .navigationBarTitleDisplayMode(.inline)
+                        }.navigationTitle("Nord Devices").navigationBarTitleDisplayMode(.inline)
                     }
                 }
             }

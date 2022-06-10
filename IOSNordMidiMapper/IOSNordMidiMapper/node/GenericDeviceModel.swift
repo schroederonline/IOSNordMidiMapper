@@ -8,14 +8,15 @@
 import Foundation
 import Combine
 
-public  class GenericDeviceModel{
-    
+public  class GenericDeviceModel: Identifiable{
+    public let id: String;
     private let name: String;
     private let mapperModel: MapperModelNord;
     private let midiCcName: String;
 
     
     public init( name: String,  mapperModel: MapperModelNord,  midiCcName: String) {
+        self.id = name;
         self.name = name;
         self.mapperModel = mapperModel;
         self.midiCcName = midiCcName;

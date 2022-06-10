@@ -9,8 +9,8 @@ import Foundation
 
 public class ModeCollection :  ObservableObject{
 
-    @Published var modes: Array<Mode> = [];
-    @Published var selected: Mode? = nil;
+    var modes: [Mode] = [];
+    var selected: Mode? = nil;
     
     
     public init() {
@@ -21,7 +21,7 @@ public class ModeCollection :  ObservableObject{
         selected = modes[0];
     }
 
-    public func getModes() -> Array<Mode>  {
+    public func getModes() -> [Mode]  {
         return modes;
     }
 
@@ -29,7 +29,7 @@ public class ModeCollection :  ObservableObject{
         return selected!;
     }
 
-    public func setSelectedMode( mode: Mode) -> Void {
+    public func setSelectedMode(mode: Mode) -> Void {
         selected = mode;
     }
 

@@ -28,17 +28,15 @@ public class RunableImpl: Runnable{
     }
 }
 
-public class Mode:  ObservableObject{
+public class Mode:  Identifiable{
     
-    let id: String;
+    public let id: String;
     let name: String;
     var defaultProgram: String;
     var programConsumer: StringConsumer;
-    @Published var currentText: String;
+    var currentText: String;
     var updateMidiToWhatEver: Runnable;
-    @Published var bank: Int = 1;
-//    private Function<TextFieldNord, ChangeListener<? super String>> textFieldListener;
-    
+    var bank: Int = 1;
 
     convenience init(name: String, defaultProgram: String){
         self.init(name: name, defaultProgram: defaultProgram, bank: 1);
