@@ -25,7 +25,7 @@ class VModel: ObservableObject{
         self.device = device
         let modes =  device.getMapperModel().getModeList()
         let selected = device.getMapperModel().getSelectedMode()
-        print("selected " + selected.getName())
+//        print("selected " + selected.getName())
         self.selectedModeIndex = modes.firstIndex{$0 === selected}!
         device.getMapperModel().setSelectedMode(mode: selected)
         
@@ -60,65 +60,70 @@ struct DeviceView: View {
     @StateObject var vModel: VModel;
     
     var body: some View {
-           VStack {
-               VStack(alignment: .leading) {
-                   Text(vModel.device.getName())
-                       .font(.title2)
-                   Text("Program Calculator").foregroundColor(Color.gray)
-                   HStack(){
-                       let modes =  vModel.device.getMapperModel().getModeList()
-                       let defaultText = vModel.device.getMapperModel().getSelectedMode().toDefault();
-                       TextField(defaultText, text: $vModel.nordProgram).disableAutocorrection(true)
-                       Picker(selection: $vModel.selectedModeIndex, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
-                           ForEach(0 ..< modes.count) {i in
-                               let mode = modes[i];
-                               Text(mode.getName()).tag(i)
-                           }
-                       }.font(.title2)
-                   }.padding(9)
-                       .background(
-                                   RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                       .stroke(Color.red, lineWidth: 1)
-                               )
-               }.padding(.horizontal)
-               VStack(alignment: .leading) {
-                   Text("Midi (1-128)" ).foregroundColor(Color.gray)
-                   HStack(){
-                       TextField("1", text: $vModel.bank).disableAutocorrection(true) .keyboardType(.numberPad)
-                       Text("Bank").foregroundColor(Color.gray)
-                   }.padding(9)
-                       .background(
-                                   RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                       .stroke(Color.gray, lineWidth: 1)
-                               )
-                   HStack(){
-                       TextField("1", text: $vModel.subBank).disableAutocorrection(true).keyboardType(.numberPad)
-                       Text("SubBank").foregroundColor(Color.gray)
-                   }.padding(9)
-                       .background(
-                                   RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                    .stroke(Color.gray, lineWidth: 1)
-                               )
-                   HStack(){
-                       TextField("1", text: $vModel.program).disableAutocorrection(true).keyboardType(.numberPad)
-                       Text("Program").foregroundColor(Color.gray)
-                   }.padding(9)
-                       .background(
-                                   RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                       .stroke(Color.gray, lineWidth: 1)
-                               )
-               }.padding(.horizontal)
-               
-               NavigationLink(destination: MidiCCView( vModel: vModel)) {
-                   Text("lalal")
-               }
-               
-               Spacer()
-               
-               
-//               MidiCCView(vModel: vModel)
+        
+            VStack {
+                VStack(alignment: .leading) {
+                    HStack{
+                        VStack{
+                            Text(vModel.device.getName())
+                                .font(.title2)
+                            Text("Program Calculator").foregroundColor(Color.gray)
+                        }
+                        Spacer()
+                        NavigationLink(destination: MidiCCView( vModel: vModel)) {
+                            Text("MIDI-Controls")
+                        }
+//                        .navigationTitle(vModel.device.getName())
+                        
+                    }
+                    
+                    HStack(){
+                        let modes =  vModel.device.getMapperModel().getModeList()
+                        let defaultText = vModel.device.getMapperModel().getSelectedMode().toDefault();
+                        TextField(defaultText, text: $vModel.nordProgram).disableAutocorrection(true)
+                        Picker(selection: $vModel.selectedModeIndex, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
+                            ForEach(0 ..< modes.count) {i in
+                                let mode = modes[i];
+                                Text(mode.getName()).tag(i)
+                            }
+                        }.font(.title2)
+                    }.padding(9)
+                        .background(
+                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                        .stroke(Color.red, lineWidth: 1)
+                                )
+                }.padding(.horizontal)
+                VStack(alignment: .leading) {
+                    Text("Midi (1-128)" ).foregroundColor(Color.gray)
+                    HStack(){
+                        TextField("1", text: $vModel.bank).disableAutocorrection(true) .keyboardType(.numberPad)
+                        Text("Bank").foregroundColor(Color.gray)
+                    }.padding(9)
+                        .background(
+                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                        .stroke(Color.gray, lineWidth: 1)
+                                )
+                    HStack(){
+                        TextField("1", text: $vModel.subBank).disableAutocorrection(true).keyboardType(.numberPad)
+                        Text("SubBank").foregroundColor(Color.gray)
+                    }.padding(9)
+                        .background(
+                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                     .stroke(Color.gray, lineWidth: 1)
+                                )
+                    HStack(){
+                        TextField("1", text: $vModel.program).disableAutocorrection(true).keyboardType(.numberPad)
+                        Text("Program").foregroundColor(Color.gray)
+                    }.padding(9)
+                        .background(
+                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                        .stroke(Color.gray, lineWidth: 1)
+                                )
+                }.padding(.horizontal)
+                Spacer()
+         }.navigationBarTitleDisplayMode(.inline)
+        
            
-        }
            .onChange(of: vModel.program) { newValue in
                let mapperModel = vModel.device.getMapperModel();
                let mode = mapperModel.getSelectedMode();

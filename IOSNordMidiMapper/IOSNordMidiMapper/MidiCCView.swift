@@ -14,9 +14,16 @@ struct MidiCCView: View {
         NavigationView{
             List{
                 ForEach(vModel.midicc, id: \.self) { line in
-                    Text(line);
+                    let index = line.lastIndex(of: " ");
+                    let name = line.substring(fromIndex: 0, toIndex: index);
+                    let ccNumber = line.substring(fromIndex: index + 1, toIndex: line.length())
+                    HStack{
+                        Text(name)
+                        Spacer()
+                        Text(ccNumber)
+                    }
                 }
-            }.navigationTitle("MidiCC")
+            }.navigationTitle("MIDI-Controls")
         }
     }
 }
@@ -25,7 +32,6 @@ struct MidiCCView: View {
 
 struct MidiCCView_Previews: PreviewProvider {
     static var previews: some View {
-        let m = NordStage3Node();
-        MidiCCView(vModel: VModel( device: m))
+        MidiCCView(vModel: VModel( device: NordStage3Node()))
     }
 }
