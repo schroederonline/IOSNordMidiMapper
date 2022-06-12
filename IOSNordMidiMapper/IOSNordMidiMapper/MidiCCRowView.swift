@@ -7,19 +7,23 @@
 
 import SwiftUI
 
-struct MidiCCRowView: View {
-    @State var name: String;
-    @State var cc: String;
+struct MidiCCRowView: View , Identifiable{
+    var id: String
+    
+    let name: String;
+    let cc: String;
     
     var body: some View {
         HStack{
             Text(name)
             Spacer()
             Text(cc)
-        }.padding()
+        }
+        .padding(.horizontal)
     }
     
     init(row: String){
+        self.id = UUID().uuidString
         let index: Int = row.lastIndex(of: " ");
         self.name = row.substring(fromIndex: 0, toIndex: index);
         self.cc = row.substring(fromIndex: (index+1), toIndex: row.length())

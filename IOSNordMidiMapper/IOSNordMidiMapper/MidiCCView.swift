@@ -8,22 +8,32 @@
 import SwiftUI
 
 struct MidiCCView: View {
-    var vModel: VModel;
+    private var vModel: VModel;
+    private var names: [String] = []
+    @State private var searchText = ""
+    
+    init(vModel: VModel){
+        self.vModel = vModel;
+        self.names = vModel.midicc;
+    }
     
     var body: some View {
-        NavigationView{
+        VStack{
             List{
-                ForEach(vModel.midicc, id: \.self) { line in
-                    let index = line.lastIndex(of: " ");
-                    let name = line.substring(fromIndex: 0, toIndex: index);
-                    let ccNumber = line.substring(fromIndex: index + 1, toIndex: line.length())
-                    HStack{
-                        Text(name)
-                        Spacer()
-                        Text(ccNumber)
-                    }
+                ForEach(searchResults, id: \.self) { line in
+                    MidiCCRowView(row: line)
                 }
-            }.navigationTitle("MIDI-Controls")
+            }
+            .navigationTitle("MIDI Controller")
+            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
+        }
+    }
+    
+    var searchResults: [String] {
+        if searchText.isEmpty {
+            return names
+        } else {
+            return names.filter { $0.uppercased().contains(searchText.uppercased()) }
         }
     }
 }

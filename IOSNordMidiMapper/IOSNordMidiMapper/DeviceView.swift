@@ -65,15 +65,13 @@ struct DeviceView: View {
                 VStack(alignment: .leading) {
                     HStack{
                         VStack{
-                            Text(vModel.device.getName())
-                                .font(.title2)
+//                            Text(vModel.device.getName())
+//                                .font(.title)
                             Text("Program Calculator").foregroundColor(Color.gray)
                         }
                         Spacer()
-                        NavigationLink(destination: MidiCCView( vModel: vModel)) {
-                            Text("MIDI-Controls")
-                        }
-//                        .navigationTitle(vModel.device.getName())
+                        
+//                            .navigationBarTitleDisplayMode(.inline)
                         
                     }
                     
@@ -120,9 +118,12 @@ struct DeviceView: View {
                                         .stroke(Color.gray, lineWidth: 1)
                                 )
                 }.padding(.horizontal)
+                NavigationLink(destination: MidiCCView( vModel: vModel)) {
+                    Text("MIDI Controller")
+                }
                 Spacer()
-         }.navigationBarTitleDisplayMode(.inline)
-        
+         }
+            .navigationTitle(vModel.device.getName()).navigationBarTitleDisplayMode(.inline)
            
            .onChange(of: vModel.program) { newValue in
                let mapperModel = vModel.device.getMapperModel();

@@ -28,7 +28,7 @@
 		1F733317285294A5009EE77D /* nordwave_midicc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F733316285294A5009EE77D /* nordwave_midicc.txt */; };
 		1F7333192852983B009EE77D /* MidiCCRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7333182852983B009EE77D /* MidiCCRowView.swift */; };
 		1F75168726223C580015A8EF /* IOSNordMidiMapperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */; };
-		1F75168926223C580015A8EF /* DivicesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75168826223C580015A8EF /* DivicesListView.swift */; };
+		1F75168926223C580015A8EF /* DevicesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75168826223C580015A8EF /* DevicesListView.swift */; };
 		1F75168B26223C5A0015A8EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F75168A26223C5A0015A8EF /* Assets.xcassets */; };
 		1F75168E26223C5A0015A8EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F75168D26223C5A0015A8EF /* Preview Assets.xcassets */; };
 		1F75169926223C5B0015A8EF /* IOSNordMidiMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F75169826223C5B0015A8EF /* IOSNordMidiMapperTests.swift */; };
@@ -103,7 +103,7 @@
 		1F7333182852983B009EE77D /* MidiCCRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiCCRowView.swift; sourceTree = "<group>"; };
 		1F75168326223C580015A8EF /* IOSNordMidiMapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSNordMidiMapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSNordMidiMapperApp.swift; sourceTree = "<group>"; };
-		1F75168826223C580015A8EF /* DivicesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivicesListView.swift; sourceTree = "<group>"; };
+		1F75168826223C580015A8EF /* DevicesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesListView.swift; sourceTree = "<group>"; };
 		1F75168A26223C5A0015A8EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F75168D26223C5A0015A8EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1F75168F26223C5A0015A8EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 				1F75168F26223C5A0015A8EF /* Info.plist */,
 				1F75168C26223C5A0015A8EF /* Preview Content */,
 				1F75168626223C580015A8EF /* IOSNordMidiMapperApp.swift */,
-				1F75168826223C580015A8EF /* DivicesListView.swift */,
+				1F75168826223C580015A8EF /* DevicesListView.swift */,
 				1FE405ED2840D36900B1C1D8 /* DeviceView.swift */,
 				1F7332BD285121E1009EE77D /* MidiCCView.swift */,
 				1F7333182852983B009EE77D /* MidiCCRowView.swift */,
@@ -482,7 +482,7 @@
 				1FEB4E77284D2727007D2F94 /* NordPiano4Node.swift in Sources */,
 				1F0086FA284CB21100CA2243 /* NordElectro6Node.swift in Sources */,
 				1FB50190284CEECA00FA644D /* ModeLive1To5Upper100Program.swift in Sources */,
-				1F75168926223C580015A8EF /* DivicesListView.swift in Sources */,
+				1F75168926223C580015A8EF /* DevicesListView.swift in Sources */,
 				1FE405F32840F76200B1C1D8 /* Mode.swift in Sources */,
 				1FE40605284202E300B1C1D8 /* TextFieldInterface.swift in Sources */,
 				1F0086F6284BF2BD00CA2243 /* ModeProgramA_11ToZ_55.swift in Sources */,
@@ -672,7 +672,7 @@
 				DEVELOPMENT_TEAM = AHZ796KAV7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = IOSNordMidiMapper/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -697,7 +697,7 @@
 				DEVELOPMENT_TEAM = AHZ796KAV7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = IOSNordMidiMapper/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
