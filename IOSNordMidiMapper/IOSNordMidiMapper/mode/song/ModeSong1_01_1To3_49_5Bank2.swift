@@ -63,7 +63,7 @@ public class ModeSong1_01_1To3_49_5Bank2: GenericMode {
             subBank += songIndex - 1;
         }
         getMidiModel().setSubBank(subBank: subBank + songIndex);
-        var programIndex: Int = Int(text.substring(fromIndex: 5, toIndex: 6))!;
+        let programIndex: Int = Int(text.substring(fromIndex: 5, toIndex: 6))!;
         getMidiModel().setProgram(program: (songNumber - 1) * ModeSong1_01_1To3_49_5Bank2.MAX_NUMBER_KEYS % ModeSong1_01_1To3_49_5Bank2.GREATESTCOMMON_DEVISOR + programIndex);
         if (isChanged) {
             getMidiModel().update();
