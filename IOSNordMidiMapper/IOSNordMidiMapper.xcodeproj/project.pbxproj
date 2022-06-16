@@ -141,6 +141,7 @@
 		1FEB4E72284D2528007D2F94 /* NordWaveNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordWaveNode.swift; sourceTree = "<group>"; };
 		1FEB4E74284D2645007D2F94 /* NordPiano5Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordPiano5Node.swift; sourceTree = "<group>"; };
 		1FEB4E76284D2727007D2F94 /* NordPiano4Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NordPiano4Node.swift; sourceTree = "<group>"; };
+		1FF61E92285BAE1E009C8217 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +200,7 @@
 		1F75167A26223C580015A8EF = {
 			isa = PBXGroup;
 			children = (
+				1FF61E92285BAE1E009C8217 /* README.md */,
 				1F75168526223C580015A8EF /* IOSNordMidiMapper */,
 				1F75169726223C5B0015A8EF /* IOSNordMidiMapperTests */,
 				1F7516A226223C5B0015A8EF /* IOSNordMidiMapperUITests */,
