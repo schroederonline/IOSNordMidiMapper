@@ -7,15 +7,6 @@
 import Combine
 import SwiftUI
 
-var isLowerMidi: Bool = true;
-
-func normalize(midi: Int) -> Int{
-    if(isLowerMidi){
-        return midi - 1;
-    }
-    return midi;
-}
-
 
 class VModel: ObservableObject{
     
@@ -27,6 +18,7 @@ class VModel: ObservableObject{
     @Published var device: GenericDeviceModel
     @Published var selectedModeIndex: Int
     @Published var midicc: [String]
+    @Published var isLowerMidi: Bool = true;
     
     init(device: GenericDeviceModel){
         self.device = device
@@ -35,22 +27,45 @@ class VModel: ObservableObject{
         self.selectedModeIndex = modes.firstIndex{$0 === selected}!
         device.getMapperModel().setSelectedMode(mode: selected)
         
+        let defaultIsLowerMidi = true;
+        self.isLowerMidi = defaultIsLowerMidi;
         let mapperModel = device.getMapperModel()
-        self.program = String(normalize(midi: mapperModel.getProgram()))
-        self.subBank = String(normalize(midi: mapperModel.getSubBank()))
-        self.bank = String(normalize(midi: mapperModel.getBank()))
+        var p = mapperModel.getProgram();
+        if(defaultIsLowerMidi){
+            p -= 1;
+        }
+        self.program = String(p)
+        var s = mapperModel.getSubBank();
+        if(defaultIsLowerMidi){
+            s -= 1;
+        }
+        self.subBank = String(s)
+        var b = mapperModel.getBank();
+        if(defaultIsLowerMidi){
+            b -= 1;
+        }
+        self.bank = String(b)
         self.nordProgram = mapperModel.getCurrentText()
         self.oldNordProgram = mapperModel.getCurrentText()
         self.midicc = loadFile(fileName: device.getMidiCCFileName())
         
     }
     
+    
+    func normalize(midi: Int) -> Int{
+        if(isLowerMidi){
+            return midi - 1;
+        }
+        return midi;
+    }
+
     func getDefaultMidiValue() -> String {
         if(isLowerMidi){
             return "0";
         }
         return "1";
     }
+
     
     
 }
@@ -97,7 +112,14 @@ struct DeviceView: View {
                                 )
                 }.padding(.horizontal)
                 VStack(alignment: .leading) {
-                    Text(getMidiTitle()).foregroundColor(Color.gray)
+                    Button(action: {
+                        vModel.isLowerMidi.toggle()
+                        updateVModel()
+                    }){
+                        Text(getMidiTitle())
+//                            .foregroundColor(Color.gray)
+                    }
+                    
                     HStack(){
                         TextField(vModel.getDefaultMidiValue(), text: $vModel.bank).disableAutocorrection(true) .keyboardType(.numberPad)
                         Text("Bank").foregroundColor(Color.gray)
@@ -133,10 +155,10 @@ struct DeviceView: View {
            .onChange(of: vModel.program) { newValue in
                let mapperModel = vModel.device.getMapperModel();
                let mode = mapperModel.getSelectedMode();
-               if (!isLowerMidi && NordNumberUtil.isNumber1To128(x: newValue)) {
+               if (!vModel.isLowerMidi && NordNumberUtil.isNumber1To128(x: newValue)) {
                    mapperModel.setProgram(program: Int(newValue)!);
                    vModel.program = newValue;
-               }else if (isLowerMidi && NordNumberUtil.isNumber0To127(x: newValue)) {
+               }else if (vModel.isLowerMidi && NordNumberUtil.isNumber0To127(x: newValue)) {
                    mapperModel.setProgram(program: (Int(newValue)! + 1) );
                    vModel.program = newValue;
                } else {
@@ -159,7 +181,7 @@ struct DeviceView: View {
                             updateVModel()
                       }
                       let p = mapperModel.getProgram();
-                      if(isLowerMidi){
+                      if(vModel.isLowerMidi){
                           vModel.program = String(p - 1)
                       }else{
                           vModel.program = String(p)
@@ -173,10 +195,10 @@ struct DeviceView: View {
            }.onChange(of: vModel.subBank) { newValue in
                let mapperModel = vModel.device.getMapperModel();
                let mode = mapperModel.getSelectedMode();
-               if (!isLowerMidi && NordNumberUtil.isNumber1To128(x: newValue)) {
+               if (!vModel.isLowerMidi && NordNumberUtil.isNumber1To128(x: newValue)) {
                    mapperModel.setSubBank(subBank: Int(newValue)!);
                    vModel.subBank = newValue;
-               }else if (isLowerMidi && NordNumberUtil.isNumber0To127(x: newValue)) {
+               }else if (vModel.isLowerMidi && NordNumberUtil.isNumber0To127(x: newValue)) {
                    mapperModel.setSubBank(subBank: (Int(newValue)! + 1));
                    vModel.subBank = newValue;
                }else {
@@ -187,13 +209,13 @@ struct DeviceView: View {
                let mapperModel = vModel.device.getMapperModel();
                let mode = mapperModel.getSelectedMode();
                let oldValue = mapperModel.getBank();
-               if (!isLowerMidi && NordNumberUtil.isNumber1To128(x: newValue)) {
+               if (!vModel.isLowerMidi && NordNumberUtil.isNumber1To128(x: newValue)) {
                    mapperModel.setBank(bank: Int(newValue)!);
                    vModel.bank = newValue;
                    if(oldValue != Int(newValue)!){
                        updateVModel();
                    }
-               }else if (isLowerMidi && NordNumberUtil.isNumber0To127(x: newValue)) {
+               }else if (vModel.isLowerMidi && NordNumberUtil.isNumber0To127(x: newValue)) {
                    mapperModel.setBank(bank: (Int(newValue)! + 1));
                    vModel.bank = newValue;
                    if(oldValue != (Int(newValue)! + 1)){
@@ -213,7 +235,7 @@ struct DeviceView: View {
     
     
     func updateVModel() ->Void{
-        if(isLowerMidi){
+        if(vModel.isLowerMidi){
             vModel.program = String(vModel.device.getMapperModel().getProgram() - 1)
             vModel.subBank = String(vModel.device.getMapperModel().getSubBank() - 1)
             vModel.bank = String(vModel.device.getMapperModel().getBank() - 1)
@@ -230,8 +252,8 @@ struct DeviceView: View {
     }
     
     func getMidiTitle() -> String {
-        if(isLowerMidi){
-            return "Midi (1-127)" ;
+        if(vModel.isLowerMidi){
+            return "Midi (0-127)" ;
         }
         return "Midi (1-128)" ;
     }
