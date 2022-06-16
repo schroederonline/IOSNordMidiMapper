@@ -92,25 +92,7 @@ public class MidiModel{
     
     public func update() -> Void {
             updateMidiToWhatEver();
-        
-        //FIXME
-        //listeners.forEach(l -> l.invalidated(this));
-    }
-    
-    
-//    FIXME
-//    @Override
-//    public void addListener(InvalidationListener listener) {
-//        listeners.add(listener);
-//    }
-
-//    @Override
-//    public void removeListener(InvalidationListener listener) {
-//        listeners.remove(listener);
-//    }
-
-
-    
+     }
     
     
     public func replacePlaceHolderString( text: String)-> String  {

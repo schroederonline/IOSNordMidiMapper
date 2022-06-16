@@ -106,6 +106,10 @@ public class NordNumberUtil {
         return isNumber(x: x, from: 1, to: 8);
     }
 
+    public static func isNumber0To127(x: String) -> Bool{
+        return isNumber(x: x, from: 0, to: 127);
+    }
+    
     public static func isNumber1To128(x: String) -> Bool{
         return isNumber(x: x, from: 1, to: 128);
     }

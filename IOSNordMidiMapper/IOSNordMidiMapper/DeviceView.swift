@@ -7,6 +7,15 @@
 import Combine
 import SwiftUI
 
+var isLowerMidi: Bool = true;
+
+func normalize(midi: Int) -> Int{
+    if(isLowerMidi){
+        return midi - 1;
+    }
+    return midi;
+}
+
 
 class VModel: ObservableObject{
     
@@ -17,27 +26,32 @@ class VModel: ObservableObject{
     @Published var bank: String
     @Published var device: GenericDeviceModel
     @Published var selectedModeIndex: Int
-    
     @Published var midicc: [String]
-   
     
     init(device: GenericDeviceModel){
         self.device = device
         let modes =  device.getMapperModel().getModeList()
         let selected = device.getMapperModel().getSelectedMode()
-//        print("selected " + selected.getName())
         self.selectedModeIndex = modes.firstIndex{$0 === selected}!
         device.getMapperModel().setSelectedMode(mode: selected)
         
         let mapperModel = device.getMapperModel()
-        self.program = String(mapperModel.getProgram())
-        self.subBank = String(mapperModel.getSubBank())
-        self.bank = String(mapperModel.getBank())
+        self.program = String(normalize(midi: mapperModel.getProgram()))
+        self.subBank = String(normalize(midi: mapperModel.getSubBank()))
+        self.bank = String(normalize(midi: mapperModel.getBank()))
         self.nordProgram = mapperModel.getCurrentText()
         self.oldNordProgram = mapperModel.getCurrentText()
         self.midicc = loadFile(fileName: device.getMidiCCFileName())
         
     }
+    
+    func getDefaultMidiValue() -> String {
+        if(isLowerMidi){
+            return "0";
+        }
+        return "1";
+    }
+    
     
 }
 
@@ -45,14 +59,10 @@ func loadFile(fileName: String) -> [String]{
     let name = fileName.substring(fromIndex: 0, toIndex: fileName.length()-4);
     if let filepath = Bundle.main.path(forResource: name, ofType: "txt") {
             let contents = try? String(contentsOfFile: filepath)
-//        print(contents)
        return  contents!.split(separatedBy: "\n")
-//        return contents!;
     } else {
-        // example.txt not found!
-        return [];
+        return [];// not found!
     }
-    
 }
 
 struct DeviceView: View {
@@ -65,14 +75,9 @@ struct DeviceView: View {
                 VStack(alignment: .leading) {
                     HStack{
                         VStack{
-//                            Text(vModel.device.getName())
-//                                .font(.title)
                             Text("Program Calculator").foregroundColor(Color.gray)
                         }
                         Spacer()
-                        
-//                            .navigationBarTitleDisplayMode(.inline)
-                        
                     }
                     
                     HStack(){
@@ -92,9 +97,9 @@ struct DeviceView: View {
                                 )
                 }.padding(.horizontal)
                 VStack(alignment: .leading) {
-                    Text("Midi (1-128)" ).foregroundColor(Color.gray)
+                    Text(getMidiTitle()).foregroundColor(Color.gray)
                     HStack(){
-                        TextField("1", text: $vModel.bank).disableAutocorrection(true) .keyboardType(.numberPad)
+                        TextField(vModel.getDefaultMidiValue(), text: $vModel.bank).disableAutocorrection(true) .keyboardType(.numberPad)
                         Text("Bank").foregroundColor(Color.gray)
                     }.padding(9)
                         .background(
@@ -102,7 +107,7 @@ struct DeviceView: View {
                                         .stroke(Color.gray, lineWidth: 1)
                                 )
                     HStack(){
-                        TextField("1", text: $vModel.subBank).disableAutocorrection(true).keyboardType(.numberPad)
+                        TextField(vModel.getDefaultMidiValue(), text: $vModel.subBank).disableAutocorrection(true).keyboardType(.numberPad)
                         Text("SubBank").foregroundColor(Color.gray)
                     }.padding(9)
                         .background(
@@ -110,7 +115,7 @@ struct DeviceView: View {
                                      .stroke(Color.gray, lineWidth: 1)
                                 )
                     HStack(){
-                        TextField("1", text: $vModel.program).disableAutocorrection(true).keyboardType(.numberPad)
+                        TextField(vModel.getDefaultMidiValue(), text: $vModel.program).disableAutocorrection(true).keyboardType(.numberPad)
                         Text("Program").foregroundColor(Color.gray)
                     }.padding(9)
                         .background(
@@ -128,20 +133,21 @@ struct DeviceView: View {
            .onChange(of: vModel.program) { newValue in
                let mapperModel = vModel.device.getMapperModel();
                let mode = mapperModel.getSelectedMode();
-               if (NordNumberUtil.isNumber1To128(x: newValue)) {
+               if (!isLowerMidi && NordNumberUtil.isNumber1To128(x: newValue)) {
                    mapperModel.setProgram(program: Int(newValue)!);
+                   vModel.program = newValue;
+               }else if (isLowerMidi && NordNumberUtil.isNumber0To127(x: newValue)) {
+                   mapperModel.setProgram(program: (Int(newValue)! + 1) );
                    vModel.program = newValue;
                } else {
                    vModel.program = "";
                }
-               if( mode.getCurrentText() != mode.toDefault()){
-                   vModel.nordProgram = mode.getCurrentText();
-               }
+                vModel.nordProgram = mode.getCurrentText();
            }
            .onChange(of: vModel.nordProgram) { newValue in
                let mapperModel = vModel.device.getMapperModel();
                let mode = mapperModel.getSelectedMode();
-               let oldValue  = vModel.oldNordProgram;// mode.getCurrentText();
+               let oldValue  = vModel.oldNordProgram;
               if(newValue != oldValue){
                   let result = mode.onNordProgramTextChanged(oldValue: oldValue, newValue: newValue)
                   let changed =  result != oldValue
@@ -152,7 +158,13 @@ struct DeviceView: View {
                       if(mode.getCurrentText() != oldValue){
                             updateVModel()
                       }
-                      vModel.program = String(mapperModel.getProgram())
+                      let p = mapperModel.getProgram();
+                      if(isLowerMidi){
+                          vModel.program = String(p - 1)
+                      }else{
+                          vModel.program = String(p)
+                      }
+                      
                       if(newValue.length() > 0){
                           vModel.nordProgram = result
                       }
@@ -161,10 +173,13 @@ struct DeviceView: View {
            }.onChange(of: vModel.subBank) { newValue in
                let mapperModel = vModel.device.getMapperModel();
                let mode = mapperModel.getSelectedMode();
-               if (NordNumberUtil.isNumber1To128(x: newValue)) {
+               if (!isLowerMidi && NordNumberUtil.isNumber1To128(x: newValue)) {
                    mapperModel.setSubBank(subBank: Int(newValue)!);
                    vModel.subBank = newValue;
-               } else {
+               }else if (isLowerMidi && NordNumberUtil.isNumber0To127(x: newValue)) {
+                   mapperModel.setSubBank(subBank: (Int(newValue)! + 1));
+                   vModel.subBank = newValue;
+               }else {
                    vModel.subBank = "";
                }
                vModel.nordProgram = mode.getCurrentText();
@@ -172,10 +187,16 @@ struct DeviceView: View {
                let mapperModel = vModel.device.getMapperModel();
                let mode = mapperModel.getSelectedMode();
                let oldValue = mapperModel.getBank();
-               if (NordNumberUtil.isNumber1To128(x: newValue)) {
+               if (!isLowerMidi && NordNumberUtil.isNumber1To128(x: newValue)) {
                    mapperModel.setBank(bank: Int(newValue)!);
                    vModel.bank = newValue;
                    if(oldValue != Int(newValue)!){
+                       updateVModel();
+                   }
+               }else if (isLowerMidi && NordNumberUtil.isNumber0To127(x: newValue)) {
+                   mapperModel.setBank(bank: (Int(newValue)! + 1));
+                   vModel.bank = newValue;
+                   if(oldValue != (Int(newValue)! + 1)){
                        updateVModel();
                    }
                } else {
@@ -192,12 +213,27 @@ struct DeviceView: View {
     
     
     func updateVModel() ->Void{
-        vModel.program = String(vModel.device.getMapperModel().getProgram())
-        vModel.subBank = String(vModel.device.getMapperModel().getSubBank())
-        vModel.bank = String(vModel.device.getMapperModel().getBank())
+        if(isLowerMidi){
+            vModel.program = String(vModel.device.getMapperModel().getProgram() - 1)
+            vModel.subBank = String(vModel.device.getMapperModel().getSubBank() - 1)
+            vModel.bank = String(vModel.device.getMapperModel().getBank() - 1)
+        }else{
+            vModel.program = String(vModel.device.getMapperModel().getProgram())
+            vModel.subBank = String(vModel.device.getMapperModel().getSubBank())
+            vModel.bank = String(vModel.device.getMapperModel().getBank())
+        }
+        
+   
         let modes =  vModel.device.getMapperModel().getModeList();
         let selected = vModel.device.getMapperModel().getSelectedMode()
         vModel.selectedModeIndex = modes.firstIndex{$0 === selected}!
+    }
+    
+    func getMidiTitle() -> String {
+        if(isLowerMidi){
+            return "Midi (1-127)" ;
+        }
+        return "Midi (1-128)" ;
     }
 }
 
