@@ -19,18 +19,13 @@ struct DevicesListView: View {
                     }
                 }
             }.navigationTitle("Nord Devices") // Listen Überschrift
-//                .navigationBarTitleDisplayMode(.inline)
-        }
-        // Funtioniert nicht wenn auf dem nächten view wieder .navigationTitle getzt wird, da
-        // dann wird der Link nur nch mit Back angezeit
-//        .navigationTitle("Nord Devices") // für den Back Button auf dem nächsten View
+        }.navigationViewStyle(StackNavigationViewStyle())//Damit beim iPad keine leere Seite am Anfang erscheint
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         DevicesListView()
+            
     }
 }
-
