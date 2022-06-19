@@ -80,6 +80,7 @@ public class NordNumberUtil {
     private static let NORD_NUMBERS_0_TO_9 = Array<String>(arrayLiteral: "0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
     private static let NORD_NUMBERS_1_TO_8 = Array<String>(arrayLiteral: "1", "2", "3", "4", "5", "6", "7", "8");
     private static let NORD_NUMBERS_1_TO_2 = Array<String>(arrayLiteral: "1", "2");
+    private static let NORD_NUMBERS_1_TO_3 = Array<String>(arrayLiteral: "1", "2", "3");
     private static let NORD_NUMBERS_0_TO_2 = Array<String>(arrayLiteral: "0", "1", "2");
     private static let NORD_NUMBERS_1_TO_5 = Array<String>(arrayLiteral: "1", "2", "3", "4", "5");
     private static let NORD_NUMBERS_1_TO_4 = Array<String>(arrayLiteral: "1", "2", "3", "4");
@@ -142,6 +143,9 @@ public class NordNumberUtil {
 
     public static func isNordNumber1To2( x: String) -> Bool {
         return isElementOf(x: x, amount: NORD_NUMBERS_1_TO_2);
+    }
+    public static func isNordNumber1To3( x: String) -> Bool {
+        return isElementOf(x: x, amount: NORD_NUMBERS_1_TO_3);
     }
 
     public static func isNordNumber0To2( x: String) -> Bool{
