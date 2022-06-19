@@ -23,13 +23,18 @@ public class ModeProgramA_11ToZ_XX: GenericMode {
      */
     public override func midiToNordProgram() -> Void{
         let MAX_NUMBER_KEYS = keyImpl.getMaxNumberKeys();
-        var pOffset = Int( (getMidiModel().getProgram() - 1) / (MAX_NUMBER_KEYS * MAX_NUMBER_KEYS));
-        var charIndex = Int( ((getMidiModel().getSubBank() - 1) * MAX_NUMBER_KEYS) + pOffset);
+        let p: Int = getMidiModel().getProgram();
+        var pOffset = Int( (p - 1) / (MAX_NUMBER_KEYS * MAX_NUMBER_KEYS));
+        let s = getMidiModel().getSubBank();
+        if(MAX_NUMBER_KEYS == 4){
+            pOffset += (s - 1) * MAX_NUMBER_KEYS ;
+        }
+        var charIndex = Int( ((s - 1) * MAX_NUMBER_KEYS ) + pOffset);
         if (charIndex > NordNumberUtil.NORD_CHARS.count - 1) {
             charIndex = NordNumberUtil.NORD_CHARS.count - 1;
         }
         let result:String = NordNumberUtil.NORD_CHARS[charIndex] + ":";
-        let index: Int = Int(((getMidiModel().getProgram() - 1) % (MAX_NUMBER_KEYS * MAX_NUMBER_KEYS)));
+        let index: Int = Int(((p - 1) % (MAX_NUMBER_KEYS * MAX_NUMBER_KEYS)));
         let indexOf:String = keyImpl.getNumberKeyValues()[index];
         setCurrentText(currentText: result +  indexOf );
     }
