@@ -69,6 +69,10 @@ extension String {
         return self.components(separatedBy: separatedBy).filter({ $0 != ""})
     }
     
+    func trim() -> String{
+        return self.trimmingCharacters(in: .whitespaces)
+    }
+    
 }
 
 public class NordNumberUtil {

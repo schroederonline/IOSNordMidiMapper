@@ -98,14 +98,14 @@ struct DeviceView: View {
                     HStack(){
                         let modes =  vModel.device.getMapperModel().getModeList()
                         let defaultText = vModel.device.getMapperModel().getSelectedMode().toDefault();
-                        TextField(defaultText, text: $vModel.nordProgram).disableAutocorrection(true)
+                        TextField(defaultText, text: $vModel.nordProgram).disableAutocorrection(true).padding(.horizontal, 5)
                         Picker(selection: $vModel.selectedModeIndex, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
                             ForEach(0 ..< modes.count) {i in
                                 let mode = modes[i];
                                 Text(mode.getName()).tag(i)
                             }
                         }.font(.title2)
-                    }.padding(9)
+                    }.padding(8)
                         .background(
                                     RoundedRectangle(cornerRadius: 10, style: .continuous)
                                         .stroke(Color.red, lineWidth: 1)
@@ -121,7 +121,7 @@ struct DeviceView: View {
                     }
                     
                     HStack(){
-                        TextField(vModel.getDefaultMidiValue(), text: $vModel.bank).disableAutocorrection(true) .keyboardType(.numberPad)
+                        TextField(vModel.getDefaultMidiValue(), text: $vModel.bank).disableAutocorrection(true) .keyboardType(.numberPad).padding(.horizontal, 5)
                         Text("Bank").foregroundColor(Color.gray)
                     }.padding(9)
                         .background(
@@ -129,7 +129,7 @@ struct DeviceView: View {
                                         .stroke(Color.gray, lineWidth: 1)
                                 )
                     HStack(){
-                        TextField(vModel.getDefaultMidiValue(), text: $vModel.subBank).disableAutocorrection(true).keyboardType(.numberPad)
+                        TextField(vModel.getDefaultMidiValue(), text: $vModel.subBank).disableAutocorrection(true).keyboardType(.numberPad).padding(.horizontal, 5)
                         Text("SubBank").foregroundColor(Color.gray)
                     }.padding(9)
                         .background(
@@ -137,7 +137,7 @@ struct DeviceView: View {
                                      .stroke(Color.gray, lineWidth: 1)
                                 )
                     HStack(){
-                        TextField(vModel.getDefaultMidiValue(), text: $vModel.program).disableAutocorrection(true).keyboardType(.numberPad)
+                        TextField(vModel.getDefaultMidiValue(), text: $vModel.program).disableAutocorrection(true).keyboardType(.numberPad).padding(.horizontal, 5)
                         Text("Program").foregroundColor(Color.gray)
                     }.padding(9)
                         .background(
