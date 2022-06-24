@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MidiCCRowView: View , Identifiable{
     var id: String
-    
     let name: String;
     let cc: String;
     

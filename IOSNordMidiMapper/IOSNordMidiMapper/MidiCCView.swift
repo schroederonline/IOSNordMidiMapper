@@ -23,9 +23,20 @@ struct MidiCCView: View {
         self.choices = createFilterChoices();
     }
     
+    var iPadTitle: some View{
+        HStack{
+            VStack{
+                Text("MIDI Controller").foregroundColor(Color.gray)
+            }
+            Spacer()
+        }.padding(.horizontal)
+    }
+    
     var body: some View {
-        
         VStack{
+            if UIDevice.current.userInterfaceIdiom != .phone {
+                iPadTitle
+            }
             HStack{
                 ZStack{
                     HStack{
@@ -56,12 +67,22 @@ struct MidiCCView: View {
                 ForEach(searchResults, id: \.self) { line in
                     MidiCCRowView(row: line)
                 }
-            }.navigationTitle("MIDI Controller")
+            }.navigationTitle(getNavigationTitle())
                 .searchable(text: $searchText
-                            , placement: .navigationBarDrawer(displayMode: .always)
+//                            , placement: .navigationBarDrawer(displayMode: .always)
                 )
             Spacer()
        }
+    }
+    
+    func getNavigationTitle() -> String {
+        if UIDevice.current.userInterfaceIdiom != .phone {
+            return vModel.device.getName()
+        }else{
+            return "MIDI Controller"
+        }
+        
+        
     }
     
     var searchResults: [String] {

@@ -8,68 +8,6 @@ import Combine
 import SwiftUI
 
 
-class VModel: ObservableObject{
-    
-    @Published var nordProgram: String
-    @Published var oldNordProgram: String
-    @Published var program: String
-    @Published var subBank: String
-    @Published var bank: String
-    @Published var device: GenericDeviceModel
-    @Published var selectedModeIndex: Int
-    @Published var midicc: [String]
-    @Published var isLowerMidi: Bool = true;
-    
-    init(device: GenericDeviceModel){
-        self.device = device
-        let modes =  device.getMapperModel().getModeList()
-        let selected = device.getMapperModel().getSelectedMode()
-        self.selectedModeIndex = modes.firstIndex{$0 === selected}!
-        device.getMapperModel().setSelectedMode(mode: selected)
-        
-        let defaultIsLowerMidi = true;
-        self.isLowerMidi = defaultIsLowerMidi;
-        let mapperModel = device.getMapperModel()
-        var p = mapperModel.getProgram();
-        if(defaultIsLowerMidi){
-            p -= 1;
-        }
-        self.program = String(p)
-        var s = mapperModel.getSubBank();
-        if(defaultIsLowerMidi){
-            s -= 1;
-        }
-        self.subBank = String(s)
-        var b = mapperModel.getBank();
-        if(defaultIsLowerMidi){
-            b -= 1;
-        }
-        self.bank = String(b)
-        self.nordProgram = mapperModel.getCurrentText()
-        self.oldNordProgram = mapperModel.getCurrentText()
-        self.midicc = loadFile(fileName: device.getMidiCCFileName())
-        
-    }
-    
-    
-    func normalize(midi: Int) -> Int{
-        if(isLowerMidi){
-            return midi - 1;
-        }
-        return midi;
-    }
-
-    func getDefaultMidiValue() -> String {
-        if(isLowerMidi){
-            return "0";
-        }
-        return "1";
-    }
-
-    
-    
-}
-
 func loadFile(fileName: String) -> [String]{
     let name = fileName.substring(fromIndex: 0, toIndex: fileName.length()-4);
     if let filepath = Bundle.main.path(forResource: name, ofType: "txt") {
@@ -122,7 +60,7 @@ struct DeviceView: View {
         }
     }
     
-    func midiField(hintText: String, defaultText: String, binding: Binding<String>) -> some View{
+    func midiField(hintText: String, defaultText: String, binding: Binding<String>) -> some View {
         HStack(){
             TextField(defaultText, text: binding).disableAutocorrection(true) .keyboardType(.numberPad).padding(.horizontal, 5)
             Text(hintText).foregroundColor(Color.gray)
@@ -130,14 +68,24 @@ struct DeviceView: View {
             .background(RoundedRectangle(cornerRadius: 10, style: .continuous).stroke(Color.gray, lineWidth: 1))
     }
     
-    var midiControllerButton : some View{
+    var midiControllerButton : some View {
         NavigationLink(destination: MidiCCView( vModel: vModel)) {
             Text("MIDI Controller")
         }
     }
     
+    
+    
+    fileprivate func getDisplayMode() -> NavigationBarItem.TitleDisplayMode {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .inline
+        }
+        return .large
+    }
+    
     var body: some View {
         
+        HStack{
             VStack {
                 VStack(alignment: .leading) {
                     programCalculatorLabel
@@ -149,10 +97,20 @@ struct DeviceView: View {
                     midiField(hintText: "SubBank", defaultText: vModel.getDefaultMidiValue(), binding: $vModel.subBank)
                     midiField(hintText: "Program", defaultText: vModel.getDefaultMidiValue(), binding: $vModel.program)
                 }.padding(.horizontal)
-                midiControllerButton
+                if UIDevice.current.userInterfaceIdiom == .phone {
+                    midiControllerButton
+                }
                 Spacer()
-         }
-            .navigationTitle(vModel.device.getName()).navigationBarTitleDisplayMode(.inline)
+            }
+            
+            if UIDevice.current.userInterfaceIdiom != .phone {
+                MidiCCView(vModel: vModel)
+            }
+            
+        }
+           
+        .navigationTitle(vModel.device.getName())
+        .navigationBarTitleDisplayMode(getDisplayMode())
            
            .onChange(of: vModel.program) { newValue in
                let mapperModel = vModel.device.getMapperModel();
@@ -246,8 +204,6 @@ struct DeviceView: View {
             vModel.subBank = String(vModel.device.getMapperModel().getSubBank())
             vModel.bank = String(vModel.device.getMapperModel().getBank())
         }
-        
-   
         let modes =  vModel.device.getMapperModel().getModeList();
         let selected = vModel.device.getMapperModel().getSelectedMode()
         vModel.selectedModeIndex = modes.firstIndex{$0 === selected}!
