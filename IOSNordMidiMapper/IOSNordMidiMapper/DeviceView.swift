@@ -84,70 +84,72 @@ struct DeviceView: View {
     
     @StateObject var vModel: VModel;
     
+    /**
+     *  Textfeld für Nor-spezifisches Namensschema wie A:11
+     */
+    var nordTextField : some View{
+        HStack(){
+            let modes =  vModel.device.getMapperModel().getModeList()
+            let defaultText = vModel.device.getMapperModel().getSelectedMode().toDefault();
+            TextField(defaultText, text: $vModel.nordProgram).disableAutocorrection(true).padding(.horizontal, 5)
+            Picker(selection: $vModel.selectedModeIndex, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
+                ForEach(0 ..< modes.count) {i in
+                    let mode = modes[i];
+                    Text(mode.getName()).tag(i)
+                }
+            }.font(.title2)
+        }.padding(8).background(RoundedRectangle(cornerRadius: 10, style: .continuous).stroke(Color.red, lineWidth: 1))
+    }
+    
+    /**
+     * Umschalt Button für MIDI-Darstellung
+     */
+    var midi127Or128SwitchButton : some View{
+        Button(action: {
+            vModel.isLowerMidi.toggle()
+            updateVModel()
+        }){
+            Text(getMidiTitle())
+        }
+    }
+    
+    var programCalculatorLabel: some View{
+        HStack{
+            VStack{
+                Text("Program Calculator").foregroundColor(Color.gray)
+            }
+            Spacer()
+        }
+    }
+    
+    func midiField(hintText: String, defaultText: String, binding: Binding<String>) -> some View{
+        HStack(){
+            TextField(defaultText, text: binding).disableAutocorrection(true) .keyboardType(.numberPad).padding(.horizontal, 5)
+            Text(hintText).foregroundColor(Color.gray)
+        }.padding(9)
+            .background(RoundedRectangle(cornerRadius: 10, style: .continuous).stroke(Color.gray, lineWidth: 1))
+    }
+    
+    var midiControllerButton : some View{
+        NavigationLink(destination: MidiCCView( vModel: vModel)) {
+            Text("MIDI Controller")
+        }
+    }
+    
     var body: some View {
         
             VStack {
                 VStack(alignment: .leading) {
-                    HStack{
-                        VStack{
-                            Text("Program Calculator").foregroundColor(Color.gray)
-                        }
-                        Spacer()
-                    }
-                    
-                    HStack(){
-                        let modes =  vModel.device.getMapperModel().getModeList()
-                        let defaultText = vModel.device.getMapperModel().getSelectedMode().toDefault();
-                        TextField(defaultText, text: $vModel.nordProgram).disableAutocorrection(true).padding(.horizontal, 5)
-                        Picker(selection: $vModel.selectedModeIndex, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
-                            ForEach(0 ..< modes.count) {i in
-                                let mode = modes[i];
-                                Text(mode.getName()).tag(i)
-                            }
-                        }.font(.title2)
-                    }.padding(8)
-                        .background(
-                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                        .stroke(Color.red, lineWidth: 1)
-                                )
+                    programCalculatorLabel
+                    nordTextField
                 }.padding(.horizontal)
                 VStack(alignment: .leading) {
-                    Button(action: {
-                        vModel.isLowerMidi.toggle()
-                        updateVModel()
-                    }){
-                        Text(getMidiTitle())
-//                            .foregroundColor(Color.gray)
-                    }
-                    
-                    HStack(){
-                        TextField(vModel.getDefaultMidiValue(), text: $vModel.bank).disableAutocorrection(true) .keyboardType(.numberPad).padding(.horizontal, 5)
-                        Text("Bank").foregroundColor(Color.gray)
-                    }.padding(9)
-                        .background(
-                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                        .stroke(Color.gray, lineWidth: 1)
-                                )
-                    HStack(){
-                        TextField(vModel.getDefaultMidiValue(), text: $vModel.subBank).disableAutocorrection(true).keyboardType(.numberPad).padding(.horizontal, 5)
-                        Text("SubBank").foregroundColor(Color.gray)
-                    }.padding(9)
-                        .background(
-                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                     .stroke(Color.gray, lineWidth: 1)
-                                )
-                    HStack(){
-                        TextField(vModel.getDefaultMidiValue(), text: $vModel.program).disableAutocorrection(true).keyboardType(.numberPad).padding(.horizontal, 5)
-                        Text("Program").foregroundColor(Color.gray)
-                    }.padding(9)
-                        .background(
-                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                        .stroke(Color.gray, lineWidth: 1)
-                                )
+                    midi127Or128SwitchButton
+                    midiField(hintText: "Bank", defaultText: vModel.getDefaultMidiValue(), binding: $vModel.bank)
+                    midiField(hintText: "SubBank", defaultText: vModel.getDefaultMidiValue(), binding: $vModel.subBank)
+                    midiField(hintText: "Program", defaultText: vModel.getDefaultMidiValue(), binding: $vModel.program)
                 }.padding(.horizontal)
-                NavigationLink(destination: MidiCCView( vModel: vModel)) {
-                    Text("MIDI Controller")
-                }
+                midiControllerButton
                 Spacer()
          }
             .navigationTitle(vModel.device.getName()).navigationBarTitleDisplayMode(.inline)
