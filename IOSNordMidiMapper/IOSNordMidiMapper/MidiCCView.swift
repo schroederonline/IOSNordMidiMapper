@@ -10,7 +10,6 @@ import SwiftUI
 struct MidiCCView: View {
     let ALL:  String  = "All";
     let GENERAL: String = "General";
-    
     private var vModel: VModel;
     private var names: [String] = []
     private var choices: [String] = []
@@ -23,56 +22,74 @@ struct MidiCCView: View {
         self.choices = createFilterChoices();
     }
     
+    var body: some View {
+        VStack{
+            if UIDevice.current.userInterfaceIdiom != .phone {
+                iPadTitle
+            }
+            filterPicker
+            List{
+                ForEach(searchResults, id: \.self) { line in
+                    MidiCCRowView(row: line)
+                }
+            }
+            .navigationTitle(getNavigationTitle())
+            .searchable(text: $searchText
+//                            , placement: .navigationBarDrawer(displayMode: .always)
+                )
+            Spacer()
+       }
+    }
+    
+    /**
+     * in der iPad Ansicht wird ein anderer Titel angezeigt
+     */
     var iPadTitle: some View{
         HStack{
             VStack{
                 Text("MIDI Controller").foregroundColor(Color.gray)
             }
             Spacer()
-        }.padding(.horizontal)
+        }
+        .padding(.horizontal)
     }
     
-    var body: some View {
-        VStack{
-            if UIDevice.current.userInterfaceIdiom != .phone {
-                iPadTitle
+    /**
+     * Filter Button mit Icon und Filtername über die ganze breite anglickbar
+     */
+    var pickerLabel: some View {
+        ZStack{
+            HStack {
+                let c = choices[pickerIndex];
+                Spacer()
+                Text(c).tag(pickerIndex)
+                Spacer()
             }
-            HStack{
-                ZStack{
-                    HStack{
-                        Spacer()
-                        Picker("Filter", selection: $pickerIndex) {
-                            ForEach(0 ..< choices.count) {i in
-                                let c = choices[i];
-                                Text(c).tag(i)
-                            }
-                        
-                        }.font(.title)
-                        Spacer()
-                    }
-                    HStack{
-                        Image(systemName: "tag").foregroundColor(Color.gray)
-                        Spacer()
-                    }
+            HStack {
+                Image(systemName: "tag").foregroundColor(Color.gray)
+                Spacer()
+            }
+        }
+        .padding(8)
+        .background(RoundedRectangle(cornerRadius: 10, style: .continuous)
+        .stroke(Color.gray, lineWidth: 1))
+        .padding(.horizontal)
+    }
+
+    /**
+     * Auswahlt der Filter
+     */
+    var filterPicker : some View{
+        Menu {
+            Picker( selection: $pickerIndex, label: EmptyView()) {
+                ForEach(0 ..< choices.count) {i in
+                    let tagName = choices[i];
+                    Text(tagName).tag(i)
                 }
             }
-            .padding(8)
-                .background(
-                            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .stroke(Color.gray, lineWidth: 1)
-                ).padding(.horizontal)
-            
-            
-            List{
-                ForEach(searchResults, id: \.self) { line in
-                    MidiCCRowView(row: line)
-                }
-            }.navigationTitle(getNavigationTitle())
-                .searchable(text: $searchText
-//                            , placement: .navigationBarDrawer(displayMode: .always)
-                )
-            Spacer()
-       }
+        } label: {
+            pickerLabel
+        }
     }
     
     func getNavigationTitle() -> String {
@@ -81,8 +98,6 @@ struct MidiCCView: View {
         }else{
             return "MIDI Controller"
         }
-        
-        
     }
     
     var searchResults: [String] {
@@ -90,16 +105,13 @@ struct MidiCCView: View {
         if(pickerIndex != 0){
             result = result.filter{ $0.starts(with: choices[pickerIndex])}
         }
-        
         if !searchText.isEmpty {
             result =  result.filter { $0.uppercased().contains(searchText.uppercased()) }
         }
         return result;
     }
     
-    
     private func createFilterChoices() -> [String] {
-       
         var result: [String] = [];
         result.append(ALL)
 //        FIXME General implementieren
@@ -130,9 +142,7 @@ struct MidiCCView: View {
         }
         return result;
     }
-
 }
-
 
 struct MidiCCView_Previews: PreviewProvider {
     static var previews: some View {
